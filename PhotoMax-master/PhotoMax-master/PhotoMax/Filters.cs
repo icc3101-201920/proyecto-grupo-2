@@ -66,6 +66,35 @@ namespace PhotoMax
             }
         }
 
+        public void Negative(Bitmap bitmap)
+        {
+            int ancho = bitmap.Width;
+            int alto = bitmap.Height;
 
+            Color pixel;
+
+            for (int y = 0; y < alto; y++)
+            {
+                for (int x = 0; x < ancho; x++)
+                {
+                    pixel = bitmap.GetPixel(x, y);
+
+                    int alpha = pixel.A;
+                    int rojo = pixel.R;
+                    int verde = pixel.G;
+                    int azul = pixel.B;
+
+                    double promedio = (rojo + verde + azul) / 3;
+
+                    // valores negativos
+                    rojo = 255 - alpha;
+                    verde = 255 - verde;
+                    azul = 255 - azul;
+
+                    //crear filtro
+                    bitmap.SetPixel(x, y, Color.FromArgb(alpha, rojo, verde, azul));
+                }
+            }
+        }
     }
 }

@@ -13,18 +13,24 @@ namespace PhotoMax
 
         static void Main(string[] args)
         {
-
-
-            string path = "/Users/joaquinbarrientos/Desktop/Universidad/6.Sexto Semestre/POO/PhotoMax/PhotoMax/Pintua.jpg";
-            string newpath = "/Users/joaquinbarrientos/Desktop/Universidad/6.Sexto Semestre/POO/PhotoMax/PhotoMax/PEPE.jpg";
+            //Chopan
+            string path = "C:/Users/Francisco/Desktop/proyecto-grupo-2/PhotoMax-master/PhotoMax-master/PhotoMax/Pintua.jpg";
+            // BARRI string path = "/Users/joaquinbarrientos/Desktop/Universidad/6.Sexto Semestre/POO/PhotoMax/PhotoMax/Pintua.jpg";
+            string newpath = "C:/Users/Francisco/Desktop/proyecto-grupo-2/PhotoMax-master/PhotoMax-master/PhotoMax/Nuevo.jpg";
             Filters filtros = new Filters();
 
             Bitmap imagenreal = new Bitmap(path);
             Bitmap imageneditada = new Bitmap(path);
 
-            filtros.GreyScale(imageneditada);
-            imageneditada.Save(newpath);
+            //filtros.Negative(imageneditada);
+            //imageneditada.Save(newpath);
             Console.WriteLine("trabajen");
+
+            Editor edit = new Editor();
+
+            edit.TEXT(imageneditada);
+
+            imageneditada.Save(newpath);
         }
 
     }
