@@ -46,13 +46,22 @@ namespace PhotoMax
                 "Sepia"
             };
 
-            // SAVE CHANGES
+            // SAVE CHANGES GENERAL
             List<string> saveDataOptions = new List<string>()
             {
                 "Yes! Go back to options",
                 "No! Try again",
                 "No! Go back to options",
                 "Yes! Continue applying changes"
+            };
+
+            // SAVE CHANGES FILTERS
+            List<string> saveDataOptions1 = new List<string>()
+            {
+                "Yes! Go back to options",
+                "No! Try another filter",
+                "No! Go back to options",
+                "Yes! Apply another filter"
             };
 
             // YES OR NO
@@ -171,9 +180,9 @@ namespace PhotoMax
 
                                 while (true)
                                 {
-                                    IOUser.ConsoleListOutput("Apply changes?", saveDataOptions);
+                                    IOUser.ConsoleListOutput("Apply changes?", saveDataOptions1);
                                     saveDataOption1 = IOUser.ConsoleReadInput();
-                                    while (saveDataOption1 >= saveDataOptions.Count || saveDataOption1 < 0)
+                                    while (saveDataOption1 >= saveDataOptions1.Count || saveDataOption1 < 0)
                                     {
                                         IOUser.ConsoleError("Input must be a valid number\n");
                                         saveDataOption1 = IOUser.ConsoleReadInput();
