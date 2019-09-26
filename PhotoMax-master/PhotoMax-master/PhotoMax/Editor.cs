@@ -32,11 +32,19 @@ namespace PhotoMax
                 using (Font arialFont = new Font("Arial",200))
                 {
                     graphics.DrawString(firstText, arialFont, Brushes.Blue, firstLocation);
-
-
                 }
             }
             //bitmap.Save(imageFilePath);//save the image file
+        }
+
+        public void ApplySepia(Bitmap image)
+        {   // imagen nueva hace una copia de la imagen original.
+            // filters crea la instancia para poder ocupar filtros
+            //filters.sepia(imagenNueva) aplica el filtro y hace que imagennueva este editada.
+
+            Bitmap imagenNueva = new Bitmap(image);
+            Filters filters = new Filters();
+            filters.Sepia(imagenNueva);
         }
 
     }
