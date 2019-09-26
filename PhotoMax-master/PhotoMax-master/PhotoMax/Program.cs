@@ -163,18 +163,24 @@ namespace PhotoMax
                                 }
 
                                 switch (filterOption) //IMAGE FILTERS
-                                {
+                                {   
                                     case 0:
                                         break;
                                     case 1: //GRAY SCALE
+                                        Editor editor = new Editor();
+                                        // editor.ApplyGreyScale(aquiva el bitmap de la imagen original);
                                         IOUser.ConsoleOutput("Filter applied successfully!");
                                         IOUser.ConsoleError("SHOW IMAGE"); //SHOW
                                         break;
                                     case 2: //NEGATIVE
+                                        Editor editor = new Editor();
+                                        // editor.ApplyNegative(aquiva el bitmap de la imagen original);
                                         IOUser.ConsoleOutput("Filter applied successfully!");
                                         IOUser.ConsoleError("SHOW IMAGE"); //SHOW
                                         break;
                                     case 3: //SEPIA
+                                        Editor editor = new Editor();
+                                        // editor.ApplySepia(aquiva el bitmap de la imagen original);
                                         IOUser.ConsoleOutput("Filter applied successfully!");
                                         IOUser.ConsoleError("SHOW IMAGE"); //SHOW
                                         break;
