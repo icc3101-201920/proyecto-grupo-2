@@ -154,11 +154,13 @@ namespace PhotoMax
                             int saveDataOption1 = -1;
                             while (true)
                             {
-                                IOUser.ConsoleListOutput("Select one of the following filters:", filterList);
+                                Editor editor = new Editor();
+                                IOUser.ConsoleListOutput("Select one of the following filters:",     filterList);
                                 filterOption = IOUser.ConsoleReadInput();
                                 while (filterOption >= filterList.Count || filterOption < 0)
                                 {
                                     IOUser.ConsoleError("Input must be a valid number\n");
+                                    
                                     filterOption = IOUser.ConsoleReadInput();
                                 }
 
@@ -167,19 +169,19 @@ namespace PhotoMax
                                     case 0:
                                         break;
                                     case 1: //GRAY SCALE
-                                        Editor editor = new Editor();
-                                        // editor.ApplyGreyScale(aquiva el bitmap de la imagen original);
+                                        
+                                        //editor.ApplyGreyScale(aquiva el bitmap de la imagen original);
                                         IOUser.ConsoleOutput("Filter applied successfully!");
                                         IOUser.ConsoleError("SHOW IMAGE"); //SHOW
                                         break;
                                     case 2: //NEGATIVE
-                                        Editor editor = new Editor();
+                                        
                                         // editor.ApplyNegative(aquiva el bitmap de la imagen original);
                                         IOUser.ConsoleOutput("Filter applied successfully!");
                                         IOUser.ConsoleError("SHOW IMAGE"); //SHOW
                                         break;
                                     case 3: //SEPIA
-                                        Editor editor = new Editor();
+                                        
                                         // editor.ApplySepia(aquiva el bitmap de la imagen original);
                                         IOUser.ConsoleOutput("Filter applied successfully!");
                                         IOUser.ConsoleError("SHOW IMAGE"); //SHOW
