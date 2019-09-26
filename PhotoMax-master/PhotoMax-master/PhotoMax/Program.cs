@@ -128,6 +128,12 @@ namespace PhotoMax
                     }
                 }
 
+                //***IMAGE TEST***
+
+                //PONER AQUI EL CODIGO PARA QUE SE HABRA UNA IMAGEN
+
+                //***IMAGE TEST***
+
                 int editingOption = -1;
                 while (searchOption != 0)
                 {
