@@ -7,6 +7,7 @@ using MetadataExtractor.Formats.Exif;
 using System.IO;
 using PhotoMax.InputOutput;
 using System.Collections.Generic;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace PhotoMax
 {
@@ -131,7 +132,9 @@ namespace PhotoMax
                 //***IMAGE TEST***
 
                 //PONER AQUI EL CODIGO PARA QUE SE HABRA UNA IMAGEN
-                Bitmap image = new Bitmap("../proyecto-grupo-2/PhotoMax-master/PhotoMax-master/PhotoMax/hola.jpg");
+
+                string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../hola.jpg");
+                Bitmap image = new Bitmap(path);
 
 
                 //***IMAGE TEST***
@@ -157,6 +160,9 @@ namespace PhotoMax
                             while (true)
                             {
                                 Editor editor = new Editor();
+                                Bitmap imagenNueva = new Bitmap(image);
+
+
                                 IOUser.ConsoleListOutput("Select one of the following filters:",     filterList);
                                 filterOption = IOUser.ConsoleReadInput();
                                 while (filterOption >= filterList.Count || filterOption < 0)
@@ -171,20 +177,20 @@ namespace PhotoMax
                                     case 0:
                                         break;
                                     case 1: //GRAY SCALE
-                                        
-                                        editor.ApplyGreyScale(image);
+
+                                        editor.ApplyGreyScale(imagenNueva);
                                         IOUser.ConsoleOutput("Filter applied successfully!");
                                         IOUser.ConsoleError("SHOW IMAGE"); //SHOW
                                         break;
                                     case 2: //NEGATIVE
                                         
-                                        editor.ApplyNegative(image);
+                                        editor.ApplyNegative(imagenNueva);
                                         IOUser.ConsoleOutput("Filter applied successfully!");
                                         IOUser.ConsoleError("SHOW IMAGE"); //SHOW
                                         break;
                                     case 3: //SEPIA
                                         
-                                        editor.ApplySepia(image);
+                                        editor.ApplySepia(imagenNueva);
                                         IOUser.ConsoleOutput("Filter applied successfully!");
                                         IOUser.ConsoleError("SHOW IMAGE"); //SHOW
                                         break;
@@ -207,6 +213,7 @@ namespace PhotoMax
                                     {
                                         case 0:
                                             IOUser.ConsoleOutput("Changes Saved! Going back to image editor");
+                                            imagenNueva.Save(path);
                                             break;
                                         case 1:
                                             IOUser.ConsoleOutput("Going back to filter select");
@@ -216,6 +223,7 @@ namespace PhotoMax
                                             break;
                                         case 3:
                                             IOUser.ConsoleOutput("Changes Saved! Going back to filter select");
+                                            imagenNueva.Save(path);
                                             break;
                                     }
                                     break;

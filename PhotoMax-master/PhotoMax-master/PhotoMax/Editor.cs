@@ -42,23 +42,20 @@ namespace PhotoMax
             // filters crea la instancia para poder ocupar filtros
             //filters.sepia(imagenNueva) aplica el filtro y hace que imagennueva este editada.
 
-            Bitmap imagenNueva = new Bitmap(image);
             Filters filters = new Filters();
-            filters.Sepia(imagenNueva);
+            filters.Sepia(image);
         }
 
         public void ApplyGreyScale(Bitmap image)
         {
-            Bitmap imagenNueva = new Bitmap(image);
             Filters filters = new Filters();
-            filters.GreyScale(imagenNueva);
+            filters.GreyScale(image);
         }
 
         public void ApplyNegative(Bitmap image)
         {
-            Bitmap imagenNueva = new Bitmap(image);
             Filters filters = new Filters();
-            filters.Negative(imagenNueva);
+            filters.Negative(image);
         }
     }
 }
