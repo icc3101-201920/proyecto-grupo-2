@@ -44,7 +44,8 @@ namespace PhotoMax
                 "Back to image editor",
                 "Gray Scale",
                 "Negative",
-                "Sepia"
+                "Sepia",
+                "Tomaso"
             };
 
             // SAVE CHANGES GENERAL
@@ -190,6 +191,12 @@ namespace PhotoMax
                                         break;
                                     case 3: //SEPIA
                                         
+                                        editor.ApplySepia(imagenNueva);
+                                        IOUser.ConsoleOutput("Filter applied successfully!");
+                                        IOUser.ConsoleError("SHOW IMAGE"); //SHOW
+                                        break;
+                                    case 4: //TOMASO
+
                                         editor.ApplySepia(imagenNueva);
                                         IOUser.ConsoleOutput("Filter applied successfully!");
                                         IOUser.ConsoleError("SHOW IMAGE"); //SHOW
