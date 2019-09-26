@@ -45,7 +45,7 @@ namespace PhotoMax
                 "Gray Scale",
                 "Negative",
                 "Sepia",
-                "Tomaso"
+                "Acid"
             };
 
             // SAVE CHANGES GENERAL
@@ -195,9 +195,9 @@ namespace PhotoMax
                                         IOUser.ConsoleOutput("Filter applied successfully!");
                                         IOUser.ConsoleError("SHOW IMAGE"); //SHOW
                                         break;
-                                    case 4: //TOMASO
+                                    case 4: //ACID
 
-                                        editor.ApplySepia(imagenNueva);
+                                        editor.ApplyAcid(imagenNueva);
                                         IOUser.ConsoleOutput("Filter applied successfully!");
                                         IOUser.ConsoleError("SHOW IMAGE"); //SHOW
                                         break;

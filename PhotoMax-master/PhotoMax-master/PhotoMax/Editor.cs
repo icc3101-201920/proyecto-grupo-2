@@ -57,6 +57,12 @@ namespace PhotoMax
             Filters filters = new Filters();
             filters.Negative(image);
         }
+
+        public void ApplyAcid(Bitmap image)
+        {
+            Filters filters = new Filters();
+            filters.Acid(image);
+        }
     }
 }
 
