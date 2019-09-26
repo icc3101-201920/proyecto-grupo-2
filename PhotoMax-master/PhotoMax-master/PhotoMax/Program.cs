@@ -45,7 +45,8 @@ namespace PhotoMax
                 "Gray Scale",
                 "Negative",
                 "Sepia",
-                "Acid"
+                "Acid",
+                "Diamond waffle"
             };
 
             // SAVE CHANGES GENERAL
@@ -172,7 +173,7 @@ namespace PhotoMax
                                     
                                     filterOption = IOUser.ConsoleReadInput();
                                 }
-
+                                
                                 switch (filterOption) //IMAGE FILTERS
                                 {   
                                     case 0:
@@ -201,6 +202,13 @@ namespace PhotoMax
                                         IOUser.ConsoleOutput("Filter applied successfully!");
                                         IOUser.ConsoleError("SHOW IMAGE"); //SHOW
                                         break;
+                                    case 5: // DIAMONDWAFFLE
+
+                                        editor.ApplyDiamondWaffle(imagenNueva);
+                                        IOUser.ConsoleOutput("Filter applied successfully!");
+                                        IOUser.ConsoleError("SHOW IMAGE"); //SHOW
+                                        break;
+
                                 }
                                 if (filterOption == 0)
                                 {

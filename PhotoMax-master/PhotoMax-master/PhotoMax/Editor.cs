@@ -63,7 +63,18 @@ namespace PhotoMax
             Filters filters = new Filters();
             filters.Acid(image);
         }
+
+        public void ApplyDiamondWaffle(Bitmap image)
+        {
+            Filters filters = new Filters();
+            filters.Acid(image);
+            filters.Sepia(image);
+            filters.Negative(image);
+            image.RotateFlip(RotateFlipType.RotateNoneFlipX);
+
+        }
     }
+
 }
 
 
