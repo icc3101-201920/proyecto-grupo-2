@@ -96,6 +96,47 @@ namespace PhotoMax
                     bitmap.SetPixel(x, y, Color.FromArgb(alpha, rojo, verde, azul));
                 }
             }
+
+        
         }
+        public void other(Bitmap bitmap)
+        {
+            int ancho = bitmap.Width;
+            int alto = bitmap.Height;
+
+            Color pixel;
+
+            for (int y = 0; y < alto; y++)
+
+            {
+                for (int x = 0; x < ancho; x++)
+
+                {
+                    pixel = bitmap.GetPixel(x, y);
+
+                    int alpha = pixel.A;
+                    int rojo = pixel.R;
+                    int verde = pixel.G;
+                    int azul = pixel.B;
+
+                    // valores negativos
+                    rojo = 0 - alpha;
+                    verde = 128 - verde;
+                    azul = 128 - azul;
+
+
+                    double promedio = (rojo + verde + azul) / 3;
+
+
+
+                    //crear filtro
+                    bitmap.SetPixel(x, y, Color.FromArgb(alpha, rojo, verde, azul));
+
+                }
+
+            }
+
+        }
+
     }
 }
