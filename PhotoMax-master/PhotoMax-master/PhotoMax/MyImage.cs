@@ -7,6 +7,7 @@ using MetadataExtractor.Formats.Exif;
 
 namespace PhotoMax
 {
+    [Serializable]
     public class MyImage
     {
         private int iso;

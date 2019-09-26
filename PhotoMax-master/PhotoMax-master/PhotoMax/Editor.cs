@@ -10,6 +10,7 @@ using System.Drawing.Text;
 
 namespace PhotoMax
 {
+    [Serializable]
     class Editor
     {
         // AGREGA TEXTO A LAS FOTOS [ S O L O   E S C R I B E ]

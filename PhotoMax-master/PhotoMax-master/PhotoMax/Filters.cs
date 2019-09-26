@@ -7,6 +7,7 @@ using System.Drawing;
 
 namespace PhotoMax
 {
+    [Serializable]
     public class Filters
     {
         public Filters()
