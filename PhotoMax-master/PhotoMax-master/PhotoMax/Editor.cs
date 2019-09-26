@@ -47,6 +47,19 @@ namespace PhotoMax
             filters.Sepia(imagenNueva);
         }
 
+        public void ApplyGreyScale(Bitmap image)
+        {
+            Bitmap imagenNueva = new Bitmap(image);
+            Filters filters = new Filters();
+            filters.GreyScale(imagenNueva);
+        }
+
+        public void ApplyNegative(Bitmap image)
+        {
+            Bitmap imagenNueva = new Bitmap(image);
+            Filters filters = new Filters();
+            filters.Negative(imagenNueva);
+        }
     }
 }
 
