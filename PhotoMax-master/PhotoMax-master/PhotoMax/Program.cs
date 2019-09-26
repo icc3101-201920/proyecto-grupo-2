@@ -131,6 +131,8 @@ namespace PhotoMax
                 //***IMAGE TEST***
 
                 //PONER AQUI EL CODIGO PARA QUE SE HABRA UNA IMAGEN
+                Bitmap image = new Bitmap("../proyecto-grupo-2/PhotoMax-master/PhotoMax-master/PhotoMax/hola.jpg");
+
 
                 //***IMAGE TEST***
 
@@ -170,19 +172,19 @@ namespace PhotoMax
                                         break;
                                     case 1: //GRAY SCALE
                                         
-                                        //editor.ApplyGreyScale(aquiva el bitmap de la imagen original);
+                                        editor.ApplyGreyScale(image);
                                         IOUser.ConsoleOutput("Filter applied successfully!");
                                         IOUser.ConsoleError("SHOW IMAGE"); //SHOW
                                         break;
                                     case 2: //NEGATIVE
                                         
-                                        // editor.ApplyNegative(aquiva el bitmap de la imagen original);
+                                        editor.ApplyNegative(image);
                                         IOUser.ConsoleOutput("Filter applied successfully!");
                                         IOUser.ConsoleError("SHOW IMAGE"); //SHOW
                                         break;
                                     case 3: //SEPIA
                                         
-                                        // editor.ApplySepia(aquiva el bitmap de la imagen original);
+                                        editor.ApplySepia(image);
                                         IOUser.ConsoleOutput("Filter applied successfully!");
                                         IOUser.ConsoleError("SHOW IMAGE"); //SHOW
                                         break;
