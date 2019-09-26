@@ -160,15 +160,15 @@ namespace PhotoMax
                                 {
                                     case 0:
                                         break;
-                                    case 1:
+                                    case 1: //GRAY SCALE
                                         IOUser.ConsoleOutput("Filter applied successfully!");
                                         IOUser.ConsoleError("SHOW IMAGE"); //SHOW
                                         break;
-                                    case 2:
+                                    case 2: //NEGATIVE
                                         IOUser.ConsoleOutput("Filter applied successfully!");
                                         IOUser.ConsoleError("SHOW IMAGE"); //SHOW
                                         break;
-                                    case 3:
+                                    case 3: //SEPIA
                                         IOUser.ConsoleOutput("Filter applied successfully!");
                                         IOUser.ConsoleError("SHOW IMAGE"); //SHOW
                                         break;
