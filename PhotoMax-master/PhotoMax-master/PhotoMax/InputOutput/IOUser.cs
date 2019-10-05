@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace PhotoMax.InputOutput
 {
@@ -66,7 +67,48 @@ namespace PhotoMax.InputOutput
             return optionNumber;
         }
 
+        //PATH INPUT
+        public static string ConsoleReadPath(int i=0)
+        {
 
+            string path = "";
+            if (i == 0)
+            {
+                ConsoleOutput("Enter the path of the image file:\n");
+                path = Console.ReadLine();
+                while ((File.Exists(path) != true) || (path == "abort"))
+                {
+                    ConsoleError("The file or path does not exist, try again\n");
+                    path = Console.ReadLine();
+                }
+            }
 
+            if (i == 1)
+            {
+                ConsoleOutput("Enter the path of the directory:\n");
+                path = Console.ReadLine();
+                while ((Directory.Exists(path) != true) || (path == "abort"))
+                {
+                    ConsoleError("The directory or path does not exist, try again\n");
+                    path = Console.ReadLine();
+                }
+            }
+
+            return path;
+        }
+
+        //FILE INPUT
+        public static string ConsoleReadFileName(string directory)
+        {
+            string file = "";
+            ConsoleOutput("Enter the image file's name:\n");
+            file = Console.ReadLine();
+            while ((File.Exists(directory + "/" + file) != true) || (file == "abort"))
+            {
+                ConsoleError(file + " does not exist in this directory, try again\n");
+                file = Console.ReadLine();
+            }
+            return file;
+        }
     }
 }

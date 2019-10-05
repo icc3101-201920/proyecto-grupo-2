@@ -21,8 +21,8 @@ namespace PhotoMax
             List<string> searchOptions = new List<string>()
             {
                 "Exit PhotoMax",
-                "A",
-                "B",
+                "By file location",
+                "By directory",
                 "C",
                 "D"
             };
@@ -77,8 +77,9 @@ namespace PhotoMax
             IOUser.ConsoleWelcome();
 
             int searchOption = -1;
-            int YNOption = -1;
-            while (true)
+            //int YNOption = -1;
+            string path = "";
+            while (searchOption != 0)
             {
                 IOUser.ConsoleListOutput("Select one of the following search methods:", searchOptions);
                 searchOption = IOUser.ConsoleReadInput();
@@ -93,10 +94,12 @@ namespace PhotoMax
                         IOUser.ConsoleExit();
                         break;
                     case 1:
-                        IOUser.ConsoleError("SEARCHING...");
+                        path = IOUser.ConsoleReadPath();
                         break;
                     case 2:
-                        IOUser.ConsoleError("SEARCHING...");
+                        string directory = IOUser.ConsoleReadPath(1);
+                        string file = IOUser.ConsoleReadFileName(directory);
+                        path = directory + "/" + file;
                         break;
                     case 3:
                         IOUser.ConsoleError("SEARCHING...");
@@ -106,6 +109,8 @@ namespace PhotoMax
                         break;
                 }
 
+                /* THIS OPTION COMAND IS NOT YET NEEDED
+                
                 if (searchOption != 0)
                 {
                     IOUser.ConsoleListOutput("Do you want to edit the following image?", YNOptions);
@@ -130,17 +135,11 @@ namespace PhotoMax
                         continue;
                     }
                 }
+                */
 
-                //***IMAGE TEST***
+                //string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../hola.jpg");
 
-                //PONER AQUI EL CODIGO PARA QUE SE HABRA UNA IMAGEN
-
-                string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../hola.jpg");
                 Bitmap image = new Bitmap(path);
-
-
-                //***IMAGE TEST***
-
                 int editingOption = -1;
                 while (searchOption != 0)
                 {
@@ -163,7 +162,6 @@ namespace PhotoMax
                             {
                                 Editor editor = new Editor();
                                 Bitmap imagenNueva = new Bitmap(image);
-
 
                                 IOUser.ConsoleListOutput("Select one of the following filters:",     filterList);
                                 filterOption = IOUser.ConsoleReadInput();
@@ -228,6 +226,7 @@ namespace PhotoMax
                                     {
                                         case 0:
                                             IOUser.ConsoleOutput("Changes Saved! Going back to image editor");
+                                            image.Dispose();
                                             imagenNueva.Save(path);
                                             break;
                                         case 1:
@@ -238,6 +237,7 @@ namespace PhotoMax
                                             break;
                                         case 3:
                                             IOUser.ConsoleOutput("Changes Saved! Going back to filter select");
+                                            image.Dispose();
                                             imagenNueva.Save(path);
                                             break;
                                     }

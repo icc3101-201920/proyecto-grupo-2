@@ -10,6 +10,8 @@ namespace PhotoMax
     [Serializable]
     public class MyImage
     {
+        //Atributes 
+
         private int iso;
         private float focalLength;
         private string flash;
@@ -27,6 +29,8 @@ namespace PhotoMax
         private int width;
         private string make;
 
+
+        //Constructor
         public MyImage(string path)
         {
             ExifLib.ExifReader reader = new ExifLib.ExifReader(path);
@@ -34,41 +38,49 @@ namespace PhotoMax
 
 
 
-            // obtenemos ISO
+            //Obtain ISO
             int isos;
             object isos1;
             reader.GetTagValue<object>(ExifTags.PhotographicSensitivity, out isos1);
             isos = (int)Convert.ToUInt64(isos1);
+
             //focal
             object fl;
             reader.GetTagValue<object>(ExifTags.FocalLength, out fl);
             double focal;
             focal = Convert.ToDouble(fl);
+
             //exposure time
             double et;
             reader.GetTagValue(ExifTags.ExposureTime, out et);
+
             //MAKER
             string maker;
             reader.GetTagValue(ExifTags.Make, out maker);
+
             // DATETIME
             DateTime datatime;
             reader.GetTagValue(ExifTags.DateTime, out datatime);
+
             // Artist 
             string artista;
             reader.GetTagValue(ExifTags.Artist, out artista);
             Artist = artista;
+
             //Copyright
             string copy;
             reader.GetTagValue(ExifTags.Copyright, out copy);
+
             //Camera  model
             string camera;
             reader.GetTagValue(ExifTags.Model, out camera);
             CameraModel = camera;
+
             //Aperture
             double apertures;
             reader.GetTagValue(ExifTags.FNumber, out apertures);
+            
             // GPS 
-
             var gps = ImageMetadataReader.ReadMetadata(path)
                               .OfType<GpsDirectory>()
                               .FirstOrDefault();
