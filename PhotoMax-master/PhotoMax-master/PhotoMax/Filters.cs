@@ -8,13 +8,9 @@ using System.Drawing;
 namespace PhotoMax
 {
     [Serializable]
-    public class Filters
+    public static class Filters
     {
-        public Filters()
-        {
-        }
-
-        public void Sepia(Bitmap bitmap)
+        public static void Sepia(Bitmap bitmap)
         {
             int ancho = bitmap.Width;
             int alto = bitmap.Height;
@@ -42,7 +38,7 @@ namespace PhotoMax
             }
         }
 
-        public void GreyScale(Bitmap bitmap)
+        public static void GreyScale(Bitmap bitmap)
         {
             int ancho = bitmap.Width;
             int alto = bitmap.Height;
@@ -67,7 +63,7 @@ namespace PhotoMax
             }
         }
 
-        public void Negative(Bitmap bitmap)
+        public static void Negative(Bitmap bitmap)
         {
             int ancho = bitmap.Width;
             int alto = bitmap.Height;
@@ -99,7 +95,7 @@ namespace PhotoMax
 
         
         }
-        public void Acid(Bitmap bitmap)
+        public static void Acid(Bitmap bitmap)
         {
             int ancho = bitmap.Width;
             int alto = bitmap.Height;

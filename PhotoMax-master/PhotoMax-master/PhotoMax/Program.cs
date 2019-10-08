@@ -140,7 +140,7 @@ namespace PhotoMax
                 //string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../hola.jpg");
 
                 Bitmap image = new Bitmap(path);
-                int editingOption = -1;
+                int editingOption;
                 while (searchOption != 0)
                 {
                     IOUser.ConsoleListOutput("Select one of the following options:", editingOptions);
@@ -156,14 +156,13 @@ namespace PhotoMax
                             break;
 
                         case 1:
-                            int filterOption = -1;
+                            int filterOption;
                             int saveDataOption1 = -1;
                             while (true)
                             {
-                                Editor editor = new Editor();
                                 Bitmap imagenNueva = new Bitmap(image);
 
-                                IOUser.ConsoleListOutput("Select one of the following filters:",     filterList);
+                                IOUser.ConsoleListOutput("Select one of the following filters:", filterList);
                                 filterOption = IOUser.ConsoleReadInput();
                                 while (filterOption >= filterList.Count || filterOption < 0)
                                 {
@@ -178,31 +177,31 @@ namespace PhotoMax
                                         break;
                                     case 1: //GRAY SCALE
 
-                                        editor.ApplyGreyScale(imagenNueva);
+                                        Editor.ApplyGreyScale(imagenNueva);
                                         IOUser.ConsoleOutput("Filter applied successfully!");
                                         IOUser.ConsoleError("SHOW IMAGE"); //SHOW
                                         break;
                                     case 2: //NEGATIVE
                                         
-                                        editor.ApplyNegative(imagenNueva);
+                                        Editor.ApplyNegative(imagenNueva);
                                         IOUser.ConsoleOutput("Filter applied successfully!");
                                         IOUser.ConsoleError("SHOW IMAGE"); //SHOW
                                         break;
                                     case 3: //SEPIA
                                         
-                                        editor.ApplySepia(imagenNueva);
+                                        Editor.ApplySepia(imagenNueva);
                                         IOUser.ConsoleOutput("Filter applied successfully!");
                                         IOUser.ConsoleError("SHOW IMAGE"); //SHOW
                                         break;
                                     case 4: //ACID
 
-                                        editor.ApplyAcid(imagenNueva);
+                                        Editor.ApplyAcid(imagenNueva);
                                         IOUser.ConsoleOutput("Filter applied successfully!");
                                         IOUser.ConsoleError("SHOW IMAGE"); //SHOW
                                         break;
                                     case 5: // DIAMONDWAFFLE
 
-                                        editor.ApplyDiamondWaffle(imagenNueva);
+                                        Editor.ApplyDiamondWaffle(imagenNueva);
                                         IOUser.ConsoleOutput("Filter applied successfully!");
                                         IOUser.ConsoleError("SHOW IMAGE"); //SHOW
                                         break;

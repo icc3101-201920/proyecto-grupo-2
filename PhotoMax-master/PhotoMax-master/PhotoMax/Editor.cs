@@ -11,11 +11,11 @@ using System.Drawing.Text;
 namespace PhotoMax
 {
     [Serializable]
-    class Editor
+    public static class Editor
     {
         // AGREGA TEXTO A LAS FOTOS [ S O L O   E S C R I B E ]
         // HAY QUE IMPLEMENTARLE COSAS
-        public void TEXT(Bitmap bitmap)
+        public static void TEXT(Bitmap bitmap)
 
         {   string firstText = "Prueba de pintua";
             
@@ -37,39 +37,34 @@ namespace PhotoMax
             //bitmap.Save(imageFilePath);//save the image file
         }
 
-        public void ApplySepia(Bitmap image)
+        public static void ApplySepia(Bitmap image)
         {   // imagen nueva hace una copia de la imagen original.
             // filters crea la instancia para poder ocupar filtros
             //filters.sepia(imagenNueva) aplica el filtro y hace que imagennueva este editada.
 
-            Filters filters = new Filters();
-            filters.Sepia(image);
+            Filters.Sepia(image);
         }
 
-        public void ApplyGreyScale(Bitmap image)
+        public static void ApplyGreyScale(Bitmap image)
         {
-            Filters filters = new Filters();
-            filters.GreyScale(image);
+            Filters.GreyScale(image);
         }
 
-        public void ApplyNegative(Bitmap image)
+        public static void ApplyNegative(Bitmap image)
         {
-            Filters filters = new Filters();
-            filters.Negative(image);
+            Filters.Negative(image);
         }
 
-        public void ApplyAcid(Bitmap image)
+        public static void ApplyAcid(Bitmap image)
         {
-            Filters filters = new Filters();
-            filters.Acid(image);
+            Filters.Acid(image);
         }
 
-        public void ApplyDiamondWaffle(Bitmap image)
+        public static void ApplyDiamondWaffle(Bitmap image)
         {
-            Filters filters = new Filters();
-            filters.Acid(image);
-            filters.Sepia(image);
-            filters.Negative(image);
+            Filters.Acid(image);
+            Filters.Sepia(image);
+            Filters.Negative(image);
             image.RotateFlip(RotateFlipType.RotateNoneFlipX);
 
         }

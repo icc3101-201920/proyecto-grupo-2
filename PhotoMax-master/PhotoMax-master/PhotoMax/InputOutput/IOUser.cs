@@ -76,7 +76,7 @@ namespace PhotoMax.InputOutput
             {
                 ConsoleOutput("Enter the path of the image file:\n");
                 path = Console.ReadLine();
-                while ((File.Exists(path) != true) || (path == "abort"))
+                while ((File.Exists(path) != true))
                 {
                     ConsoleError("The file or path does not exist, try again\n");
                     path = Console.ReadLine();
@@ -87,7 +87,7 @@ namespace PhotoMax.InputOutput
             {
                 ConsoleOutput("Enter the path of the directory:\n");
                 path = Console.ReadLine();
-                while ((Directory.Exists(path) != true) || (path == "abort"))
+                while ((Directory.Exists(path) != true))
                 {
                     ConsoleError("The directory or path does not exist, try again\n");
                     path = Console.ReadLine();
@@ -103,7 +103,7 @@ namespace PhotoMax.InputOutput
             string file = "";
             ConsoleOutput("Enter the image file's name:\n");
             file = Console.ReadLine();
-            while ((File.Exists(directory + "/" + file) != true) || (file == "abort"))
+            while ((File.Exists(directory + "/" + file) != true))
             {
                 ConsoleError(file + " does not exist in this directory, try again\n");
                 file = Console.ReadLine();
