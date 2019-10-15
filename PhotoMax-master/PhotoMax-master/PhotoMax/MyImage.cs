@@ -98,9 +98,6 @@ namespace PhotoMax
             }
 
 
-
-
-
             // SETTERS
             Height = file.Height;
             Width = file.Width;

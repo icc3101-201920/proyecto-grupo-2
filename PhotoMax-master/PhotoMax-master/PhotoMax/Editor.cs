@@ -17,13 +17,13 @@ namespace PhotoMax
         // HAY QUE IMPLEMENTARLE COSAS
         public static void TEXT(Bitmap bitmap)
 
-        {   string firstText = "Prueba de pintua";
+        {   string firstText = "Prueba de test2";
             
 
             PointF firstLocation = new PointF(40f, 40f);
 
 
-            //string imageFilePath = "C:/Users/Francisco/Desktop/proyecto-grupo-2/PhotoMax-master/PhotoMax-master/PhotoMax/Pintua.jpg";
+            //string imageFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../test2.jpg");
             //Bitmap imagenreal = new Bitmap(imageFilePath);
             //load the image file
 
@@ -38,10 +38,7 @@ namespace PhotoMax
         }
 
         public static void ApplySepia(Bitmap image)
-        {   // imagen nueva hace una copia de la imagen original.
-            // filters crea la instancia para poder ocupar filtros
-            //filters.sepia(imagenNueva) aplica el filtro y hace que imagennueva este editada.
-
+        {   
             Filters.Sepia(image);
         }
 
@@ -66,7 +63,6 @@ namespace PhotoMax
             Filters.Sepia(image);
             Filters.Negative(image);
             image.RotateFlip(RotateFlipType.RotateNoneFlipX);
-
         }
     }
 

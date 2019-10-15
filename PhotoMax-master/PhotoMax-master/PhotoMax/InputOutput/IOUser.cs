@@ -100,7 +100,7 @@ namespace PhotoMax.InputOutput
         //FILE INPUT
         public static string ConsoleReadFileName(string directory)
         {
-            string file = "";
+            string file;
             ConsoleOutput("Enter the image file's name:\n");
             file = Console.ReadLine();
             while ((File.Exists(directory + "/" + file) != true))
@@ -109,6 +109,13 @@ namespace PhotoMax.InputOutput
                 file = Console.ReadLine();
             }
             return file;
+        }
+
+        //CLEAR CONSOLE
+        public static void ClearConsole()
+        {
+            Console.ResetColor();
+            Console.Clear();
         }
     }
 }

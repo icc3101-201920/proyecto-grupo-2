@@ -8,19 +8,19 @@ using System.IO;
 using PhotoMax.InputOutput;
 using System.Collections.Generic;
 using static System.Net.Mime.MediaTypeNames;
+using System.Threading;
 
 namespace PhotoMax
 {
     class Program
     {
 
-
         static void Main(string[] args)
         {
             // LIST OF SEARCH OPTIONS
             List<string> searchOptions = new List<string>()
             {
-                "Exit PhotoMax",
+                "Back to editing options",
                 "By file location",
                 "By directory",
                 "C",
@@ -30,9 +30,9 @@ namespace PhotoMax
             // LIST OF PHOTO EDITING OPTIONS
             List<string> editingOptions = new List<string>()
             {
-                "Back to image search",
+                "Exit PhotoMax",
                 "Apply Filter",
-                "Cut",
+                "Image Production",
                 "Insert Text",
                 "Rotate",
                 "Show Image"
@@ -76,314 +76,334 @@ namespace PhotoMax
 
             IOUser.ConsoleWelcome();
 
-            int searchOption = -1;
-            //int YNOption = -1;
-            string path = "";
-            while (searchOption != 0)
+            int editingOption = -1;
+            while (editingOption != 0)
             {
-                IOUser.ConsoleListOutput("Select one of the following search methods:", searchOptions);
-                searchOption = IOUser.ConsoleReadInput();
-                while (searchOption >= editingOptions.Count || searchOption < 0)
+                if (editingOption > 0)
+                {
+                    IOUser.ClearConsole();
+                }
+
+                IOUser.ConsoleListOutput("Select one of the following options:", editingOptions);
+                editingOption = IOUser.ConsoleReadInput();
+                while (editingOption >= editingOptions.Count || editingOption < 0)
                 {
                     IOUser.ConsoleError("Input must be a valid number\n");
-                    searchOption = IOUser.ConsoleReadInput();
+                    editingOption = IOUser.ConsoleReadInput();
                 }
-                switch (searchOption)
+                switch (editingOption)  //PHOTO EDITING OPTIONS
                 {
                     case 0:
-                        IOUser.ConsoleExit();
                         break;
+
                     case 1:
-                        path = IOUser.ConsoleReadPath();
-                        break;
-                    case 2:
-                        string directory = IOUser.ConsoleReadPath(1);
-                        string file = IOUser.ConsoleReadFileName(directory);
-                        path = directory + "/" + file;
-                        break;
-                    case 3:
-                        IOUser.ConsoleError("SEARCHING...");
-                        break;
-                    case 4:
-                        IOUser.ConsoleError("SEARCHING...");
-                        break;
-                }
+                        IOUser.ClearConsole();
+                        int filterOption = 0;
+                        int saveDataOption1 = -1;
+                        while (true)
+                        {
+                            //Neceitan ser no vacias al comienzo o el programa tira error
+                            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../hola.jpg");
+                            Bitmap image = new Bitmap(path);
+                            //****
 
-                /* THIS OPTION COMAND IS NOT YET NEEDED
-                
-                if (searchOption != 0)
-                {
-                    IOUser.ConsoleListOutput("Do you want to edit the following image?", YNOptions);
-                    IOUser.ConsoleError("SHOW IMAGE"); //SHOW
-                    YNOption = IOUser.ConsoleReadInput();
-                    while (YNOption >= YNOptions.Count || YNOption < 0)
-                    {
-                        IOUser.ConsoleError("Input must be a valid number\n");
-                        YNOption = IOUser.ConsoleReadInput();
-                    }
-                    switch (YNOption)
-                    {
-                        case 0:
-                            IOUser.ConsoleOutput("Going back to image search");
-                            break;
-                        case 1:
-                            IOUser.ConsoleOutput("Going to image editor");
-                            break;
-                    }
-                    if (YNOption == 0)
-                    {
-                        continue;
-                    }
-                }
-                */
+                            string saveDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../../PM-Images");
+                            string newFileName;
+                            string newPath;
 
-                //string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../hola.jpg");
-
-                Bitmap image = new Bitmap(path);
-                int editingOption;
-                while (searchOption != 0)
-                {
-                    IOUser.ConsoleListOutput("Select one of the following options:", editingOptions);
-                    editingOption = IOUser.ConsoleReadInput();
-                    while (editingOption >= editingOptions.Count || editingOption < 0)
-                    {
-                        IOUser.ConsoleError("Input must be a valid number\n");
-                        editingOption = IOUser.ConsoleReadInput();
-                    }
-                    switch (editingOption)  //PHOTO EDITING OPTIONS
-                    {
-                        case 0:
-                            break;
-
-                        case 1:
-                            int filterOption;
-                            int saveDataOption1 = -1;
-                            while (true)
+                            int searchOption;
+                            IOUser.ConsoleListOutput("Select one of the following search methods to find your image:", searchOptions);
+                            searchOption = IOUser.ConsoleReadInput();
+                            while (searchOption >= editingOptions.Count || searchOption < 0)
                             {
-                                Bitmap imagenNueva = new Bitmap(image);
-
-                                IOUser.ConsoleListOutput("Select one of the following filters:", filterList);
-                                filterOption = IOUser.ConsoleReadInput();
-                                while (filterOption >= filterList.Count || filterOption < 0)
-                                {
-                                    IOUser.ConsoleError("Input must be a valid number\n");
-                                    
-                                    filterOption = IOUser.ConsoleReadInput();
-                                }
-                                
-                                switch (filterOption) //IMAGE FILTERS
-                                {   
-                                    case 0:
-                                        break;
-                                    case 1: //GRAY SCALE
-
-                                        Editor.ApplyGreyScale(imagenNueva);
-                                        IOUser.ConsoleOutput("Filter applied successfully!");
-                                        IOUser.ConsoleError("SHOW IMAGE"); //SHOW
-                                        break;
-                                    case 2: //NEGATIVE
-                                        
-                                        Editor.ApplyNegative(imagenNueva);
-                                        IOUser.ConsoleOutput("Filter applied successfully!");
-                                        IOUser.ConsoleError("SHOW IMAGE"); //SHOW
-                                        break;
-                                    case 3: //SEPIA
-                                        
-                                        Editor.ApplySepia(imagenNueva);
-                                        IOUser.ConsoleOutput("Filter applied successfully!");
-                                        IOUser.ConsoleError("SHOW IMAGE"); //SHOW
-                                        break;
-                                    case 4: //ACID
-
-                                        Editor.ApplyAcid(imagenNueva);
-                                        IOUser.ConsoleOutput("Filter applied successfully!");
-                                        IOUser.ConsoleError("SHOW IMAGE"); //SHOW
-                                        break;
-                                    case 5: // DIAMONDWAFFLE
-
-                                        Editor.ApplyDiamondWaffle(imagenNueva);
-                                        IOUser.ConsoleOutput("Filter applied successfully!");
-                                        IOUser.ConsoleError("SHOW IMAGE"); //SHOW
-                                        break;
-
-                                }
-                                if (filterOption == 0)
-                                {
-                                    break;
-                                }
-
-                                while (true)
-                                {
-                                    IOUser.ConsoleListOutput("Apply changes?", saveDataOptions1);
-                                    saveDataOption1 = IOUser.ConsoleReadInput();
-                                    while (saveDataOption1 >= saveDataOptions1.Count || saveDataOption1 < 0)
-                                    {
-                                        IOUser.ConsoleError("Input must be a valid number\n");
-                                        saveDataOption1 = IOUser.ConsoleReadInput();
-                                    }
-                                    switch (saveDataOption1)
-                                    {
-                                        case 0:
-                                            IOUser.ConsoleOutput("Changes Saved! Going back to image editor");
-                                            image.Dispose();
-                                            imagenNueva.Save(path);
-                                            break;
-                                        case 1:
-                                            IOUser.ConsoleOutput("Going back to filter select");
-                                            break;
-                                        case 2:
-                                            IOUser.ConsoleOutput("Changes Discarded! Going back to image editor");
-                                            break;
-                                        case 3:
-                                            IOUser.ConsoleOutput("Changes Saved! Going back to filter select");
-                                            image.Dispose();
-                                            imagenNueva.Save(path);
-                                            break;
-                                    }
-                                    break;
-                                }
-                                if ((saveDataOption1 == 0) || (saveDataOption1 == 2))
-                                {
-                                    break;
-                                }
+                                IOUser.ConsoleError("Input must be a valid number\n");
+                                searchOption = IOUser.ConsoleReadInput();
                             }
-                            if ((saveDataOption1 == 0) || (saveDataOption1 == 2))
+                            switch (searchOption)
                             {
-                                continue;
+                                case 0:
+                                    IOUser.ConsoleExit();
+                                    break;
+                                case 1:
+                                    path = IOUser.ConsoleReadPath();
+                                    image = new Bitmap(path);
+                                    break;
+                                case 2:
+                                    string directory = IOUser.ConsoleReadPath(1);
+                                    string file = IOUser.ConsoleReadFileName(directory);
+                                    path = directory + "/" + file;
+                                    image = new Bitmap(path);
+                                    break;
+                                case 3:
+                                    IOUser.ConsoleError("SEARCHING...");
+                                    break;
+                                case 4:
+                                    IOUser.ConsoleError("SEARCHING...");
+                                    break;
+                            }
+
+                            if (searchOption == 0)
+                            {
+                                break;
+                            }
+
+
+                            
+                            IOUser.ClearConsole();
+                            IOUser.ConsoleListOutput("Select one of the following filters:", filterList);
+                            filterOption = IOUser.ConsoleReadInput();
+                            while (filterOption >= filterList.Count || filterOption < 0)
+                            {
+                                IOUser.ConsoleError("Input must be a valid number\n");
+
+                                filterOption = IOUser.ConsoleReadInput();
+                            }
+
+                            switch (filterOption) //IMAGE FILTERS
+                            {
+                                case 0:
+                                    break;
+                                case 1: //GRAY SCALE
+
+                                    Editor.ApplyGreyScale(image);
+                                    IOUser.ConsoleOutput("Filter applied successfully!");
+                                    IOUser.ConsoleError("SHOW IMAGE"); //SHOW
+                                    break;
+                                case 2: //NEGATIVE
+
+                                    Editor.ApplyNegative(image);
+                                    IOUser.ConsoleOutput("Filter applied successfully!");
+                                    IOUser.ConsoleError("SHOW IMAGE"); //SHOW
+                                    break;
+                                case 3: //SEPIA
+
+                                    Editor.ApplySepia(image);
+                                    IOUser.ConsoleOutput("Filter applied successfully!");
+                                    IOUser.ConsoleError("SHOW IMAGE"); //SHOW
+                                    break;
+                                case 4: //ACID
+
+                                    Editor.ApplyAcid(image);
+                                    IOUser.ConsoleOutput("Filter applied successfully!");
+                                    IOUser.ConsoleError("SHOW IMAGE"); //SHOW
+                                    break;
+                                case 5: // DIAMONDWAFFLE
+
+                                    Editor.ApplyDiamondWaffle(image);
+                                    IOUser.ConsoleOutput("Filter applied successfully!");
+                                    IOUser.ConsoleError("SHOW IMAGE"); //SHOW
+                                    break;
+
                             }
                             if (filterOption == 0)
                             {
-                                continue;
+                                break;
                             }
-                            break;
 
-                        case 2:
-                            IOUser.ConsoleOutput("Select the coordenates you want to cut:");
-                            IOUser.ConsoleError("NOT YET IMPLEMENTED");
-                            break;
-
-                        case 3:
-                            int saveDataOption3 = -1;
-                            while (true) //TEXT INSERTER
+                            while (true)
                             {
-                                IOUser.ConsoleOutput("Write the text you want to insert:\n");
-                                string itText = Console.ReadLine();
-
-                                IOUser.ConsoleOutput("Insert colour:\n");
-                                string itColour = Console.ReadLine();
-                                //Valid colour, if not make black as default
-
-                                IOUser.ConsoleOutput("Insert font size\n");
-                                int itFontSize = IOUser.ConsoleReadInput();
-
-                                IOUser.ConsoleOutput("Select x coordinates:\n");
-                                int itXCoordinates = IOUser.ConsoleReadInput();
-
-                                IOUser.ConsoleOutput("Select y coordinates:\n");
-                                int itYCoordinates = IOUser.ConsoleReadInput();
-
-                                IOUser.ConsoleOutput("Text inserted successfully!");
-                                IOUser.ConsoleError("SHOW IMAGE"); //SHOW
-
-                                while (true)
+                                IOUser.ClearConsole();
+                                IOUser.ConsoleListOutput("Apply changes?", saveDataOptions1);
+                                saveDataOption1 = IOUser.ConsoleReadInput();
+                                while (saveDataOption1 >= saveDataOptions1.Count || saveDataOption1 < 0)
                                 {
-                                    IOUser.ConsoleListOutput("Apply changes?", saveDataOptions);
+                                    IOUser.ConsoleError("Input must be a valid number\n");
+                                    saveDataOption1 = IOUser.ConsoleReadInput();
+                                }
+                                switch (saveDataOption1)
+                                {
+                                    case 0:
+                                        Console.WriteLine("\nEnter a name for the new image (remember to add .jpg):\n");
+                                        newFileName = Console.ReadLine();
+                                        newPath = Path.Combine(saveDirectory, newFileName);
+                                        File.Copy(path, newPath);
+                                        IOUser.ConsoleOutput("Changes Saved! Going back to image editor");
+                                        image.Save(newPath);
+                                        image.Dispose();
+                                        Thread.Sleep(2000);
+                                        break;
+                                    case 1:
+                                        IOUser.ConsoleOutput("Going back to filter select");
+                                        Thread.Sleep(2000);
+                                        break;
+                                    case 2:
+                                        IOUser.ConsoleOutput("Changes Discarded! Going back to image editor");
+                                        Thread.Sleep(2000);
+                                        break;
+                                    case 3:
+                                        Console.WriteLine("\nEnter a name for the new image (don't add .jpg):\n");
+                                        newFileName = Console.ReadLine();
+                                        newPath = Path.Combine(saveDirectory, newFileName);
+                                        File.Copy(path, newPath);
+                                        IOUser.ConsoleOutput("Changes Saved! Going back to image editor");
+                                        image.Save(newPath);
+                                        image.Dispose();
+                                        Thread.Sleep(2000);
+                                        break;
+                                }
+                                break;
+                            }
+                            if ((saveDataOption1 == 0) || (saveDataOption1 == 2))
+                            {
+                                break;
+                            }
+                        }
+                        if ((saveDataOption1 == 0) || (saveDataOption1 == 2))
+                        {
+                            continue;
+                        }
+                        if (filterOption == 0)
+                        {
+                            continue;
+                        }
+                        break;
+
+                    case 2:
+                        IOUser.ClearConsole();
+                        IOUser.ConsoleOutput("Select the images you want to work with:");
+                        IOUser.ConsoleError("NOT YET IMPLEMENTED");
+                        Console.WriteLine("\nPress any key to continue");
+                        Console.ReadLine();
+                        break;
+
+                    case 3:
+                        IOUser.ClearConsole();
+                        int saveDataOption3 = -1;
+                        while (true) //TEXT INSERTER
+                        {
+                            IOUser.ClearConsole();
+                            IOUser.ConsoleOutput("Write the text you want to insert:\n");
+                            string itText = Console.ReadLine();
+
+                            IOUser.ConsoleOutput("Insert colour:\n");
+                            string itColour = Console.ReadLine();
+                            //Valid colour, if not make black as default
+
+                            IOUser.ConsoleOutput("Insert font size\n");
+                            int itFontSize = IOUser.ConsoleReadInput();
+
+                            IOUser.ConsoleOutput("Select x coordinates:\n");
+                            int itXCoordinates = IOUser.ConsoleReadInput();
+
+                            IOUser.ConsoleOutput("Select y coordinates:\n");
+                            int itYCoordinates = IOUser.ConsoleReadInput();
+
+                            IOUser.ConsoleOutput("Text inserted successfully!");
+                            IOUser.ConsoleError("SHOW IMAGE"); //SHOW
+                            Console.WriteLine("\nPress any key to continue");
+                            Console.ReadLine();
+
+                            while (true)
+                            {
+                                IOUser.ClearConsole();
+                                IOUser.ConsoleListOutput("Apply changes?", saveDataOptions);
+                                saveDataOption3 = IOUser.ConsoleReadInput();
+                                while (saveDataOption3 >= saveDataOptions.Count || saveDataOption3 < 0)
+                                {
+                                    IOUser.ConsoleError("Input must be a valid number\n");
                                     saveDataOption3 = IOUser.ConsoleReadInput();
-                                    while (saveDataOption3 >= saveDataOptions.Count || saveDataOption3 < 0)
-                                    {
-                                        IOUser.ConsoleError("Input must be a valid number\n");
-                                        saveDataOption3 = IOUser.ConsoleReadInput();
-                                    }
-                                    switch (saveDataOption3)
-                                    {
-                                        case 0:
-                                            IOUser.ConsoleOutput("Changes Saved! Going back to image editor");
-                                            break;
-                                        case 1:
-                                            IOUser.ConsoleOutput("Going back to text inserter");
-                                            break;
-                                        case 2:
-                                            IOUser.ConsoleOutput("Changes Discarded! Going back to image editor");
-                                            break;
-                                        case 3:
-                                            IOUser.ConsoleOutput("Changes Saved! Going back to text inserter");
-                                            break;
-                                    }
-                                    break;
                                 }
-                                if ((saveDataOption3 == 0) || (saveDataOption3 == 2))
+                                switch (saveDataOption3)
                                 {
-                                    break;
+                                    case 0:
+                                        IOUser.ConsoleOutput("Changes Saved! Going back to image editor");
+                                        Thread.Sleep(2000);
+                                        break;
+                                    case 1:
+                                        IOUser.ConsoleOutput("Going back to text inserter");
+                                        Thread.Sleep(2000);
+                                        break;
+                                    case 2:
+                                        IOUser.ConsoleOutput("Changes Discarded! Going back to image editor");
+                                        Thread.Sleep(2000);
+                                        break;
+                                    case 3:
+                                        IOUser.ConsoleOutput("Changes Saved! Going back to text inserter");
+                                        Thread.Sleep(2000);
+                                        break;
                                 }
+                                break;
                             }
                             if ((saveDataOption3 == 0) || (saveDataOption3 == 2))
                             {
-                                continue;
+                                break;
                             }
-                            break;
+                        }
+                        if ((saveDataOption3 == 0) || (saveDataOption3 == 2))
+                        {
+                            continue;
+                        }
+                        break;
 
-                        case 4:
-                            int saveDataOption4 = -1;
-                            while (true) //IMAGE ROTATOR
+                    case 4:
+                        IOUser.ClearConsole();
+                        int saveDataOption4 = -1;
+                        while (true) //IMAGE ROTATOR
+                        {
+                            IOUser.ClearConsole();
+                            IOUser.ConsoleError("NOT YET IMPLEMENTED");
+                            IOUser.ConsoleOutput("Select by how many degrees you want to rotate (clockwise):\n");
+                            int rotDegrees = IOUser.ConsoleReadInput();
+
+                            IOUser.ConsoleOutput("Image rotated successfully!");
+                            IOUser.ConsoleError("SHOW IMAGE"); //SHOW
+                            Console.WriteLine("\nPress any key to continue");
+                            Console.ReadLine();
+
+                            while (true)
                             {
-                                IOUser.ConsoleOutput("Select by how many degrees you want to rotate (clockwise):\n");
-                                int rotDegrees = IOUser.ConsoleReadInput();
-
-                                IOUser.ConsoleOutput("Image rotated successfully!");
-                                IOUser.ConsoleError("SHOW IMAGE"); //SHOW
-
-                                while (true)
+                                IOUser.ClearConsole();
+                                IOUser.ConsoleListOutput("Apply changes?", saveDataOptions);
+                                saveDataOption4 = IOUser.ConsoleReadInput();
+                                while (saveDataOption4 >= saveDataOptions.Count || saveDataOption4 < 0)
                                 {
-                                    IOUser.ConsoleListOutput("Apply changes?", saveDataOptions);
+                                    IOUser.ConsoleError("Input must be a valid number\n");
                                     saveDataOption4 = IOUser.ConsoleReadInput();
-                                    while (saveDataOption4 >= saveDataOptions.Count || saveDataOption4 < 0)
-                                    {
-                                        IOUser.ConsoleError("Input must be a valid number\n");
-                                        saveDataOption4 = IOUser.ConsoleReadInput();
-                                    }
-                                    switch (saveDataOption4)
-                                    {
-                                        case 0:
-                                            IOUser.ConsoleOutput("Changes Saved! Going back to image editor");
-                                            break;
-                                        case 1:
-                                            IOUser.ConsoleOutput("Going back to image rotator");
-                                            break;
-                                        case 2:
-                                            IOUser.ConsoleOutput("Changes Discarded! Going back to image editor");
-                                            break;
-                                        case 3:
-                                            IOUser.ConsoleOutput("Changes Saved! Going back to image rotator");
-                                            break;
-                                    }
-                                    break;
                                 }
-                                if ((saveDataOption4 == 0) || (saveDataOption4 == 2))
+                                switch (saveDataOption4)
                                 {
-                                    break;
+                                    case 0:
+                                        IOUser.ConsoleOutput("Changes Saved! Going back to image editor");
+                                        Thread.Sleep(2000);
+                                        break;
+                                    case 1:
+                                        IOUser.ConsoleOutput("Going back to image rotator");
+                                        Thread.Sleep(2000);
+                                        break;
+                                    case 2:
+                                        IOUser.ConsoleOutput("Changes Discarded! Going back to image editor");
+                                        Thread.Sleep(2000);
+                                        break;
+                                    case 3:
+                                        IOUser.ConsoleOutput("Changes Saved! Going back to image rotator");
+                                        Thread.Sleep(2000);
+                                        break;
                                 }
+                                break;
                             }
                             if ((saveDataOption4 == 0) || (saveDataOption4 == 2))
                             {
-                                continue;
+                                break;
                             }
-                            break;
-
-                        case 5:
-                            IOUser.ConsoleError("SHOW IMAGE");
+                        }
+                        if ((saveDataOption4 == 0) || (saveDataOption4 == 2))
+                        {
                             continue;
-                            //MORE CASES
+                        }
+                        break;
+
+                    case 5:
+                        IOUser.ClearConsole();
+                        IOUser.ConsoleError("SHOW IMAGE");
+                        Console.WriteLine("\nPress any key to go back to editing options");
+                        Console.ReadLine();
+                        break;
+                    //MORE CASES
 
 
-                    }
-                    break;
                 }
-                if (searchOption == 0)
-                {
-                    break;
-                }
+
             }
-
 
         }
 

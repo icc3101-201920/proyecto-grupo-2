@@ -125,10 +125,7 @@ namespace PhotoMax
                 }
             }
 
-
         }
-
-
 
     }
 
