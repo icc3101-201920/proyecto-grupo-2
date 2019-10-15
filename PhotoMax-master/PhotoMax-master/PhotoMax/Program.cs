@@ -103,7 +103,7 @@ namespace PhotoMax
                         while (true)
                         {
                             //Neceitan ser no vacias al comienzo o el programa tira error
-                            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../hola.jpg");
+                            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../test1.jpg");
                             Bitmap image = new Bitmap(path);
                             //****
 
@@ -131,7 +131,7 @@ namespace PhotoMax
                                 case 2:
                                     string directory = IOUser.ConsoleReadPath(1);
                                     string file = IOUser.ConsoleReadFileName(directory);
-                                    path = directory + "/" + file;
+                                    path = Path.Combine(directory, file);
                                     image = new Bitmap(path);
                                     break;
                                 case 3:
