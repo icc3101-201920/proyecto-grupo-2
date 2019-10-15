@@ -106,6 +106,7 @@ namespace PhotoMax
                             string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../test1.jpg");
                             Bitmap image = new Bitmap(path);
                             //****
+                            // C:/Users/Francisco/Desktop/proyecto-grupo-2/PhotoMax-master/PhotoMax-master/PhotoMax 
 
                             string saveDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../../PM-Images");
                             string newFileName;
@@ -271,6 +272,16 @@ namespace PhotoMax
                         int saveDataOption3 = -1;
                         while (true) //TEXT INSERTER
                         {
+                            //Neceitan ser no vacias al comienzo o el programa tira error
+                            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../test1.jpg");
+                            Bitmap image = new Bitmap(path);
+                            //****
+                            // C:/Users/Francisco/Desktop/proyecto-grupo-2/PhotoMax-master/PhotoMax-master/PhotoMax 
+
+                            string saveDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../../PM-Images");
+                            string newFileName;
+                            string newPath;
+
                             IOUser.ClearConsole();
                             IOUser.ConsoleOutput("Write the text you want to insert:\n");
                             string itText = Console.ReadLine();
@@ -288,9 +299,18 @@ namespace PhotoMax
                             IOUser.ConsoleOutput("Select y coordinates:\n");
                             int itYCoordinates = IOUser.ConsoleReadInput();
 
+                            Editor.TEXT(image, itText, itColour, itFontSize, itXCoordinates, itYCoordinates);
                             IOUser.ConsoleOutput("Text inserted successfully!");
                             IOUser.ConsoleError("SHOW IMAGE"); //SHOW
+                            Console.WriteLine("\nEnter a name for the new image (don't add .jpg):\n");
+                            newFileName = Console.ReadLine();
+                            newPath = Path.Combine(saveDirectory, newFileName);
+                            File.Copy(path, newPath);
+                            IOUser.ConsoleOutput("Changes Saved! Going back to image editor");
                             Console.WriteLine("\nPress any key to continue");
+                            image.Save(newPath);
+                            image.Dispose();
+                            Thread.Sleep(2000);
                             Console.ReadLine();
 
                             while (true)

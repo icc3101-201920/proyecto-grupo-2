@@ -13,25 +13,18 @@ namespace PhotoMax
     [Serializable]
     public static class Editor
     {
-        // AGREGA TEXTO A LAS FOTOS [ S O L O   E S C R I B E ]
-        // HAY QUE IMPLEMENTARLE COSAS
-        public static void TEXT(Bitmap bitmap)
 
-        {   string firstText = "Prueba de test2";
+        public static void TEXT(Bitmap bitmap, string itText, string itColour, int itFontSize, int itXCoordinates, int itYCoordinates)
+
+        {   string firstText = itText;
             
-
-            PointF firstLocation = new PointF(40f, 40f);
-
-
-            //string imageFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../test2.jpg");
-            //Bitmap imagenreal = new Bitmap(imageFilePath);
-            //load the image file
+            PointF firstLocation = new PointF(itXCoordinates, itYCoordinates);
 
             using (Graphics graphics = Graphics.FromImage(bitmap))
             {
-                using (Font arialFont = new Font("Arial",200))
+                using (Font arialFont = new Font("Arial",itFontSize))
                 {
-                    graphics.DrawString(firstText, arialFont, Brushes.Blue, firstLocation);
+                    graphics.DrawString(firstText, arialFont, Brushes.IndianRed, firstLocation);
                 }
             }
             //bitmap.Save(imageFilePath);//save the image file
