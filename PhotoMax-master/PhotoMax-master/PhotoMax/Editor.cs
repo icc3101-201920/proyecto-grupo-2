@@ -30,33 +30,6 @@ namespace PhotoMax
             //bitmap.Save(imageFilePath);//save the image file
         }
 
-        public static void ApplySepia(Bitmap image)
-        {   
-            Filters.Sepia(image);
-        }
-
-        public static void ApplyGreyScale(Bitmap image)
-        {
-            Filters.GreyScale(image);
-        }
-
-        public static void ApplyNegative(Bitmap image)
-        {
-            Filters.Negative(image);
-        }
-
-        public static void ApplyAcid(Bitmap image)
-        {
-            Filters.Acid(image);
-        }
-
-        public static void ApplyDiamondWaffle(Bitmap image)
-        {
-            Filters.Acid(image);
-            Filters.Sepia(image);
-            Filters.Negative(image);
-            image.RotateFlip(RotateFlipType.RotateNoneFlipX);
-        }
     }
 
 }

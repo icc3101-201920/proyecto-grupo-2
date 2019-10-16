@@ -55,20 +55,34 @@ namespace PhotoMax.InputOutput
         }
 
         //USER OPTION
-        public static int ConsoleReadInput()
+        public static int ConsoleReadInput(List<string> list = null)
         {
             string option = Console.ReadLine();
+            int optionNumber = ConsoleVerifyInput(option);
+            while (optionNumber <= -1 || optionNumber >= list.Count)
+            {
+                ConsoleError("Input must be a valid option\n");
+                option = Console.ReadLine();
+                optionNumber = ConsoleVerifyInput(option);
+            }
+
+            return optionNumber;
+        }
+
+        //USER OPTION MUST BE INT
+        public static int ConsoleVerifyInput(string op)
+        {
             int optionNumber;
-            while (!int.TryParse(option, out optionNumber))
+            while ((!int.TryParse(op, out optionNumber)))
             {
                 ConsoleError("Input must be a number\n");
-                option = Console.ReadLine();
+                op = Console.ReadLine();
             }
             return optionNumber;
         }
 
         //PATH INPUT
-        public static string ConsoleReadPath(int i=0)
+        public static string ConsoleReadPath(int i = 0)
         {
 
             string path = "";
@@ -103,7 +117,7 @@ namespace PhotoMax.InputOutput
             string file;
             ConsoleOutput("Enter the image file's name:\n");
             file = Console.ReadLine();
-            while ((File.Exists(directory + "/" + file) != true))
+            while ((File.Exists(Path.Combine(directory, file)) != true))
             {
                 ConsoleError(file + " does not exist in this directory, try again\n");
                 file = Console.ReadLine();

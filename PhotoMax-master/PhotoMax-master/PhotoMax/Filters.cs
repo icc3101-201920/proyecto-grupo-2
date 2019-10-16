@@ -1,132 +1,155 @@
 ﻿using System;
 using System.Drawing;
-
-
-
-
+using System.Drawing.Imaging;
 
 namespace PhotoMax
 {
     [Serializable]
     public static class Filters
     {
-        public static void Sepia(Bitmap bitmap)
+        public static void Sepia(Bitmap bmp)
         {
-            int ancho = bitmap.Width;
-            int alto = bitmap.Height;
+            Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
+            System.Drawing.Imaging.BitmapData bmpData =
+                bmp.LockBits(rect, System.Drawing.Imaging.ImageLockMode.ReadWrite,
+                PixelFormat.Format32bppArgb);
 
-            Color pixel;
+            IntPtr ptr = bmpData.Scan0;
 
-            for (int y = 0; y < alto; y++)
+            int bytes = Math.Abs(bmpData.Stride) * bmp.Height;
+            byte[] rgbValues = new byte[bytes];
+
+            System.Runtime.InteropServices.Marshal.Copy(ptr, rgbValues, 0, bytes);
+
+            // The colors here are in BGRA order and not RGBA  
+            for (int counter = 0; counter < rgbValues.Length; counter += 4)
             {
-                for (int x = 0; x < ancho; x++)
-                {
-                    pixel = bitmap.GetPixel(x, y);
+                int b = rgbValues[counter];
+                int g = rgbValues[counter + 1];
+                int r = rgbValues[counter + 2];
+                rgbValues[counter] = (byte)max255((r * .272) + (g * .534) + (b * .131));
+                rgbValues[counter + 1] = (byte)max255((r * .349) + (g * .686) + (b * .168));
+                rgbValues[counter + 2] = (byte)max255((r * .393) + (g * .769) + (b * .189));
 
-                    int alpha = pixel.A;
-                    int rojo = pixel.R;
-                    int verde = pixel.G;
-                    int azul = pixel.B;
-
-                    double promedio = (rojo + verde + azul) / 3;
-
-                    Color sepia = Color.FromArgb((byte)promedio, (byte)(promedio * 0.95), (byte)(promedio * 0.82));
-
-                    bitmap.SetPixel(x, y, sepia);
-
-                }
-            }
-        }
-
-        public static void GreyScale(Bitmap bitmap)
-        {
-            int ancho = bitmap.Width;
-            int alto = bitmap.Height;
-
-            Color pixel;
-
-            for (int y = 0; y < alto; y++)
-            {
-                for (int x = 0; x < ancho; x++)
-                {
-                    pixel = bitmap.GetPixel(x, y);
-
-                    int alpha = pixel.A;
-                    int rojo = pixel.R;
-                    int verde = pixel.G;
-                    int azul = pixel.B;
-
-                    int promedio = (rojo + verde + azul) / 3;
-
-                    bitmap.SetPixel(x, y, Color.FromArgb(alpha, promedio, promedio, promedio));
-                }
-            }
-        }
-
-        public static void Negative(Bitmap bitmap)
-        {
-            int ancho = bitmap.Width;
-            int alto = bitmap.Height;
-
-            Color pixel;
-
-            for (int y = 0; y < alto; y++)
-            {
-                for (int x = 0; x < ancho; x++)
-                {
-                    pixel = bitmap.GetPixel(x, y);
-
-                    int alpha = pixel.A;
-                    int rojo = pixel.R;
-                    int verde = pixel.G;
-                    int azul = pixel.B;
-
-                    double promedio = (rojo + verde + azul) / 3;
-
-                    // valores negativos
-                    rojo = 255 - alpha;
-                    verde = 255 - verde;
-                    azul = 255 - azul;
-
-                    //crear filtro
-                    bitmap.SetPixel(x, y, Color.FromArgb(alpha, rojo, verde, azul));
-                }
             }
 
-        
+            System.Runtime.InteropServices.Marshal.Copy(rgbValues, 0, ptr, bytes);
+
+            bmp.UnlockBits(bmpData);
         }
-        public static void Acid(Bitmap bitmap)
+
+        public static void GreyScale(Bitmap bmp)
         {
-            int ancho = bitmap.Width;
-            int alto = bitmap.Height;
+            Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
+            System.Drawing.Imaging.BitmapData bmpData =
+                bmp.LockBits(rect, System.Drawing.Imaging.ImageLockMode.ReadWrite,
+                PixelFormat.Format32bppArgb);
 
-            Color pixel;
+            IntPtr ptr = bmpData.Scan0;
 
-            for (int y = 0; y < alto; y++)
+            int bytes = Math.Abs(bmpData.Stride) * bmp.Height;
+            byte[] rgbValues = new byte[bytes];
+
+            System.Runtime.InteropServices.Marshal.Copy(ptr, rgbValues, 0, bytes);
+
+            // The colors here are in BGRA order and not RGBA  
+            for (int counter = 0; counter < rgbValues.Length; counter += 4)
             {
-                for (int x = 0; x < ancho; x++)
-                {
-                    pixel = bitmap.GetPixel(x, y);
+                int b = rgbValues[counter];
+                int g = rgbValues[counter + 1];
+                int r = rgbValues[counter + 2];
+                double average = (b + g + r) / 3;
+                rgbValues[counter] = (byte)average;
+                rgbValues[counter + 1] = (byte)average;
+                rgbValues[counter + 2] = (byte)average;
 
-                    int alpha = pixel.A;
-                    int rojo = pixel.R;
-                    int verde = pixel.G;
-                    int azul = pixel.B;
-
-                    double promedio = (rojo + verde + azul) / 3;
-
-                    // valores negativos
-                    rojo = 255 - alpha;
-                    verde = 255 - verde;
-                    azul = 255 - azul;
-
-                    //crear filtro
-                    bitmap.SetPixel(x, y, Color.FromArgb(alpha, verde, azul,rojo ));
-                }
             }
 
+            System.Runtime.InteropServices.Marshal.Copy(rgbValues, 0, ptr, bytes);
+
+            bmp.UnlockBits(bmpData);
         }
 
+        public static void Negative(Bitmap bmp)
+        {
+            Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
+            System.Drawing.Imaging.BitmapData bmpData =
+                bmp.LockBits(rect, System.Drawing.Imaging.ImageLockMode.ReadWrite,
+                PixelFormat.Format32bppArgb);
+
+            IntPtr ptr = bmpData.Scan0;
+
+            int bytes = Math.Abs(bmpData.Stride) * bmp.Height;
+            byte[] rgbValues = new byte[bytes];
+
+            System.Runtime.InteropServices.Marshal.Copy(ptr, rgbValues, 0, bytes);
+
+            // The colors here are in BGRA order and not RGBA 
+            for (int counter = 0; counter < rgbValues.Length; counter += 4)
+            {
+                int b = rgbValues[counter];
+                int g = rgbValues[counter + 1];
+                int r = rgbValues[counter + 2];
+                rgbValues[counter] = (byte)(255 - b);
+                rgbValues[counter + 1] = (byte)(255 - g);
+                rgbValues[counter + 2] = (byte)(255 - r);
+
+            }
+
+            System.Runtime.InteropServices.Marshal.Copy(rgbValues, 0, ptr, bytes);
+
+            bmp.UnlockBits(bmpData);
+        }
+
+        public static void Blossom(Bitmap bmp)
+        {
+            Negative(bmp);
+            Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
+            System.Drawing.Imaging.BitmapData bmpData =
+                bmp.LockBits(rect, System.Drawing.Imaging.ImageLockMode.ReadWrite,
+                PixelFormat.Format32bppArgb);
+
+            IntPtr ptr = bmpData.Scan0;
+
+            int bytes = Math.Abs(bmpData.Stride) * bmp.Height;
+            byte[] rgbValues = new byte[bytes];
+
+            System.Runtime.InteropServices.Marshal.Copy(ptr, rgbValues, 0, bytes);
+
+            // The colors here are in BGRA order and not RGBA 
+            for (int counter = 0; counter < rgbValues.Length; counter += 4)
+            {
+                int b = rgbValues[counter];
+                int g = rgbValues[counter + 1];
+                int r = rgbValues[counter + 2];
+                rgbValues[counter] = (byte)(r);
+                rgbValues[counter + 1] = (byte)(60);
+                rgbValues[counter + 2] = (byte)(b);
+
+            }
+
+            System.Runtime.InteropServices.Marshal.Copy(rgbValues, 0, ptr, bytes);
+
+            bmp.UnlockBits(bmpData);
+        }
+
+        public static void OldMovie(Bitmap bmp)
+        {
+            Blossom(bmp);
+            Negative(bmp);
+            Sepia(bmp);
+        }
+        public static double max255(double c)
+        {
+            if (c > 255)
+            {
+                return 255;
+            }
+            else
+            {
+                return c;
+            }
+        }
     }
 
 }
