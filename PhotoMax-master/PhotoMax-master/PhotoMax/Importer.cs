@@ -58,6 +58,8 @@ namespace PhotoMax
             //GENERIC TEST EXAMPLE
             ImageFile imageFile = new ImageFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../test1.jpg"));
 
+            // C:/Users/Francisco/Desktop/proyecto-grupo-2/PhotoMax-master/PhotoMax-master/PhotoMax
+
             if (op == 1 || op == 2)
             {
 
