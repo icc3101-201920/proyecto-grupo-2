@@ -139,40 +139,41 @@ namespace PhotoMax
 
                         case 3:
                             IOUser.ClearConsole();
-                            int saveDataOption3 = -1;
+                            int saveDataOption3 = 1;
                             while ((saveDataOption3 == 1) || (saveDataOption3 == 3)) //TEXT INSERTER
                             {
                                 IOUser.ClearConsole();
-                                IOUser.ConsoleError("NOT YET IMPLEMENTED");
+                                //IOUser.ConsoleError("NOT YET IMPLEMENTED");
                                 Console.WriteLine("\nPress any key to continue");
                                 Console.ReadLine();
-                                break;
+                                //break
 
-                                //IOUser.ConsoleOutput("Write the text you want to insert:\n");
-                                //string itText = Console.ReadLine();
+                                IOUser.ConsoleOutput("Write the text you want to insert:\n");
+                                string itText = Console.ReadLine();
 
-                                //IOUser.ConsoleOutput("Insert colour:\n");
-                                //string itColour = Console.ReadLine();
+                                IOUser.ConsoleOutput("Insert colour:\n");
+                                string itColour = Console.ReadLine();
                                 //Valid colour, if not make black as default
 
-                                //IOUser.ConsoleOutput("Insert font size\n");
-                                //int itFontSize = IOUser.ConsoleReadInput();
+                                IOUser.ConsoleOutput("Insert font size\n");
+                                int itFontSize = IOUser.ConsoleReadInput();
 
-                                //IOUser.ConsoleOutput("Select x coordinates:\n");
-                                //int itXCoordinates = IOUser.ConsoleReadInput();
+                                IOUser.ConsoleOutput("Select x coordinates:\n");
+                                int itXCoordinates = IOUser.ConsoleReadInput();
 
-                                //IOUser.ConsoleOutput("Select y coordinates:\n");
-                                //int itYCoordinates = IOUser.ConsoleReadInput();
+                                IOUser.ConsoleOutput("Select y coordinates:\n");
+                                int itYCoordinates = IOUser.ConsoleReadInput();
 
-                                //IOUser.ConsoleOutput("Text inserted successfully!");
-                                //IOUser.ConsoleError("SHOW IMAGE"); //SHOW
-                                //Console.WriteLine("\nPress any key to continue");
-                                //Console.ReadLine();
+                                IOUser.ConsoleOutput("Text inserted successfully!");
+                                Editor.TEXT(imageFile.Bpm, itText, itColour, itFontSize, itXCoordinates, itYCoordinates);
+                                IOUser.ConsoleError("SHOW IMAGE"); //SHOW
+                                Console.WriteLine("\nPress any key to continue");
+                                Console.ReadLine();
 
-                                //IOUser.ClearConsole();
-                                //IOUser.ConsoleListOutput("Apply changes?", saveData.GeneralSaveDataList);
-                                //saveDataOption3 = saveData.GSaveDataOptions(imageFile);
-                                //IOUser.ClearConsole();
+                                IOUser.ClearConsole();
+                                IOUser.ConsoleListOutput("Apply changes?", saveData.GeneralSaveDataList);
+                                saveDataOption3 = saveData.GSaveDataOptions(imageFile);
+                                IOUser.ClearConsole();
                             }
                             break;
 
