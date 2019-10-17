@@ -107,6 +107,18 @@ namespace PhotoMax.InputOutput
                     path = Console.ReadLine();
                 }
             }
+            if (i == 2)
+            {
+                ConsoleOutput("Enter the name of the file (add .jpg):\n");
+                string fileN = Console.ReadLine();
+                string importDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../../PM-Images/Imports");
+                while ((File.Exists(Path.Combine(importDirectory, fileN)) != true))
+                {
+                    ConsoleError("The file does not exist, try again\n");
+                    fileN = Console.ReadLine();
+                }
+                path = Path.Combine(importDirectory, fileN);
+            }
 
             return path;
         }

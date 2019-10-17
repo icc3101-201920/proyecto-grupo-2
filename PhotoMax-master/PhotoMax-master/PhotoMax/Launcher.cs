@@ -1,6 +1,8 @@
 ﻿using PhotoMax.InputOutput;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace PhotoMax
@@ -35,7 +37,6 @@ namespace PhotoMax
         public List<string> EditingList { get; set; }
         public List<string> FilterList { get; set; }
 
-
         public void Launch()
         {
             IOUser.ConsoleWelcome();
@@ -45,14 +46,23 @@ namespace PhotoMax
             int searchOption = -1;
             while (searchOption != 0)
             {
-                IOUser.ConsoleListOutput("Select one of the following search methods to find your image:", importer.ImportList);
+                IOUser.ConsoleListOutput("Select one of the following options:", importer.ImportList);
                 searchOption = IOUser.ConsoleReadInput(importer.ImportList);
                 IOUser.ClearConsole();
+                if (searchOption == 3 && Directory.EnumerateFiles(importer.importDirectory).Any() == false)
+                {
+                    IOUser.ConsoleError("Import directory is empty...");
+                    continue;
+                }
                 ImageFile imageFile = importer.ImportPath(searchOption);
 
                 if (searchOption == 0)
                 {
                     break;
+                }
+                if (searchOption == 1)
+                {
+                    continue;
                 }
 
 

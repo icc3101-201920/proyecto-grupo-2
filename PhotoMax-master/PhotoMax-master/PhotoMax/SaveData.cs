@@ -36,14 +36,15 @@ namespace PhotoMax
                 "Yes"
             };
 
+            //DEFAULT SAVE DIRECTORY
+            saveDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../../PM-Images/Results");
         }
 
-        //DEFAULT SAVE DIRECTORY
-        string saveDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../../PM-Images");
 
         public List<string> GeneralSaveDataList { get; set; }
         public List<string> FilterSaveDataList { get; set; }
         public List<string> YNList { get; set; }
+        public string saveDirectory { get; set; }
 
         public int GSaveDataOptions(ImageFile imageFile)
         {
