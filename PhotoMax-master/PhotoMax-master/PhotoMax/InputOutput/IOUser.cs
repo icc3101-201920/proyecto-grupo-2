@@ -4,6 +4,7 @@ using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using System.IO;
+using System.Threading;
 
 namespace PhotoMax.InputOutput
 {
@@ -82,59 +83,137 @@ namespace PhotoMax.InputOutput
         }
 
         //PATH INPUT
-        public static string ConsoleReadPath(int i = 0)
+        public static string ConsoleReadPath()
         {
-
-            string path = "";
-            if (i == 0)
+            ConsoleOutput("Enter the path of the image file:\n");
+            string path = Console.ReadLine();
+            while (!File.Exists(path))
             {
-                ConsoleOutput("Enter the path of the image file:\n");
+                ConsoleError("The file or path does not exist, try again\n");
                 path = Console.ReadLine();
-                while ((File.Exists(path) != true))
-                {
-                    ConsoleError("The file or path does not exist, try again\n");
-                    path = Console.ReadLine();
-                }
-            }
-
-            if (i == 1)
-            {
-                ConsoleOutput("Enter the path of the directory:\n");
-                path = Console.ReadLine();
-                while ((Directory.Exists(path) != true))
-                {
-                    ConsoleError("The directory or path does not exist, try again\n");
-                    path = Console.ReadLine();
-                }
-            }
-            if (i == 2)
-            {
-                ConsoleOutput("Enter the name of the file (add .jpg):\n");
-                string fileN = Console.ReadLine();
-                string importDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../../PM-Images/Imports");
-                while ((File.Exists(Path.Combine(importDirectory, fileN)) != true))
-                {
-                    ConsoleError("The file does not exist, try again\n");
-                    fileN = Console.ReadLine();
-                }
-                path = Path.Combine(importDirectory, fileN);
             }
 
             return path;
         }
 
-        //FILE INPUT
-        public static string ConsoleReadFileName(string directory)
+        //DIRECTORY INPUT
+        public static List<string> ConsoleReadDirectory(List<string> extensionTypes)
         {
-            string file;
-            ConsoleOutput("Enter the image file's name:\n");
-            file = Console.ReadLine();
-            while ((File.Exists(Path.Combine(directory, file)) != true))
+            List<string> paths = new List<string>();
+            while (true)
             {
-                ConsoleError(file + " does not exist in this directory, try again\n");
-                file = Console.ReadLine();
+                ClearConsole();
+                ConsoleOutput("Enter the path of the directory:\n");
+                string path = Console.ReadLine();
+                while (!Directory.Exists(path))
+                {
+                    ClearConsole();
+                    ConsoleError("The directory or path does not exist, try again\n");
+                    path = Console.ReadLine();
+                }
+
+                if (!Directory.EnumerateFiles(path).Any())
+                {
+                    ClearConsole();
+                    ConsoleError("The directory is empty...");
+                    continue;
+                }
+
+                paths = new List<string>();
+                string[] allFiles = Directory.GetFiles(path);
+
+                foreach (string file in allFiles)
+                {
+                    foreach (string i in extensionTypes)
+                    {
+                        if (Path.GetExtension(file) == i)
+                        {
+                            paths.Add(file);
+                        }
+                    }
+                }
+
+                if (!paths.Any())
+                {
+                    ClearConsole();
+                    ConsoleError("No compatible files to import...");
+                    continue;
+                }
+
+                break;
             }
-            return file;
+
+            return paths;
+        }
+
+        //FILE INPUT
+        public static string ConsoleReadFileName(string importDirectory, List<string> extensionTypes)
+        {
+            string fileName;
+            ConsoleOutput("Enter the image file's name (don't add .jpg):\n");
+            fileName = Console.ReadLine();
+
+            int checker = 0;
+            //int attempts = 0;
+            //List<string> YNList = new List<string>() {"No", "Yes"};
+            while (checker == 0)
+            {
+                foreach (string i in extensionTypes)
+                {
+                    if (File.Exists(Path.Combine(importDirectory, fileName +i )))
+                    {
+                        checker += 1;
+                        fileName = Path.Combine(importDirectory, fileName + i);
+                    }
+                }
+
+                //if (attempts == 3)
+                //{
+                //    ConsoleError($"Do you want to go back?\n");
+                //    int op = ConsoleReadInput(YNList);
+                //    switch (op)
+                //    {
+                //        case 0:
+                //            break;
+                //        case 1:
+                //            checker += 1;
+                //            fileName = "";
+                //            break;
+                //    }
+                //    attempts = 0;
+                //}
+
+                if (checker == 0)
+                {
+                    ClearConsole();
+                    //attempts += 1;
+                    ConsoleError($"{fileName} does not exist in this directory, try again\n");
+                    fileName = Console.ReadLine();
+                }
+            }
+
+            return fileName;
+        }
+
+        //SAVE FILE AS...
+        public static string ConsoleSaveAs(string path, string saveDirectory)
+        {
+            
+            string extension = Path.GetExtension(path);
+            string rawFileName = Console.ReadLine();
+            string newFileName = rawFileName + extension;
+
+            string uniqueFile = Path.Combine(saveDirectory, newFileName);
+            while (File.Exists(uniqueFile))
+            {
+                ClearConsole();
+                ConsoleError($"{rawFileName} already exists, please enter another name (don't add .jpg)\n");
+                rawFileName = Console.ReadLine();
+                newFileName = rawFileName + extension;
+                uniqueFile = Path.Combine(saveDirectory, newFileName);
+            }
+
+            return newFileName;
         }
 
         //CLEAR CONSOLE

@@ -14,7 +14,7 @@ namespace PhotoMax
             // SAVE CHANGES GENERAL
             GeneralSaveDataList = new List<string>()
             {
-                "Yes! Go back to options",
+                "Yes! Go back to editing options",
                 "No! Try again",
                 "No! Go back to options",
                 "Yes! Continue applying changes"
@@ -23,7 +23,7 @@ namespace PhotoMax
             // SAVE CHANGES FILTERS
             FilterSaveDataList = new List<string>()
             {
-                "Yes! Go back to options",
+                "Yes! Go back to editing options",
                 "No! Try another filter",
                 "No! Go back to options",
                 "Yes! Apply another filter"
@@ -52,19 +52,23 @@ namespace PhotoMax
             switch (op)
             {
                 case 0:
-                    IOUser.ConsoleOutput("Changes Saved! Going back to image editor");
+                    IOUser.ClearConsole();
+                    IOUser.ConsoleOutput("Changes Saved! Going back to editing options");
                     Thread.Sleep(2000);
                     break;
                 case 1:
+                    IOUser.ClearConsole();
                     IOUser.ConsoleOutput("Going back to text inserter");
                     Thread.Sleep(2000);
                     break;
                 case 2:
+                    IOUser.ClearConsole();
                     IOUser.ConsoleOutput("Changes Discarded! Going back to image editor");
                     Thread.Sleep(2000);
                     break;
                 case 3:
-                    IOUser.ConsoleOutput("Changes Saved! Going back to text inserter");
+                    IOUser.ClearConsole();
+                    IOUser.ConsoleOutput("Changes Saved! Going back to *SELECTED WORKING STATION*");
                     Thread.Sleep(2000);
                     break;
             }
@@ -80,29 +84,33 @@ namespace PhotoMax
             switch (op)
             {
                 case 0:
-                    Console.WriteLine("\nEnter a name for the new image (remember to add .jpg):\n");
-                    newFileName = Console.ReadLine();
+                    IOUser.ClearConsole();
+                    Console.WriteLine("\nEnter a name for the new image (don't add .jpg):\n");
+                    newFileName = IOUser.ConsoleSaveAs(imageFile.Origin, saveDirectory);
                     newPath = Path.Combine(saveDirectory, newFileName);
                     File.Copy(imageFile.Origin, newPath);
-                    IOUser.ConsoleOutput("Changes Saved! Going back to image editor");
+                    IOUser.ConsoleOutput("Changes Saved! Going back to editing options");
                     imageFile.Bpm.Save(newPath);
                     imageFile.Bpm.Dispose();
                     Thread.Sleep(2000);
                     break;
                 case 1:
+                    IOUser.ClearConsole();
                     IOUser.ConsoleOutput("Going back to filter select");
                     Thread.Sleep(2000);
                     break;
                 case 2:
+                    IOUser.ClearConsole();
                     IOUser.ConsoleOutput("Changes Discarded! Going back to image editor");
                     Thread.Sleep(2000);
                     break;
                 case 3:
+                    IOUser.ClearConsole();
                     Console.WriteLine("\nEnter a name for the new image (don't add .jpg):\n");
-                    newFileName = Console.ReadLine();
+                    newFileName = IOUser.ConsoleSaveAs(imageFile.Origin, saveDirectory);
                     newPath = Path.Combine(saveDirectory, newFileName);
                     File.Copy(imageFile.Origin, newPath);
-                    IOUser.ConsoleOutput("Changes Saved! Going back to image editor");
+                    IOUser.ConsoleOutput("Changes Saved! Going back to filter select");
                     imageFile.Bpm.Save(newPath);
                     imageFile.Bpm.Dispose();
                     Thread.Sleep(2000);

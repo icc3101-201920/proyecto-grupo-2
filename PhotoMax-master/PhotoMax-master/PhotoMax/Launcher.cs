@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace PhotoMax
 {
@@ -49,19 +50,25 @@ namespace PhotoMax
                 IOUser.ConsoleListOutput("Select one of the following options:", importer.ImportList);
                 searchOption = IOUser.ConsoleReadInput(importer.ImportList);
                 IOUser.ClearConsole();
-                if (searchOption == 3 && Directory.EnumerateFiles(importer.importDirectory).Any() == false)
+
+                if (searchOption == 3 && !Directory.EnumerateFiles(importer.importDirectory).Any())
                 {
                     IOUser.ConsoleError("Import directory is empty...");
+                    Thread.Sleep(2000);
+                    IOUser.ClearConsole();
                     continue;
                 }
+
                 ImageFile imageFile = importer.ImportPath(searchOption);
 
                 if (searchOption == 0)
                 {
                     break;
                 }
-                if (searchOption == 1)
+
+                if (searchOption == 1 || searchOption == 2)
                 {
+                    IOUser.ClearConsole();
                     continue;
                 }
 

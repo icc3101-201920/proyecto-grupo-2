@@ -1,0 +1,187 @@
+[33mcommit 9873ee90a53031e5d2b6dd054a6d03098d6cb7ba[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Felipe Román <you@example.com>
+Date:   Wed Oct 16 21:23:55 2019 -0300
+
+    Importer alfa version
+
+[33mcommit 9b99427860784e918912813759383f5e9738e69c[m
+Author: Joaquín Barrientos <53538542+JoaquinPBarrientos@users.noreply.github.com>
+Date:   Wed Oct 16 18:55:22 2019 -0300
+
+    Create README.md
+
+[33mcommit d1cc1fa922a9c62a14a827cdfc8351a1ca458778[m
+Author: Joaquín Barrientos <53538542+JoaquinPBarrientos@users.noreply.github.com>
+Date:   Wed Oct 16 18:43:38 2019 -0300
+
+    Update README.md
+
+[33mcommit f13d4b91df5fec6a12520035ed845963956db90a[m
+Author: Joaquín Barrientos <53538542+JoaquinPBarrientos@users.noreply.github.com>
+Date:   Wed Oct 16 18:43:11 2019 -0300
+
+    Update README.md
+
+[33mcommit df0c7a141c091b30243901cd3f04ed83caf619de[m
+Author: unknown <fjmiranda4iuandes.cl>
+Date:   Wed Oct 16 11:52:53 2019 -0300
+
+    half text
+
+[33mcommit e83101826271f2ae004307ff84d2af4bf18efef7[m
+Author: unknown <fjmiranda4iuandes.cl>
+Date:   Wed Oct 16 11:52:00 2019 -0300
+
+    generic path
+
+[33mcommit 326254ec358abc7fa996418f2245561306f47bce[m
+Author: Felipe Román <you@example.com>
+Date:   Wed Oct 16 00:01:22 2019 -0300
+
+    PhotoMax 2.0
+
+[33mcommit cea0cb153d76696b7345fd2a6d29014d581d89b4[m
+Author: unknown <fjmiranda4iuandes.cl>
+Date:   Tue Oct 15 16:15:01 2019 -0300
+
+    texto implementado
+
+[33mcommit a73583223e61b9ab91a96930076bbb22d6e5033d[m
+Author: Felipe Román <you@example.com>
+Date:   Tue Oct 15 14:19:15 2019 -0300
+
+    minor fix
+
+[33mcommit 935d556891a245f025323faf2919d1b8e05f22d9[m
+Author: Felipe Román <you@example.com>
+Date:   Mon Oct 14 23:22:57 2019 -0300
+
+    Various changes
+
+[33mcommit 7bc8fb44822d2e30b09058f336c14e37a7af590d[m
+Author: Felipe Román <you@example.com>
+Date:   Mon Oct 7 21:10:09 2019 -0300
+
+    Static classes checked
+
+[33mcommit 6bce216e30ef8641ca4d44f02dfd958f1bc0ebf9[m
+Author: Felipe Román <you@example.com>
+Date:   Fri Oct 4 23:04:07 2019 -0300
+
+    Save option functional / Search filter by file location or directory implemented
+
+[33mcommit d990be0b6a0fed41729fea2928ae76329748cb79[m
+Author: Joaquin Barrientos <joaquinbarrientos@MacBook-Pro-de-Joaquin-4.local>
+Date:   Thu Sep 26 02:27:45 2019 -0300
+
+     new 'filter' DIAMOND WAFFLE! it uses other filters
+
+[33mcommit f8d6f63d8462e646a8f4b62bcc31896c0529f39e[m
+Author: Joaquin Barrientos <joaquinbarrientos@MacBook-Pro-de-Joaquin-4.local>
+Date:   Thu Sep 26 01:56:26 2019 -0300
+
+     new filter 'Acid' added, and its methods in program
+
+[33mcommit f5e66ae871ce8b77df14e5380c84fd9385d20f13[m
+Author: Felipe Román <you@example.com>
+Date:   Thu Sep 26 00:44:33 2019 -0300
+
+    tomaso filter
+
+[33mcommit 7375fbcc6b30abffdd394cb29806968f29b0c32d[m
+Merge: 8b28b77 00719ef
+Author: Joaquin Barrientos <joaquinbarrientos@MacBook-Pro-de-Joaquin-4.local>
+Date:   Wed Sep 25 23:52:36 2019 -0300
+
+    Merge branch 'master' of https://github.com/icc3101-201920/proyecto-grupo-2
+
+[33mcommit 8b28b77eb86054af267664a4aad697bde135a698[m
+Author: Joaquin Barrientos <joaquinbarrientos@MacBook-Pro-de-Joaquin-4.local>
+Date:   Wed Sep 25 23:52:03 2019 -0300
+
+    changes for tests
+
+[33mcommit 00719ef8157e560e6691439fcbe3fe3f57031a20[m
+Author: unknown <fjmiranda4iuandes.cl>
+Date:   Wed Sep 25 23:41:22 2019 -0300
+
+    ultimo filtro
+
+[33mcommit c2bde61ca6381cb193f31138b5e0a8a5419faf3f[m
+Author: Joaquin Barrientos <joaquinbarrientos@MacBook-Pro-de-Joaquin-4.local>
+Date:   Wed Sep 25 23:17:32 2019 -0300
+
+     added a example image to work with
+
+[33mcommit 7657703b0a64cccf0f22f8145fe479f3ff7b6c7b[m
+Author: Joaquin Barrientos <joaquinbarrientos@MacBook-Pro-de-Joaquin-4.local>
+Date:   Wed Sep 25 23:02:51 2019 -0300
+
+    added method filters in program options
+
+[33mcommit d3a49fd201043e6149d20ef0cbc97fa84fd74161[m
+Author: Joaquin Barrientos <joaquinbarrientos@MacBook-Pro-de-Joaquin-4.local>
+Date:   Wed Sep 25 22:58:44 2019 -0300
+
+    added method filters in program options
+
+[33mcommit cc6e44a701b633fe29eab97ffa715896161ad878[m
+Author: Joaquin Barrientos <joaquinbarrientos@MacBook-Pro-de-Joaquin-4.local>
+Date:   Wed Sep 25 22:49:14 2019 -0300
+
+    added Greyscale and negative filter method
+
+[33mcommit 1c86ec6807be4b7a006eb621be62d1306bb979d6[m
+Merge: 117a5c6 f8ed583
+Author: Joaquin Barrientos <joaquinbarrientos@MacBook-Pro-de-Joaquin-4.local>
+Date:   Wed Sep 25 22:38:44 2019 -0300
+
+    Merge branch 'master' of https://github.com/icc3101-201920/proyecto-grupo-2
+
+[33mcommit 117a5c6a627e6970e12de5afb485cc89a2c90559[m
+Author: Joaquin Barrientos <joaquinbarrientos@MacBook-Pro-de-Joaquin-4.local>
+Date:   Wed Sep 25 22:37:02 2019 -0300
+
+    Added sepiafilter method
+
+[33mcommit f8ed5838035c22e2bcfbfb19872ce1b8d539cf82[m
+Author: Felipe Román <you@example.com>
+Date:   Wed Sep 25 22:30:13 2019 -0300
+
+    image test location
+
+[33mcommit c076e019c68cd8f571d9406b29b5769a1e08ed86[m
+Author: Felipe Román <you@example.com>
+Date:   Wed Sep 25 22:20:34 2019 -0300
+
+    filter comments
+
+[33mcommit 50f5ccf7bd4c34618cd584a713f5040a478eb207[m
+Author: Felipe Román <you@example.com>
+Date:   Wed Sep 25 22:09:07 2019 -0300
+
+    save changes filters
+
+[33mcommit c1eceb864a928dfa7e98b829f8bd411738cac4c3[m
+Author: Joaquin Barrientos <joaquinbarrientos@MacBook-Pro-de-Joaquin-4.local>
+Date:   Wed Sep 25 21:58:43 2019 -0300
+
+    Added Serializable to all classes
+
+[33mcommit aed99d7dcbc2150a18ad83e120a5cf916aa2e481[m
+Author: Felipe Román <you@example.com>
+Date:   Wed Sep 25 21:43:01 2019 -0300
+
+    User Interface implemented
+
+[33mcommit 72cc0a3a6f7695fd2606839d5e4231f70245ee95[m
+Author: unknown <fjmiranda4iuandes.cl>
+Date:   Tue Sep 24 15:41:31 2019 -0300
+
+    Entrega2
+
+[33mcommit c3b7127fb6dbbf0e4b0ff0cab4ab9d8c730a05c1[m
+Author: unknown <fjmiranda4iuandes.cl>
+Date:   Tue Sep 24 09:30:15 2019 -0300
+
+    entrega2

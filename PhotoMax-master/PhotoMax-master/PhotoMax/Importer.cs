@@ -22,11 +22,14 @@ namespace PhotoMax
             };
 
             importDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../../PM-Images/Imports");
+            
+            extensionTypes = new List<string>() { ".jpg", ".jpeg", ".png", ".bpm" };
         }
 
 
         public List<string> ImportList { get; set; }
         public string importDirectory { get; set; }
+        List<string> extensionTypes { get; set; }
 
         public ImageFile ImportPath(int op)
         {
@@ -43,14 +46,15 @@ namespace PhotoMax
                     break;
 
                 case 2:
-                    IOUser.ConsoleError("NOT YET IMPLEMENTED");
-                    //string directory = IOUser.ConsoleReadPath(1);
-                    //string fileName = IOUser.ConsoleReadFileName(directory);
-                    //path = Path.Combine(directory, fileName);
+                    List<string> paths = IOUser.ConsoleReadDirectory(extensionTypes);
+                    foreach(string p in paths)
+                    {
+                        File.Copy(p, Path.Combine(importDirectory, Path.GetFileName(p)));
+                    }
                     break;
 
                 case 3:
-                    path = IOUser.ConsoleReadPath(2);
+                    path = IOUser.ConsoleReadFileName(importDirectory, extensionTypes);
                     break;
 
                 case 4:
@@ -65,11 +69,11 @@ namespace PhotoMax
 
             // C:/Users/Francisco/Desktop/proyecto-grupo-2/PhotoMax-master/PhotoMax-master/PhotoMax
 
-            if (op == 3 /*|| /*op == 4*/)
+            if (op == 3)
             {
-
                 imageFile = new ImageFile(path);
             }
+
             return imageFile;
         }
 
