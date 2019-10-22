@@ -51,27 +51,14 @@ namespace PhotoMax
                 searchOption = IOUser.ConsoleReadInput(importer.ImportList);
                 IOUser.ClearConsole();
 
-                if (searchOption == 3 && !Directory.EnumerateFiles(importer.importDirectory).Any())
-                {
-                    IOUser.ConsoleError("Import directory is empty...");
-                    Thread.Sleep(2000);
-                    IOUser.ClearConsole();
-                    continue;
-                }
+                if (searchOption == 0) {break;}
 
-                ImageFile imageFile = importer.ImportPath(searchOption);
+                string path = importer.ImportPath(searchOption);
 
-                if (searchOption == 0)
-                {
-                    break;
-                }
+                if (path == "/%void%/") {IOUser.ClearConsole(); continue;}
 
-                if (searchOption == 1 || searchOption == 2)
-                {
-                    IOUser.ClearConsole();
-                    continue;
-                }
 
+                ImageFile imageFile = new ImageFile(path);
 
                 int editingOption = -1;
                 while (editingOption != 0)

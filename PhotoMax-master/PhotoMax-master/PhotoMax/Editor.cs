@@ -5,15 +5,13 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
- 
-
+using System.IO;
 
 namespace PhotoMax
 {
     [Serializable]
     public static class Editor
     {
-
         public static void TEXT(Bitmap bitmap, string itText, string itColour, int itFontSize, int itXCoordinates, int itYCoordinates)
 
         {   string firstText = itText;
@@ -30,6 +28,7 @@ namespace PhotoMax
             //bitmap.Save(imageFilePath);//save the image file
         }
 
+        
     }
 
 }

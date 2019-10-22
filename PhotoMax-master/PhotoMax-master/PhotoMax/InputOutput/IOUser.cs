@@ -58,141 +58,129 @@ namespace PhotoMax.InputOutput
         //USER OPTION
         public static int ConsoleReadInput(List<string> list = null)
         {
-            string option = Console.ReadLine();
-            int optionNumber = ConsoleVerifyInput(option);
-            while (optionNumber <= -1 || optionNumber >= list.Count)
-            {
-                ConsoleError("Input must be a valid option\n");
-                option = Console.ReadLine();
-                optionNumber = ConsoleVerifyInput(option);
-            }
-
-            return optionNumber;
-        }
-
-        //USER OPTION MUST BE INT
-        public static int ConsoleVerifyInput(string op)
-        {
+            bool valid = false;
             int optionNumber;
-            while ((!int.TryParse(op, out optionNumber)))
+            while (!valid)
             {
-                ConsoleError("Input must be a number\n");
-                op = Console.ReadLine();
+                if (int.TryParse(Console.ReadLine(), out optionNumber))
+                {
+                    if (optionNumber >= 0 && optionNumber < list.Count)
+                    {
+                        return optionNumber;
+                    }
+                    else
+                    {
+                        ConsoleError($"The option ({optionNumber}) is not valid, try again");
+                    }
+                }
+                else
+                {
+                    ConsoleError("Input must be a number, try again\n");
+                }
             }
-            return optionNumber;
+            return -1;
         }
 
         //PATH INPUT
         public static string ConsoleReadPath()
         {
-            ConsoleOutput("Enter the path of the image file:\n");
-            string path = Console.ReadLine();
-            while (!File.Exists(path))
-            {
-                ConsoleError("The file or path does not exist, try again\n");
-                path = Console.ReadLine();
-            }
+            bool valid = false;
 
-            return path;
+            ConsoleOutput("Enter the path of the image file (to go back enter -1): \n");  
+            while (!valid)
+            {
+                string path = Console.ReadLine();
+                if (path == "-1")
+                {
+                    return "/%void%/";
+                }
+                if (File.Exists(path))
+                {
+                    return path;
+                }
+                else
+                {
+                    ConsoleError("The file or path does not exist, try again\n");
+                }
+            }  
+            return "/%void%/";
         }
 
         //DIRECTORY INPUT
         public static List<string> ConsoleReadDirectory(List<string> extensionTypes)
         {
-            List<string> paths = new List<string>();
-            while (true)
+            bool valid = false;
+            while (!valid)
             {
                 ClearConsole();
-                ConsoleOutput("Enter the path of the directory:\n");
+                List<string> paths = new List<string>();
+                ConsoleOutput("Enter the path of the directory (to go back enter -1):\n");
                 string path = Console.ReadLine();
-                while (!Directory.Exists(path))
+
+                if (path == "-1")
                 {
-                    ClearConsole();
-                    ConsoleError("The directory or path does not exist, try again\n");
-                    path = Console.ReadLine();
+                    return new List<string>() {"/%void%/"};
                 }
 
-                if (!Directory.EnumerateFiles(path).Any())
+                if (Directory.Exists(path))
                 {
-                    ClearConsole();
-                    ConsoleError("The directory is empty...");
-                    continue;
-                }
-
-                paths = new List<string>();
-                string[] allFiles = Directory.GetFiles(path);
-
-                foreach (string file in allFiles)
-                {
-                    foreach (string i in extensionTypes)
+                    if (!Directory.EnumerateFiles(path).Any())
                     {
-                        if (Path.GetExtension(file) == i)
+                        ClearConsole();
+                        ConsoleError("The directory is empty...");
+                        Thread.Sleep(1500);
+                        continue;
+                    }
+
+                    string[] allFiles = Directory.GetFiles(path);
+                    foreach (string file in allFiles)
+                    {
+                        foreach (string i in extensionTypes)
                         {
-                            paths.Add(file);
+                            if (Path.GetExtension(file) == i)
+                            {
+                                paths.Add(file);
+                            }
                         }
                     }
+                    if (!paths.Any())
+                    {
+                        ClearConsole();
+                        ConsoleError("No compatible files to import...");
+                        paths = new List<string>();
+                        Thread.Sleep(1500);
+                        continue;
+                    }
                 }
-
-                if (!paths.Any())
-                {
-                    ClearConsole();
-                    ConsoleError("No compatible files to import...");
-                    continue;
-                }
-
-                break;
             }
-
-            return paths;
+            return new List<string>(){"/%void%/"};
         }
 
         //FILE INPUT
         public static string ConsoleReadFileName(string importDirectory, List<string> extensionTypes)
         {
-            string fileName;
-            ConsoleOutput("Enter the image file's name (don't add .jpg):\n");
-            fileName = Console.ReadLine();
+            bool valid = false;
 
-            int checker = 0;
-            //int attempts = 0;
-            //List<string> YNList = new List<string>() {"No", "Yes"};
-            while (checker == 0)
+            ConsoleOutput("Enter the image file's name (don't add .jpg and to go back enter -1):\n");
+            while (!valid)
             {
+                string fileName = Console.ReadLine();
+                if (fileName == "-1")
+                {
+                    return "/%void%/";
+                }
                 foreach (string i in extensionTypes)
                 {
-                    if (File.Exists(Path.Combine(importDirectory, fileName +i )))
+                    if (File.Exists(Path.Combine(importDirectory, fileName + i)))
                     {
-                        checker += 1;
                         fileName = Path.Combine(importDirectory, fileName + i);
+                        return fileName;
                     }
                 }
 
-                //if (attempts == 3)
-                //{
-                //    ConsoleError($"Do you want to go back?\n");
-                //    int op = ConsoleReadInput(YNList);
-                //    switch (op)
-                //    {
-                //        case 0:
-                //            break;
-                //        case 1:
-                //            checker += 1;
-                //            fileName = "";
-                //            break;
-                //    }
-                //    attempts = 0;
-                //}
-
-                if (checker == 0)
-                {
-                    ClearConsole();
-                    //attempts += 1;
-                    ConsoleError($"{fileName} does not exist in this directory, try again\n");
-                    fileName = Console.ReadLine();
-                }
+                ConsoleError($"{fileName} does not exist in this directory, try again\n");
             }
-
-            return fileName;
+            return "/%void%/";
         }
 
         //SAVE FILE AS...

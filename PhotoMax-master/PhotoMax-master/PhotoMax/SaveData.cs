@@ -25,7 +25,7 @@ namespace PhotoMax
             {
                 "Yes! Go back to editing options",
                 "No! Try another filter",
-                "No! Go back to options",
+                "No! Go back to editing options",
                 "Yes! Apply another filter"
             };
 
@@ -58,7 +58,7 @@ namespace PhotoMax
                     break;
                 case 1:
                     IOUser.ClearConsole();
-                    IOUser.ConsoleOutput("Going back to text inserter");
+                    IOUser.ConsoleOutput("Changes Discarded! Going back to text inserter");
                     Thread.Sleep(2000);
                     break;
                 case 2:
@@ -68,7 +68,7 @@ namespace PhotoMax
                     break;
                 case 3:
                     IOUser.ClearConsole();
-                    IOUser.ConsoleOutput("Changes Saved! Going back to *SELECTED WORKING STATION*");
+                    IOUser.ConsoleOutput("Going back to *SELECTED WORKING STATION*");
                     Thread.Sleep(2000);
                     break;
             }
@@ -96,8 +96,8 @@ namespace PhotoMax
                     break;
                 case 1:
                     IOUser.ClearConsole();
-                    IOUser.ConsoleOutput("Going back to filter select");
-                    Thread.Sleep(2000);
+                    IOUser.ConsoleOutput("Changes Discarded! Going back to filter select");
+                    Thread.Sleep(1500);
                     break;
                 case 2:
                     IOUser.ClearConsole();
@@ -106,14 +106,8 @@ namespace PhotoMax
                     break;
                 case 3:
                     IOUser.ClearConsole();
-                    Console.WriteLine("\nEnter a name for the new image (don't add .jpg):\n");
-                    newFileName = IOUser.ConsoleSaveAs(imageFile.Origin, saveDirectory);
-                    newPath = Path.Combine(saveDirectory, newFileName);
-                    File.Copy(imageFile.Origin, newPath);
-                    IOUser.ConsoleOutput("Changes Saved! Going back to filter select");
-                    imageFile.Bpm.Save(newPath);
-                    imageFile.Bpm.Dispose();
-                    Thread.Sleep(2000);
+                    IOUser.ConsoleOutput("Going back to filter select");
+                    Thread.Sleep(1500);
                     break;
             }
             return op;
