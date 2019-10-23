@@ -7,8 +7,13 @@ namespace PhotoMax
     [Serializable]
     public static class Filters
     {
-        public static void Sepia(Bitmap bmp)
+        public static Bitmap Sepia(Bitmap originalBmp)
         {
+            RectangleF cloneRect = new RectangleF(0, 0, originalBmp.Width, originalBmp.Height);
+            System.Drawing.Imaging.PixelFormat format =
+                originalBmp.PixelFormat;
+            Bitmap bmp = originalBmp.Clone(cloneRect, format);
+
             Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
             System.Drawing.Imaging.BitmapData bmpData =
                 bmp.LockBits(rect, System.Drawing.Imaging.ImageLockMode.ReadWrite,
@@ -36,10 +41,16 @@ namespace PhotoMax
             System.Runtime.InteropServices.Marshal.Copy(rgbValues, 0, ptr, bytes);
 
             bmp.UnlockBits(bmpData);
+            return bmp;
         }
 
-        public static void GreyScale(Bitmap bmp)
+        public static Bitmap GreyScale(Bitmap originalBmp)
         {
+            RectangleF cloneRect = new RectangleF(0, 0, originalBmp.Width, originalBmp.Height);
+            System.Drawing.Imaging.PixelFormat format =
+                originalBmp.PixelFormat;
+            Bitmap bmp = originalBmp.Clone(cloneRect, format);
+
             Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
             System.Drawing.Imaging.BitmapData bmpData =
                 bmp.LockBits(rect, System.Drawing.Imaging.ImageLockMode.ReadWrite,
@@ -68,10 +79,16 @@ namespace PhotoMax
             System.Runtime.InteropServices.Marshal.Copy(rgbValues, 0, ptr, bytes);
 
             bmp.UnlockBits(bmpData);
+            return bmp;
         }
 
-        public static void Negative(Bitmap bmp)
+        public static Bitmap Negative(Bitmap originalBmp)
         {
+            RectangleF cloneRect = new RectangleF(0, 0, originalBmp.Width, originalBmp.Height);
+            System.Drawing.Imaging.PixelFormat format =
+                originalBmp.PixelFormat;
+            Bitmap bmp = originalBmp.Clone(cloneRect, format);
+
             Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
             System.Drawing.Imaging.BitmapData bmpData =
                 bmp.LockBits(rect, System.Drawing.Imaging.ImageLockMode.ReadWrite,
@@ -99,11 +116,18 @@ namespace PhotoMax
             System.Runtime.InteropServices.Marshal.Copy(rgbValues, 0, ptr, bytes);
 
             bmp.UnlockBits(bmpData);
+            return bmp;
         }
 
-        public static void Blossom(Bitmap bmp)
+        public static Bitmap Blossom(Bitmap originalBmp)
         {
-            Negative(bmp);
+            originalBmp = Negative(originalBmp);
+
+            RectangleF cloneRect = new RectangleF(0, 0, originalBmp.Width, originalBmp.Height);
+            System.Drawing.Imaging.PixelFormat format =
+                originalBmp.PixelFormat;
+            Bitmap bmp = originalBmp.Clone(cloneRect, format);
+
             Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
             System.Drawing.Imaging.BitmapData bmpData =
                 bmp.LockBits(rect, System.Drawing.Imaging.ImageLockMode.ReadWrite,
@@ -131,13 +155,15 @@ namespace PhotoMax
             System.Runtime.InteropServices.Marshal.Copy(rgbValues, 0, ptr, bytes);
 
             bmp.UnlockBits(bmpData);
+            return bmp;
         }
 
-        public static void OldMovie(Bitmap bmp)
+        public static Bitmap OldMovie(Bitmap originalBmp)
         {
-            Blossom(bmp);
-            Negative(bmp);
-            Sepia(bmp);
+            Bitmap bmp = Blossom(originalBmp);
+            bmp = Negative(bmp);
+            bmp = Sepia(bmp);
+            return bmp;
         }
         public static double max255(double c)
         {

@@ -1,6 +1,7 @@
 ﻿using PhotoMax.InputOutput;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Threading;
@@ -20,6 +21,13 @@ namespace PhotoMax
                 "Yes! Continue applying changes"
             };
 
+            // SAVE CHANGES PRODUCTION
+            ProductionSaveDataList = new List<string>()
+            {
+                "Yes! Go back to editing options",
+                "No! Go back to editing options"
+            };
+
             // SAVE CHANGES FILTERS
             FilterSaveDataList = new List<string>()
             {
@@ -30,7 +38,7 @@ namespace PhotoMax
             };
 
             // YES OR NO
-            YNList = new List<string>()
+            YNListSD = new List<string>()
             {
                 "No",
                 "Yes"
@@ -43,7 +51,8 @@ namespace PhotoMax
 
         public List<string> GeneralSaveDataList { get; set; }
         public List<string> FilterSaveDataList { get; set; }
-        public List<string> YNList { get; set; }
+        public List<string> ProductionSaveDataList { get; set; }
+        public List<string> YNListSD { get; set; }
         public string saveDirectory { get; set; }
 
         public int GSaveDataOptions(ImageFile imageFile)
@@ -63,7 +72,7 @@ namespace PhotoMax
                     break;
                 case 2:
                     IOUser.ClearConsole();
-                    IOUser.ConsoleOutput("Changes Discarded! Going back to image editor");
+                    IOUser.ConsoleOutput("Changes Discarded! Going back to editing options");
                     Thread.Sleep(2000);
                     break;
                 case 3:
@@ -75,7 +84,7 @@ namespace PhotoMax
             return op;
         }
 
-        public int FilterSaveDataOptions(ImageFile imageFile)
+        public int FilterSaveDataOptions(ImageFile imageFile, Bitmap filter)
         {
             string newFileName;
             string newPath;
@@ -90,8 +99,8 @@ namespace PhotoMax
                     newPath = Path.Combine(saveDirectory, newFileName);
                     File.Copy(imageFile.Origin, newPath);
                     IOUser.ConsoleOutput("Changes Saved! Going back to editing options");
+                    imageFile.Bpm = filter;
                     imageFile.Bpm.Save(newPath);
-                    imageFile.Bpm.Dispose();
                     Thread.Sleep(2000);
                     break;
                 case 1:
@@ -101,16 +110,44 @@ namespace PhotoMax
                     break;
                 case 2:
                     IOUser.ClearConsole();
-                    IOUser.ConsoleOutput("Changes Discarded! Going back to image editor");
+                    IOUser.ConsoleOutput("Changes Discarded! Going back to editing options");
                     Thread.Sleep(2000);
                     break;
                 case 3:
                     IOUser.ClearConsole();
                     IOUser.ConsoleOutput("Going back to filter select");
+                    imageFile.Bpm = filter;
                     Thread.Sleep(1500);
                     break;
             }
             return op;
+        }
+
+        public void ProductionSaveDataOptions(string originBMPpath, Bitmap newBMP)
+        {
+            string newFileName;
+            string newPath;
+
+            int op = IOUser.ConsoleReadInput(ProductionSaveDataList);
+            switch (op)
+            {
+                case 0:
+                    IOUser.ClearConsole();
+                    Console.WriteLine("\nEnter a name for the new image (don't add .jpg):\n");
+                    newFileName = IOUser.ConsoleSaveAs(originBMPpath, saveDirectory);
+                    newPath = Path.Combine(saveDirectory, newFileName);
+                    File.Copy(originBMPpath, newPath);
+                    IOUser.ConsoleOutput("Changes Saved! Going back to editing options");
+                    newBMP.Save(newPath);
+                    Thread.Sleep(2000);
+                    break;
+                case 1:
+                    IOUser.ClearConsole();
+                    IOUser.ConsoleOutput("Changes Discarded! Going back to editing options");
+                    Thread.Sleep(2000);
+                    break;
+            }
+
         }
 
     }

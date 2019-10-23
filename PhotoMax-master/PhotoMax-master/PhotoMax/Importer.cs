@@ -23,6 +23,20 @@ namespace PhotoMax
                 "USE TEST1.JPG (REMOVE OPTION LATER)"
             };
 
+            // LIST OF SEARCH OPTIONS
+            SelectMoreImages = new List<string>()
+            {
+                "Back to image production",
+                "Select another image from Import folder"
+            };
+
+            // YES OR NO
+            YNListI = new List<string>()
+            {
+                "No",
+                "Yes"
+            };
+
             importDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../../PM-Images/Imports");
             
             extensionTypes = new List<string>() { ".jpg", ".jpeg", ".png", ".bpm" };
@@ -30,6 +44,8 @@ namespace PhotoMax
 
 
         public List<string> ImportList { get; set; }
+        public List<string> SelectMoreImages { get; set; }
+        public List<string> YNListI { get; set; }
         public string importDirectory { get; set; }
         List<string> extensionTypes { get; set; }
 
@@ -94,6 +110,76 @@ namespace PhotoMax
 
             return workingPath;
         }
+        public List<string> MoreImages(int op, List<string> fusionImgs)
+        {
+            List<string> backOP = new List<string>() { "/%void%/" };
+            switch (op)
+            {
+                case 0:
+                    return backOP;
 
-    }
+                case 1:
+                    bool valid = false;
+                    
+                    int moreOption = -1;
+                    while (!valid)
+                    {
+                        while (moreOption == -1) 
+                        {
+                            IOUser.ClearConsole();
+                            string path = IOUser.ConsoleReadFileName(importDirectory, extensionTypes, "Enter the image name to select from import folder:\n");
+                            if (path != "/%void%/" && !fusionImgs.Contains(path))
+                            {
+                                fusionImgs.Add(path);
+                                break;
+                            }
+                            if (fusionImgs.Contains(path))
+                            {
+                                IOUser.ConsoleError("Image already selected...\n");
+                                Thread.Sleep(1000);
+                            }
+                            else
+                            {
+                                IOUser.ClearConsole();
+                                IOUser.ConsoleListOutput("Go back to image production menu?", YNListI);
+                                moreOption = IOUser.ConsoleReadInput(YNListI) - 1;
+                                if(moreOption == 0)
+                                {
+                                    return new List<string>() { "/%void%/" };
+                                }
+                            }
+                        }
+
+                        IOUser.ClearConsole();
+                        IOUser.ConsoleListOutput("Use another image?", YNListI);
+                        moreOption = IOUser.ConsoleReadInput(YNListI);
+                        if (moreOption == 0)
+                        {
+                            return fusionImgs;
+                        }
+                        else
+                        {
+                            IOUser.ClearConsole();
+                            string path = IOUser.ConsoleReadFileName(importDirectory, extensionTypes, "Enter the image name to select from import folder:\n");
+                            if (path != "/%void%/" && !fusionImgs.Contains(path))
+                            {
+                                fusionImgs.Add(path);
+                                continue;
+                            }
+                            if (fusionImgs.Contains(path))
+                            {
+                                IOUser.ConsoleError("Image already selected...\n");
+                                Thread.Sleep(1000);
+                            }
+                            continue;
+                        }
+                    }
+                    return backOP;
+
+                    //MORE CASES
+            }
+
+            return backOP;
+        }
+    }   
 }

@@ -157,11 +157,18 @@ namespace PhotoMax.InputOutput
         }
 
         //FILE INPUT
-        public static string ConsoleReadFileName(string importDirectory, List<string> extensionTypes)
+        public static string ConsoleReadFileName(string importDirectory, List<string> extensionTypes, string title="")
         {
             bool valid = false;
-
-            ConsoleOutput("Enter the image file's name (don't add .jpg and to go back enter -1):\n");
+            if (title == "")
+            {
+                ConsoleOutput("Enter the image file's name (don't add .jpg and to go back enter -1):\n");
+            }
+            else
+            {
+                ConsoleOutput(title);
+            }
+            
             while (!valid)
             {
                 string fileName = Console.ReadLine();

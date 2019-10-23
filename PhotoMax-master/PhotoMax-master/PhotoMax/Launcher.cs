@@ -1,6 +1,7 @@
 ﻿using PhotoMax.InputOutput;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -33,10 +34,20 @@ namespace PhotoMax
                 "Blossom",
                 "Old Movie"
             };
+
+            // LIST OF IMAGE FILTERS
+            ProductionList = new List<string>()
+            {
+                "Back to image editor",
+                "Fusion",
+                "Mosaic",
+                "Collage"
+            };
         }
 
         public List<string> EditingList { get; set; }
         public List<string> FilterList { get; set; }
+        public List<string> ProductionList { get; set; }
 
         public void Launch()
         {
@@ -79,13 +90,15 @@ namespace PhotoMax
                                 IOUser.ConsoleListOutput("Select one of the following filters:", FilterList);
                                 int filterOption = IOUser.ConsoleReadInput(FilterList);
 
+                                Bitmap filter = imageFile.Bpm; //
+
                                 switch (filterOption) //IMAGE FILTERS
                                 {
                                     case 0:
                                         break;
                                     case 1: //GRAY SCALE
 
-                                        Filters.GreyScale(imageFile.Bpm);
+                                        filter = Filters.GreyScale(imageFile.Bpm);
                                         IOUser.ConsoleOutput("Filter applied successfully!");
                                         IOUser.ConsoleError("SHOW IMAGE"); //SHOW
                                         Console.WriteLine("\nPress any key to continue");
@@ -93,7 +106,7 @@ namespace PhotoMax
                                         break;
                                     case 2: //NEGATIVE
 
-                                        Filters.Negative(imageFile.Bpm);
+                                        filter = Filters.Negative(imageFile.Bpm);
                                         IOUser.ConsoleOutput("Filter applied successfully!");
                                         IOUser.ConsoleError("SHOW IMAGE"); //SHOW
                                         Console.WriteLine("\nPress any key to continue");
@@ -101,7 +114,7 @@ namespace PhotoMax
                                         break;
                                     case 3: //SEPIA
 
-                                        Filters.Sepia(imageFile.Bpm);
+                                        filter = Filters.Sepia(imageFile.Bpm);
                                         IOUser.ConsoleOutput("Filter applied successfully!");
                                         IOUser.ConsoleError("SHOW IMAGE"); //SHOW
                                         Console.WriteLine("\nPress any key to continue");
@@ -109,7 +122,7 @@ namespace PhotoMax
                                         break;
                                     case 4: //BLOSSOM
 
-                                        Filters.Blossom(imageFile.Bpm);
+                                        filter = Filters.Blossom(imageFile.Bpm);
                                         IOUser.ConsoleOutput("Filter applied successfully!");
                                         IOUser.ConsoleError("SHOW IMAGE"); //SHOW
                                         Console.WriteLine("\nPress any key to continue");
@@ -117,7 +130,7 @@ namespace PhotoMax
                                         break;
                                     case 5: //OLD MOVIE
 
-                                        Filters.OldMovie(imageFile.Bpm);
+                                        filter = Filters.OldMovie(imageFile.Bpm);
                                         IOUser.ConsoleOutput("Filter applied successfully!");
                                         IOUser.ConsoleError("SHOW IMAGE"); //SHOW
                                         Console.WriteLine("\nPress any key to continue");
@@ -125,21 +138,83 @@ namespace PhotoMax
                                         break;
                                 }
 
+                                if (filterOption == 0) { break; }
 
                                 IOUser.ClearConsole();
                                 IOUser.ConsoleListOutput("Apply changes?", saveData.FilterSaveDataList);
-                                saveDataOption1 = saveData.FilterSaveDataOptions(imageFile);
+                                saveDataOption1 = saveData.FilterSaveDataOptions(imageFile, filter);
                                 IOUser.ClearConsole();
 
                             }
                             break;
 
                         case 2:
-                            IOUser.ClearConsole();
-                            IOUser.ConsoleError("NOT YET IMPLEMENTED");
-                            Console.WriteLine("\nPress any key to continue");
-                            Console.ReadLine();
+                            int productionOption = -1;
+                            while (productionOption != 0)
+                            {
+                                IOUser.ClearConsole();
+                                IOUser.ConsoleListOutput("Select one of the following production options:", ProductionList);
+                                productionOption = IOUser.ConsoleReadInput(ProductionList);
+
+                                switch (productionOption) //IMAGE PRODUCTION
+                                {
+                                    case 0:
+                                        break;
+                                    case 1: //FUSION
+
+                                        IOUser.ClearConsole();
+                                        IOUser.ConsoleListOutput("Select one of the following options:", importer.SelectMoreImages);
+                                        int moreImgOp = IOUser.ConsoleReadInput(importer.SelectMoreImages);
+                                        if (moreImgOp == 0) { break; }
+
+                                        List<string> fusionList = new List<string> { imageFile.Origin };
+                                        fusionList = importer.MoreImages(moreImgOp, fusionList);
+                                        if (fusionList[0] == "/%void%/") { break; }
+
+
+                                        List<Bitmap> fusionListBMP = new List<Bitmap>();
+                                        fusionListBMP.Add(imageFile.Bpm);
+                                        foreach (string f in fusionList)
+                                        {
+                                            fusionListBMP.Add(new Bitmap(f));
+                                        }
+
+                                        string productionBase = Editor.getSmallerImage(fusionList);
+                                        Bitmap fusionBMP = Editor.Fusion(fusionListBMP);
+
+                                        IOUser.ConsoleError("SHOW IMAGE"); //SHOW
+                                        Console.WriteLine("\nPress any key to continue");
+                                        Console.ReadLine();
+
+                                        IOUser.ClearConsole();
+                                        IOUser.ConsoleListOutput("Apply changes?", saveData.ProductionSaveDataList);
+                                        saveData.ProductionSaveDataOptions(productionBase, fusionBMP);
+                                        IOUser.ClearConsole();
+
+                                        productionOption = 0;
+                                        break;
+                                    case 2: //MOSAIC
+
+                                        IOUser.ClearConsole();
+                                        IOUser.ConsoleError("NOT YET IMPLEMENTED");
+                                        Console.WriteLine("\nPress any key to continue");
+                                        Console.ReadLine();
+
+                                        productionOption = 0;
+                                        break;
+                                    case 3: //COLLAGE
+
+                                        IOUser.ClearConsole();
+                                        IOUser.ConsoleError("NOT YET IMPLEMENTED");
+                                        Console.WriteLine("\nPress any key to continue");
+                                        Console.ReadLine();
+
+                                        productionOption = 0;
+                                        break;
+                                }
+                            }
                             break;
+
 
                         case 3:
                             IOUser.ClearConsole();
