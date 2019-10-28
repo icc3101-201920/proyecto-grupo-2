@@ -1,7 +1,10 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoMax", "PhotoMax\PhotoMax.csproj", "{4946A44F-E8B5-42DA-B4D0-3150B86962CE}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29123.88
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhotoMax", "PhotoMax\PhotoMax.csproj", "{4946A44F-E8B5-42DA-B4D0-3150B86962CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotomaxForm", "PhotomaxForm\PhotomaxForm.csproj", "{1752D4FC-6D83-4438-8ECA-D3FD358916E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,5 +16,15 @@ Global
 		{4946A44F-E8B5-42DA-B4D0-3150B86962CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4946A44F-E8B5-42DA-B4D0-3150B86962CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4946A44F-E8B5-42DA-B4D0-3150B86962CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1752D4FC-6D83-4438-8ECA-D3FD358916E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1752D4FC-6D83-4438-8ECA-D3FD358916E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1752D4FC-6D83-4438-8ECA-D3FD358916E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1752D4FC-6D83-4438-8ECA-D3FD358916E4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C5AB200D-D813-4999-885C-304B3350D922}
 	EndGlobalSection
 EndGlobal
