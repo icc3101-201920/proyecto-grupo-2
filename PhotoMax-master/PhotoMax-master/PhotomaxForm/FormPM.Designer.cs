@@ -166,6 +166,7 @@
             this.btnNext2.TabIndex = 3;
             this.btnNext2.Text = "Next";
             this.btnNext2.UseVisualStyleBackColor = true;
+            this.btnNext2.Click += new System.EventHandler(this.BtnNext2_Click);
             // 
             // btnBack2
             // 
