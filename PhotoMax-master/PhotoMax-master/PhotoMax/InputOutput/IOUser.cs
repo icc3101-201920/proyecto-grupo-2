@@ -81,6 +81,25 @@ namespace PhotoMax.InputOutput
             return -1;
         }
 
+        //USER OPTION
+        public static int ConsoleReadNumber()
+        {
+            bool valid = false;
+            int optionNumber;
+            while (!valid)
+            {
+                if (int.TryParse(Console.ReadLine(), out optionNumber))
+                {
+                    return optionNumber;
+                }
+                else
+                {
+                    ConsoleError("Input must be a number, try again\n");
+                }
+            }
+            return -1;
+        }
+
         //PATH INPUT
         public static string ConsoleReadPath()
         {
