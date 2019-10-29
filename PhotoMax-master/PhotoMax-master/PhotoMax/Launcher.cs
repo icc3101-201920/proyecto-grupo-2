@@ -20,7 +20,7 @@ namespace PhotoMax
                 "Apply Filter",
                 "Image Production",
                 "Insert Text",
-                "Rotate"
+                "Rotate Image"
             };
 
             // LIST OF IMAGE FILTERS
@@ -76,12 +76,14 @@ namespace PhotoMax
                     IOUser.ClearConsole();
                     IOUser.ConsoleListOutput("Select one of the following options:", EditingList);
                     editingOption = IOUser.ConsoleReadInput(EditingList);
+
                     switch (editingOption)  //PHOTO EDITING OPTIONS
                     {
                         case 0:
                             break;
 
-                        case 1:
+                        case 1:  //IMAGE FILTERS
+
                             int saveDataOption1 = 1;
                             while ((saveDataOption1 == 1) || (saveDataOption1 == 3))
                             {
@@ -91,7 +93,7 @@ namespace PhotoMax
 
                                 Bitmap filter = imageFile.Bpm; //
 
-                                switch (filterOption) //IMAGE FILTERS
+                                switch (filterOption)
                                 {
                                     case 0:
                                         break;
@@ -222,20 +224,21 @@ namespace PhotoMax
                             string itText = Console.ReadLine();
 
                             List<string> ColorList = new List<string>() { "Black", "White", "Red", "Green", "Blue", "Gray" };
-                            IOUser.ConsoleListOutput("Select a color:\n", ColorList);
+                            IOUser.ConsoleListOutput("Select a color:", ColorList);
                             int colorOption = IOUser.ConsoleReadInput(ColorList);
 
-                            IOUser.ConsoleOutput("Insert font size (bigger font is recomended for large images)\n");
+                            IOUser.ConsoleOutput("Insert font size (bigger font is recomended for large images):\n");
                             int itFontSize = IOUser.ConsoleReadNumber();
 
-                            IOUser.ConsoleOutput($"Select x coordinates ():\n");
+                            IOUser.ConsoleOutput($"Select x coordinates (for reference your image has {imageFile.Bpm.Width} of width):\n");
                             int itXCoordinates = IOUser.ConsoleReadNumber();
 
-                            IOUser.ConsoleOutput("Select y coordinates:\n");
+                            IOUser.ConsoleOutput($"Select y coordinates (for reference your image has {imageFile.Bpm.Height} of height):\n");
                             int itYCoordinates = IOUser.ConsoleReadNumber();
 
                             Bitmap textBMP = Editor.TEXT(imageFile.Bpm, itText, ColorList[colorOption], itFontSize, itXCoordinates, itYCoordinates);
 
+                            IOUser.ClearConsole();
                             IOUser.ConsoleOutput("Text inserted successfully!");
                             IOUser.ConsoleError("SHOW IMAGE"); //SHOW
                             Console.WriteLine("\nPress any key to continue");
@@ -251,7 +254,6 @@ namespace PhotoMax
                         case 4:    //IMAGE ROTATOR 
 
                             IOUser.ClearConsole();
-
                             List<string> RotateList = new List<string>() { "By 270°", "By 90°", "By 180°"};
 
                             IOUser.ConsoleListOutput("By how many degrees you want to rotate the image (clockwise)?", RotateList);
