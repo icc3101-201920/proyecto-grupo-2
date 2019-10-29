@@ -21,7 +21,7 @@ namespace PhotoMax
                 "Yes! Continue applying changes"
             };
 
-            // SAVE CHANGES PRODUCTION
+            // SAVE CHANGES PRODUCTION (TEXT TOO)
             ProductionSaveDataList = new List<string>()
             {
                 "Yes! Go back to editing options",
