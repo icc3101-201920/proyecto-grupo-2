@@ -29,16 +29,22 @@ namespace PhotoMax
             {
                 using (Font arialFont = new Font("Arial",itFontSize))
                 {
-                    graphics.DrawString(firstText, arialFont, Brushes.Black, firstLocation);
+                    if (itColour == "Black") { graphics.DrawString(firstText, arialFont, Brushes.Black, firstLocation); }
+                    if (itColour == "White") { graphics.DrawString(firstText, arialFont, Brushes.White, firstLocation); }
+                    if (itColour == "Red") { graphics.DrawString(firstText, arialFont, Brushes.Red, firstLocation); }
+                    if (itColour == "Green") { graphics.DrawString(firstText, arialFont, Brushes.Green, firstLocation); }
+                    if (itColour == "Blue") { graphics.DrawString(firstText, arialFont, Brushes.Blue, firstLocation); }
+                    if (itColour == "Gray") { graphics.DrawString(firstText, arialFont, Brushes.Gray, firstLocation); }
                 }
             }
-            //bitmap.Save(imageFilePath);//save the image file
             return bitmap;
         }
 
         public static Bitmap Fusion(List<Bitmap> bmpList)
         {
-            
+
+            Console.WriteLine("\nThis may take a while, please wait...\n");
+
             int w = (from bmpx in bmpList select (bmpx.Width * bmpx.Height)).Min();
             Bitmap smallerBmp = (from bmpx in bmpList where (bmpx.Width * bmpx.Height) == w select bmpx).ToList()[0];
 

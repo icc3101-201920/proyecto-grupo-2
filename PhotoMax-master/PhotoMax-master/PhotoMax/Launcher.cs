@@ -20,8 +20,7 @@ namespace PhotoMax
                 "Apply Filter",
                 "Image Production",
                 "Insert Text",
-                "Rotate",
-                "Show Image"
+                "Rotate"
             };
 
             // LIST OF IMAGE FILTERS
@@ -216,72 +215,69 @@ namespace PhotoMax
                             break;
 
 
-                        case 3:
-                            IOUser.ClearConsole();
-                            
+                        case 3:   //TEXT INSERTER 
 
+                            IOUser.ClearConsole();
                             IOUser.ConsoleOutput("Write the text you want to insert:\n");
                             string itText = Console.ReadLine();
 
-                            IOUser.ConsoleOutput("Insert colour:\n");
-                            string itColour = Console.ReadLine(); //MAKE LIST WITH VALID COLORS! MEANWHILE BLACK IS DEFAULT
+                            List<string> ColorList = new List<string>() { "Black", "White", "Red", "Green", "Blue", "Gray" };
+                            IOUser.ConsoleListOutput("Select a color:\n", ColorList);
+                            int colorOption = IOUser.ConsoleReadInput(ColorList);
 
-
-                            IOUser.ConsoleOutput("Insert font size\n");
+                            IOUser.ConsoleOutput("Insert font size (bigger font is recomended for large images)\n");
                             int itFontSize = IOUser.ConsoleReadNumber();
 
-                            IOUser.ConsoleOutput("Select x coordinates:\n");
+                            IOUser.ConsoleOutput($"Select x coordinates ():\n");
                             int itXCoordinates = IOUser.ConsoleReadNumber();
 
                             IOUser.ConsoleOutput("Select y coordinates:\n");
                             int itYCoordinates = IOUser.ConsoleReadNumber();
 
+                            Bitmap textBMP = Editor.TEXT(imageFile.Bpm, itText, ColorList[colorOption], itFontSize, itXCoordinates, itYCoordinates);
+
                             IOUser.ConsoleOutput("Text inserted successfully!");
-                            Bitmap textBMP = Editor.TEXT(imageFile.Bpm, itText, itColour, itFontSize, itXCoordinates, itYCoordinates);
                             IOUser.ConsoleError("SHOW IMAGE"); //SHOW
                             Console.WriteLine("\nPress any key to continue");
                             Console.ReadLine();
 
                             IOUser.ClearConsole();
-                            IOUser.ConsoleListOutput("Apply changes?", saveData.ProductionSaveDataList);
-                            saveData.ProductionSaveDataOptions(imageFile.Origin, textBMP);
+                            IOUser.ConsoleListOutput("Apply changes?", saveData.ProductionAlterSaveDataList);
+                            saveData.ProductionAlterSaveDataOptions(imageFile, textBMP);
                             IOUser.ClearConsole();
 
                             break;
 
-                        case 4:
+                        case 4:    //IMAGE ROTATOR 
+
                             IOUser.ClearConsole();
-                            int saveDataOption4 = -1;
-                            while ((saveDataOption4 == 1) || (saveDataOption4 == 3)) //IMAGE ROTATOR
-                            {
-                                IOUser.ClearConsole();
-                                IOUser.ConsoleError("NOT YET IMPLEMENTED");
-                                Console.WriteLine("\nPress any key to continue");
-                                Console.ReadLine();
-                                break;
 
-                                //IOUser.ConsoleOutput("Select by how many degrees you want to rotate (clockwise):\n");
-                                //int rotDegrees = IOUser.ConsoleReadInput();
+                            List<string> RotateList = new List<string>() { "By 270°", "By 90°", "By 180°"};
 
-                                //IOUser.ConsoleOutput("Image rotated successfully!");
-                                //IOUser.ConsoleError("SHOW IMAGE"); //SHOW
-                                //Console.WriteLine("\nPress any key to continue");
-                                //Console.ReadLine();
+                            IOUser.ConsoleListOutput("By how many degrees you want to rotate the image (clockwise)?", RotateList);
+                            int rotateOption = IOUser.ConsoleReadInput(RotateList);
 
-                                //IOUser.ClearConsole();
-                                //IOUser.ConsoleListOutput("Apply changes?", saveData.GeneralSaveDataList);
-                                //saveDataOption4 = saveData.GSaveDataOptions(imageFile);
-                                //IOUser.ClearConsole();
+                            RotateFlipType applyRotate = RotateFlipType.RotateNoneFlipNone; //BASE
+                            if (rotateOption == 1) { applyRotate = RotateFlipType.Rotate90FlipNone; }
+                            if (rotateOption == 2) { applyRotate = RotateFlipType.Rotate180FlipNone; }
+                            if (rotateOption == 0) { applyRotate = RotateFlipType.Rotate270FlipNone; }
 
-                            }
-                            break;
+                            Bitmap rotate = imageFile.Bpm; //
+                            rotate.RotateFlip(applyRotate);
 
-                        case 5:
-                            IOUser.ClearConsole();
-                            IOUser.ConsoleError("SHOW IMAGE");
-                            Console.WriteLine("\nPress any key to go back to editing options");
+
+                            IOUser.ConsoleOutput("Image rotated successfully!");
+                            IOUser.ConsoleError("SHOW IMAGE"); //SHOW
+                            Console.WriteLine("\nPress any key to continue");
                             Console.ReadLine();
+
+                            IOUser.ClearConsole();
+                            IOUser.ConsoleListOutput("Apply changes?", saveData.ProductionAlterSaveDataList);
+                            saveData.ProductionAlterSaveDataOptions(imageFile, rotate);
+                            IOUser.ClearConsole();
+
                             break;
+
                             //MORE CASES
 
 
@@ -290,7 +286,6 @@ namespace PhotoMax
                     IOUser.ClearConsole();
                 }
             }
-
 
         }
 

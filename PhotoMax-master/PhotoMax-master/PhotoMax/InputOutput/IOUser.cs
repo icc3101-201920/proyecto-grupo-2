@@ -81,7 +81,7 @@ namespace PhotoMax.InputOutput
             return -1;
         }
 
-        //USER OPTION
+        //USER NUMBER INPUT
         public static int ConsoleReadNumber()
         {
             bool valid = false;
