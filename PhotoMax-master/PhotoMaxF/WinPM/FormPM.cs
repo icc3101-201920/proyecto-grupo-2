@@ -31,6 +31,10 @@ namespace WinPM
 
         //EJ: en el caso anterior pasaríamos del panel 6 --> 7 --> 8. 
 
+        PhotoMaxF.Importer importer = new PhotoMaxF.Importer();
+        PhotoMaxF.SaveData SaveData = new PhotoMaxF.SaveData();
+        PhotoMaxF.Launcher launcher = new PhotoMaxF.Launcher();
+        
         
         public FormPM()
         {
@@ -39,7 +43,7 @@ namespace WinPM
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         private void Label1_Click(object sender, EventArgs e)
@@ -71,19 +75,47 @@ namespace WinPM
         {
 
         }
-
-        private void CheckBox2option3_CheckedChanged(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void BtnNext2_Click(object sender, EventArgs e)
+        private void btn2Enterpath_Click(object sender, EventArgs e)
         {
-            // En next tengo que pasar al siguiente menu dependiendo la opción que yo elegí
-            //en los checkbox anteriores
 
+        }
+
+        private void btn2Option1_Click(object sender, EventArgs e)
+        {
+            midPanel3Option1.Visible = true;
+            Topanel3Op1.Visible = true;
+            label3Option1.Visible = true;
+            textBox3EnterPath.Visible = true;
+            btn3EnterPath.Visible = true;
+
+        }
+
+        private void panel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btn3EnterPath_Click(object sender, EventArgs e)
+        {
+            string Path;
+            
+            Path = textBox3EnterPath.Text;
             
 
+            
+        }
+
+        private void textBox3EnterPath_TextChanged(object sender, EventArgs e)
+        {
+            string Path;
+            Path = textBox3EnterPath.Text;
+
+             
         }
     }
 }
