@@ -2,7 +2,7 @@
 using DlibDotNet;
 using DlibDotNet.Extensions;
 using Dlib = DlibDotNet.Dlib;
-namespace PhotoMax
+namespace PhotoMaxF
 {
     public static class FaceDetector
     {
