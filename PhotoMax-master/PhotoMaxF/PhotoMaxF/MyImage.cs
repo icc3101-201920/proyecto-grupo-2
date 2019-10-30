@@ -5,7 +5,7 @@ using ExifLib;
 using MetadataExtractor;
 using MetadataExtractor.Formats.Exif;
 
-namespace PhotoMax
+namespace PhotoMaxF
 {
     [Serializable]
     public class MyImage

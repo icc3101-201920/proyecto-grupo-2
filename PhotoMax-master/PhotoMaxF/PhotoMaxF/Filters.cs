@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Drawing.Imaging;
 
-namespace PhotoMax
+namespace PhotoMaxF
 {
     [Serializable]
     public static class Filters

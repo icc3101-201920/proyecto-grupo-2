@@ -5,12 +5,12 @@ using ExifLib;
 using MetadataExtractor;
 using MetadataExtractor.Formats.Exif;
 using System.IO;
-using PhotoMax.InputOutput;
+using PhotoMaxF.InputOutput;
 using System.Collections.Generic;
 using static System.Net.Mime.MediaTypeNames;
 using System.Threading;
 
-namespace PhotoMax
+namespace PhotoMaxF
 {
     class Program
     {

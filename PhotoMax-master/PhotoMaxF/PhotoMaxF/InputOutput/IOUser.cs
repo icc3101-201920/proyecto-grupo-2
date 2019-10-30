@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Threading;
 
-namespace PhotoMax.InputOutput
+namespace PhotoMaxF.InputOutput
 {
     public static class IOUser
     {
@@ -72,6 +72,25 @@ namespace PhotoMax.InputOutput
                     {
                         ConsoleError($"The option ({optionNumber}) is not valid, try again");
                     }
+                }
+                else
+                {
+                    ConsoleError("Input must be a number, try again\n");
+                }
+            }
+            return -1;
+        }
+
+        //USER NUMBER INPUT
+        public static int ConsoleReadNumber()
+        {
+            bool valid = false;
+            int optionNumber;
+            while (!valid)
+            {
+                if (int.TryParse(Console.ReadLine(), out optionNumber))
+                {
+                    return optionNumber;
                 }
                 else
                 {
