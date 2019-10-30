@@ -27,7 +27,23 @@ namespace PhotoMax
             }
         }
 
+        public static int Number(string file)
+        {
+            using (var fd = Dlib.GetFrontalFaceDetector())
+            {
+                var img = Dlib.LoadImage<RgbPixel>(file);
 
+                int number = 0;
+
+                var faces = fd.Operator(img);
+
+                foreach (var face in faces)
+                {
+                    number += 1;
+
+                }
+                return number;
+            }
+        }
     }
-
 }
