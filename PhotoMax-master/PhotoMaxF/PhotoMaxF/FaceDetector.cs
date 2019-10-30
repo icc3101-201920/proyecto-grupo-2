@@ -12,7 +12,7 @@ namespace PhotoMax
             {
                 var img = Dlib.LoadImage<RgbPixel>(file);
 
-
+                //hola
                 var faces = fd.Operator(img);
 
                 foreach (var face in faces)
