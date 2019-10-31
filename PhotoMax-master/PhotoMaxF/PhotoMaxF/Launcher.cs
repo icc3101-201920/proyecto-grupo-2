@@ -61,7 +61,7 @@ namespace PhotoMaxF
                 searchOption = IOUser.ConsoleReadInput(importer.ImportList);
                 IOUser.ClearConsole();
 
-                if (searchOption == 0) {break;}
+                if (searchOption == 0) { IOUser.ConsoleExit(); Thread.Sleep(2500); break;}
 
                 string path = importer.ImportPath(searchOption);
 

@@ -18,6 +18,7 @@ namespace PhotoMaxF
         {
             Launcher launcher = new Launcher();
             launcher.Launch();
+            
         }
     }
 }
