@@ -37,12 +37,6 @@ namespace PhotoMaxF
                 "Yes"
             };
 
-
-            importDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../../PM-Images/Imports");
-            //C:/Users/Francisco/Desktop/Proyecto-Grupo2/PhotoMax-master/PhotoMaxF/PM-Images/Imports
-            // C:\Users\Francisco\Desktop\Proyecto-Grupo2\PhotoMax-master\PhotoMaxF\PM-Images\Imports
-
-
             importDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\PM-Images\\Imports");
             
 
