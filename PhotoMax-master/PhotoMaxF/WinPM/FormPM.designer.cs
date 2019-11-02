@@ -48,6 +48,10 @@
             this.btn3EnterPath = new System.Windows.Forms.Button();
             this.MidPanel4Menu = new System.Windows.Forms.Panel();
             this.TopPanel4Menu = new System.Windows.Forms.Panel();
+            this.btn4Filter = new System.Windows.Forms.Button();
+            this.btn4ImageProd = new System.Windows.Forms.Button();
+            this.btn4InsertText = new System.Windows.Forms.Button();
+            this.btn4RotateImage = new System.Windows.Forms.Button();
             this.topPanel2.SuspendLayout();
             this.midPanel.SuspendLayout();
             this.bottonPanel2.SuspendLayout();
@@ -55,6 +59,7 @@
             this.Topanel3Op1.SuspendLayout();
             this.midPanel2.SuspendLayout();
             this.midPanel3Option1.SuspendLayout();
+            this.MidPanel4Menu.SuspendLayout();
             this.SuspendLayout();
             // 
             // topPanel2
@@ -249,6 +254,10 @@
             // 
             // MidPanel4Menu
             // 
+            this.MidPanel4Menu.Controls.Add(this.btn4RotateImage);
+            this.MidPanel4Menu.Controls.Add(this.btn4InsertText);
+            this.MidPanel4Menu.Controls.Add(this.btn4ImageProd);
+            this.MidPanel4Menu.Controls.Add(this.btn4Filter);
             this.MidPanel4Menu.Location = new System.Drawing.Point(-3, -1);
             this.MidPanel4Menu.Name = "MidPanel4Menu";
             this.MidPanel4Menu.Size = new System.Drawing.Size(773, 267);
@@ -261,6 +270,51 @@
             this.TopPanel4Menu.Name = "TopPanel4Menu";
             this.TopPanel4Menu.Size = new System.Drawing.Size(773, 38);
             this.TopPanel4Menu.TabIndex = 1;
+            // 
+            // btn4Filter
+            // 
+            this.btn4Filter.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn4Filter.Location = new System.Drawing.Point(6, 3);
+            this.btn4Filter.Name = "btn4Filter";
+            this.btn4Filter.Size = new System.Drawing.Size(399, 40);
+            this.btn4Filter.TabIndex = 0;
+            this.btn4Filter.Text = "Apply Filter";
+            this.btn4Filter.UseVisualStyleBackColor = true;
+            this.btn4Filter.Visible = false;
+            this.btn4Filter.Click += new System.EventHandler(this.btn5Filter_Click);
+            // 
+            // btn4ImageProd
+            // 
+            this.btn4ImageProd.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn4ImageProd.Location = new System.Drawing.Point(6, 66);
+            this.btn4ImageProd.Name = "btn4ImageProd";
+            this.btn4ImageProd.Size = new System.Drawing.Size(399, 40);
+            this.btn4ImageProd.TabIndex = 1;
+            this.btn4ImageProd.Text = "Image Production";
+            this.btn4ImageProd.UseVisualStyleBackColor = true;
+            this.btn4ImageProd.Visible = false;
+            // 
+            // btn4InsertText
+            // 
+            this.btn4InsertText.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn4InsertText.Location = new System.Drawing.Point(3, 128);
+            this.btn4InsertText.Name = "btn4InsertText";
+            this.btn4InsertText.Size = new System.Drawing.Size(399, 40);
+            this.btn4InsertText.TabIndex = 2;
+            this.btn4InsertText.Text = "Insert Text";
+            this.btn4InsertText.UseVisualStyleBackColor = true;
+            this.btn4InsertText.Visible = false;
+            // 
+            // btn4RotateImage
+            // 
+            this.btn4RotateImage.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn4RotateImage.Location = new System.Drawing.Point(6, 189);
+            this.btn4RotateImage.Name = "btn4RotateImage";
+            this.btn4RotateImage.Size = new System.Drawing.Size(399, 40);
+            this.btn4RotateImage.TabIndex = 3;
+            this.btn4RotateImage.Text = "Rotate Image";
+            this.btn4RotateImage.UseVisualStyleBackColor = true;
+            this.btn4RotateImage.Visible = false;
             // 
             // FormPM
             // 
@@ -286,6 +340,7 @@
             this.midPanel2.ResumeLayout(false);
             this.midPanel3Option1.ResumeLayout(false);
             this.midPanel3Option1.PerformLayout();
+            this.MidPanel4Menu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -312,6 +367,10 @@
         private System.Windows.Forms.Button btn3EnterPath;
         private System.Windows.Forms.Panel TopPanel4Menu;
         private System.Windows.Forms.Panel MidPanel4Menu;
+        private System.Windows.Forms.Button btn4Filter;
+        private System.Windows.Forms.Button btn4RotateImage;
+        private System.Windows.Forms.Button btn4InsertText;
+        private System.Windows.Forms.Button btn4ImageProd;
     }
 }
 
