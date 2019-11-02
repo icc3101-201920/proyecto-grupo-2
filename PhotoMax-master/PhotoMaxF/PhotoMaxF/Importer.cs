@@ -37,10 +37,15 @@ namespace PhotoMaxF
                 "Yes"
             };
 
+<<<<<<< HEAD
             importDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../../PM-Images/Imports");
             //C:/Users/Francisco/Desktop/Proyecto-Grupo2/PhotoMax-master/PhotoMaxF/PM-Images/Imports
             // C:\Users\Francisco\Desktop\Proyecto-Grupo2\PhotoMax-master\PhotoMaxF\PM-Images\Imports
 
+=======
+            importDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\PM-Images\\Imports");
+            
+>>>>>>> 763dcf2da1a1d66a1caebf2b25df0812649be6df
             extensionTypes = new List<string>() { ".jpg", ".jpeg", ".png", ".bpm" };
         }
 
@@ -58,7 +63,6 @@ namespace PhotoMaxF
             switch (op)
             {
                 case 0:
-                    IOUser.ConsoleExit();
                     break;
 
                 case 1:
@@ -95,18 +99,14 @@ namespace PhotoMaxF
                     }
 
                 case 4:
-                    IOUser.ConsoleError("NOT YET IMPLEMENTED...");
-                    Console.WriteLine("\nPress any key to continue");
-                    Console.ReadLine();
+                    //IOUser.ConsoleError("NOT YET IMPLEMENTED...");
+                    //Console.WriteLine("\nPress any key to continue");
+                    //Console.ReadLine();
 
                     //GENERIC TEST EXAMPLE
-                    path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../test1.jpg");
-
-                    // C:/Users/Francisco/Desktop/proyecto-grupo-2/PhotoMax-master/PhotoMax-master/PhotoMax
+                    path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\test1.jpg");
 
                     return path;
-
-                    //return workingPath;
                 
             }
 

@@ -53,7 +53,7 @@ namespace PhotoMaxF
             };
 
             //DEFAULT SAVE DIRECTORY
-            saveDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../../PM-Images/Results");
+            saveDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\PM-Images\\Results");
         }
 
 
@@ -136,7 +136,7 @@ namespace PhotoMaxF
         {
             string newFileName;
             string newPath;
-            string importFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../../PM-Images/Imports");
+            string importFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\PM-Images\\Imports");
 
             int op = IOUser.ConsoleReadInput(ProductionSaveDataList);
             switch (op)
