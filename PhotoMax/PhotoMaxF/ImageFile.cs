@@ -27,6 +27,8 @@ namespace PhotoMaxF
         private int height;
         private int width;
         private string make;
+        private string origin;
+        private Bitmap bpm;
 
 
 
@@ -110,9 +112,17 @@ namespace PhotoMaxF
             Bpm = new Bitmap(Origin);
         }
 
-        public string Origin { get; set; }
+        public string Origin
+        {
+            get => origin;
+            set => origin = value;
+        }
 
-        public Bitmap Bpm { get; set; }
+        public Bitmap Bpm
+        {
+            get => bpm;
+            set => bpm = value;
+        }
 
         public double Aperture
         {
