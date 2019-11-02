@@ -46,7 +46,8 @@ namespace WinPM
         // --> cuando se apriete cierto boton : pueda ingresar texto
         // --> cuando apriete cierto boton me muestre todas las propiedades de una foto
         // --> cuando apriete cierto boton, guarde la foto en una carpeta
-        //
+        // --> cuando escriba el path y aprete "enter" logre reconocer que hay una foto ahi y ese archivo se tiene que usar
+        // --> 
         public FormPM()
         {
             InitializeComponent();
@@ -116,6 +117,13 @@ namespace WinPM
             string Path;
             
             Path = textBox3EnterPath.Text;
+            MidPanel4Menu.Visible = true;
+            btn4Filter.Visible = true;
+            btn4ImageProd.Visible = true;
+            btn4InsertText.Visible = true;
+            btn4RotateImage.Visible = true;
+            btn3EnterPath.Visible = false;
+            
             
 
             
@@ -129,9 +137,17 @@ namespace WinPM
              
         }
 
-        private void btn5Filter_Click(object sender, EventArgs e)
+        private void btn4Filter_Click(object sender, EventArgs e)
         {
-
+            MidPanel5Filter.Visible = true;
+            btn5FilterGrayscale.Visible = true;
+            btn5FilterAqua.Visible = true;
+            btn5filterRed.Visible = true;
+            btn5FilterSepia.Visible = true;
+            // trun off panels
+            btn4InsertText.Visible = false;
+            btn4ImageProd.Visible = false;
+            btn4RotateImage.Visible = false;
         }
     }
 }
