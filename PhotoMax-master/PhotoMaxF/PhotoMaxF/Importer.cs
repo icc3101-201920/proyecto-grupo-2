@@ -38,7 +38,9 @@ namespace PhotoMaxF
             };
 
             importDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../../../PM-Images/Imports");
-            
+            //C:/Users/Francisco/Desktop/Proyecto-Grupo2/PhotoMax-master/PhotoMaxF/PM-Images/Imports
+            // C:\Users\Francisco\Desktop\Proyecto-Grupo2\PhotoMax-master\PhotoMaxF\PM-Images\Imports
+
             extensionTypes = new List<string>() { ".jpg", ".jpeg", ".png", ".bpm" };
         }
 
@@ -63,7 +65,7 @@ namespace PhotoMaxF
                     path = IOUser.ConsoleReadPath();
                     if (path != "/%void%/")
                     {
-                        File.Copy(path, Path.Combine(importDirectory, Path.GetFileName(path)));
+                            File.Copy(path, Path.Combine(importDirectory, Path.GetFileName(path)));
                     }
                     return workingPath;
 
