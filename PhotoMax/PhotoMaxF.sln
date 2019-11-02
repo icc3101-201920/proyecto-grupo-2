@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoMaxF", "PhotoMaxF\PhotoMaxF.csproj", "{B4C7FEAC-BE9A-4191-A9C9-69952ABA8CF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinPM", "WinPM\WinPM.csproj", "{BA8DE42B-D6E7-4AAF-A73E-A6A50D03B62C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B4C7FEAC-BE9A-4191-A9C9-69952ABA8CF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4C7FEAC-BE9A-4191-A9C9-69952ABA8CF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4C7FEAC-BE9A-4191-A9C9-69952ABA8CF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4C7FEAC-BE9A-4191-A9C9-69952ABA8CF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA8DE42B-D6E7-4AAF-A73E-A6A50D03B62C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA8DE42B-D6E7-4AAF-A73E-A6A50D03B62C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA8DE42B-D6E7-4AAF-A73E-A6A50D03B62C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA8DE42B-D6E7-4AAF-A73E-A6A50D03B62C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7DB86118-97A4-4A9A-8ED9-C31EA59A8FC5}
+	EndGlobalSection
+EndGlobal
