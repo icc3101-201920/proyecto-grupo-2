@@ -34,8 +34,19 @@ namespace WinPM
         PhotoMaxF.Importer importer = new PhotoMaxF.Importer();
         PhotoMaxF.SaveData SaveData = new PhotoMaxF.SaveData();
         PhotoMaxF.Launcher launcher = new PhotoMaxF.Launcher();
-        
-        
+
+        public event EventHandler OnApplyFilter;
+        public event EventHandler OnApplyText;
+        public event EventHandler OnRotateImage;
+        public event EventHandler OnImageProduction;
+        public event EventHandler OnSaveImage;
+
+        //Hay que hacer eventos que hagan lo siguiente
+        // --> cuando se apriete cierto boton : haga una aplicacion de filtros
+        // --> cuando se apriete cierto boton : pueda ingresar texto
+        // --> cuando apriete cierto boton me muestre todas las propiedades de una foto
+        // --> cuando apriete cierto boton, guarde la foto en una carpeta
+        //
         public FormPM()
         {
             InitializeComponent();
@@ -116,6 +127,11 @@ namespace WinPM
             Path = textBox3EnterPath.Text;
 
              
+        }
+
+        private void btn5Filter_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
