@@ -28,108 +28,133 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.topPanel2 = new System.Windows.Forms.Panel();
-            this.Topanel3Op1 = new System.Windows.Forms.Panel();
-            this.TopPanel4Menu = new System.Windows.Forms.Panel();
-            this.label3Option1 = new System.Windows.Forms.Label();
-            this.label2intro = new System.Windows.Forms.Label();
-            this.midPanel = new System.Windows.Forms.Panel();
+            this.topPanelMainMenu = new System.Windows.Forms.Panel();
+            this.TopanelEnterPath = new System.Windows.Forms.Panel();
+            this.TopPanelEditingOptions = new System.Windows.Forms.Panel();
+            this.TopPanelApplyFilter = new System.Windows.Forms.Panel();
+            this.labelFilterOption = new System.Windows.Forms.Label();
+            this.labelEnterPathsingle = new System.Windows.Forms.Label();
+            this.labelMainMenu = new System.Windows.Forms.Label();
+            this.midPanelPhotomax = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.bottonPanel2 = new System.Windows.Forms.Panel();
-            this.btnBack2 = new System.Windows.Forms.Button();
+            this.bottonPanelMainMenu = new System.Windows.Forms.Panel();
+            this.btnExitMainMenu = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
-            this.bottonPanel1 = new System.Windows.Forms.Panel();
-            this.midPanel2 = new System.Windows.Forms.Panel();
-            this.midPanel3Option1 = new System.Windows.Forms.Panel();
-            this.MidPanel4Menu = new System.Windows.Forms.Panel();
-            this.btn4RotateImage = new System.Windows.Forms.Button();
-            this.btn4InsertText = new System.Windows.Forms.Button();
-            this.btn4ImageProd = new System.Windows.Forms.Button();
-            this.btn4Filter = new System.Windows.Forms.Button();
-            this.btn3EnterPath = new System.Windows.Forms.Button();
-            this.textBox3EnterPath = new System.Windows.Forms.TextBox();
-            this.btn2Option1 = new System.Windows.Forms.Button();
-            this.btn2option4 = new System.Windows.Forms.Button();
-            this.btn2option3 = new System.Windows.Forms.Button();
-            this.btn2option2 = new System.Windows.Forms.Button();
-            this.MidPanel5Filter = new System.Windows.Forms.Panel();
-            this.TopPanel5Filter = new System.Windows.Forms.Panel();
-            this.label5FilterPath = new System.Windows.Forms.Label();
-            this.btn5FilterSepia = new System.Windows.Forms.Button();
-            this.btn5FilterGrayscale = new System.Windows.Forms.Button();
-            this.btn5FilterAqua = new System.Windows.Forms.Button();
-            this.btn5filterRed = new System.Windows.Forms.Button();
-            this.topPanel2.SuspendLayout();
-            this.Topanel3Op1.SuspendLayout();
-            this.TopPanel4Menu.SuspendLayout();
-            this.midPanel.SuspendLayout();
-            this.bottonPanel2.SuspendLayout();
-            this.bottonPanel1.SuspendLayout();
-            this.midPanel2.SuspendLayout();
-            this.midPanel3Option1.SuspendLayout();
-            this.MidPanel4Menu.SuspendLayout();
-            this.MidPanel5Filter.SuspendLayout();
-            this.TopPanel5Filter.SuspendLayout();
+            this.bottonPanelPhotoMax = new System.Windows.Forms.Panel();
+            this.midPanelMainMenu = new System.Windows.Forms.Panel();
+            this.midPanelEnterPath = new System.Windows.Forms.Panel();
+            this.MidPanelEditingOptions = new System.Windows.Forms.Panel();
+            this.MidPanelFilterOption = new System.Windows.Forms.Panel();
+            this.btnfilterBlossom = new System.Windows.Forms.Button();
+            this.btnFilterSepia = new System.Windows.Forms.Button();
+            this.btnFilterNegative = new System.Windows.Forms.Button();
+            this.btnFilterGreyScale = new System.Windows.Forms.Button();
+            this.btnPhotoEditingRotateImage = new System.Windows.Forms.Button();
+            this.btnPhotoEditingInsertText = new System.Windows.Forms.Button();
+            this.btnPhotoEditingImageProd = new System.Windows.Forms.Button();
+            this.btnPhotoEditingApplyFilter = new System.Windows.Forms.Button();
+            this.btnEnterPath = new System.Windows.Forms.Button();
+            this.textBoxEnterPath = new System.Windows.Forms.TextBox();
+            this.btnMainMenuChoosePath = new System.Windows.Forms.Button();
+            this.btnMainMenuUseTEST = new System.Windows.Forms.Button();
+            this.btnMainMenuUsingImport = new System.Windows.Forms.Button();
+            this.btnMainMenuChooseMultipleImage = new System.Windows.Forms.Button();
+            this.bottonPanelEnterPath = new System.Windows.Forms.Panel();
+            this.btnBackEnterPath = new System.Windows.Forms.Button();
+            this.bottonPanelPhotoEditing = new System.Windows.Forms.Panel();
+            this.btnBackPhotoEditing = new System.Windows.Forms.Button();
+            this.topPanelMainMenu.SuspendLayout();
+            this.TopanelEnterPath.SuspendLayout();
+            this.TopPanelEditingOptions.SuspendLayout();
+            this.TopPanelApplyFilter.SuspendLayout();
+            this.midPanelPhotomax.SuspendLayout();
+            this.bottonPanelMainMenu.SuspendLayout();
+            this.bottonPanelPhotoMax.SuspendLayout();
+            this.midPanelMainMenu.SuspendLayout();
+            this.midPanelEnterPath.SuspendLayout();
+            this.MidPanelEditingOptions.SuspendLayout();
+            this.MidPanelFilterOption.SuspendLayout();
+            this.bottonPanelEnterPath.SuspendLayout();
+            this.bottonPanelPhotoEditing.SuspendLayout();
             this.SuspendLayout();
             // 
-            // topPanel2
+            // topPanelMainMenu
             // 
-            this.topPanel2.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.topPanel2.Controls.Add(this.Topanel3Op1);
-            this.topPanel2.Controls.Add(this.label2intro);
-            this.topPanel2.Location = new System.Drawing.Point(12, 17);
-            this.topPanel2.Name = "topPanel2";
-            this.topPanel2.Size = new System.Drawing.Size(776, 38);
-            this.topPanel2.TabIndex = 0;
-            this.topPanel2.Visible = false;
+            this.topPanelMainMenu.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.topPanelMainMenu.Controls.Add(this.TopanelEnterPath);
+            this.topPanelMainMenu.Controls.Add(this.labelMainMenu);
+            this.topPanelMainMenu.Location = new System.Drawing.Point(12, 17);
+            this.topPanelMainMenu.Name = "topPanelMainMenu";
+            this.topPanelMainMenu.Size = new System.Drawing.Size(776, 38);
+            this.topPanelMainMenu.TabIndex = 0;
+            this.topPanelMainMenu.Visible = false;
             // 
-            // Topanel3Op1
+            // TopanelEnterPath
             // 
-            this.Topanel3Op1.Controls.Add(this.TopPanel4Menu);
-            this.Topanel3Op1.Controls.Add(this.label3Option1);
-            this.Topanel3Op1.Location = new System.Drawing.Point(3, 0);
-            this.Topanel3Op1.Name = "Topanel3Op1";
-            this.Topanel3Op1.Size = new System.Drawing.Size(773, 38);
-            this.Topanel3Op1.TabIndex = 1;
-            this.Topanel3Op1.Visible = false;
+            this.TopanelEnterPath.Controls.Add(this.TopPanelEditingOptions);
+            this.TopanelEnterPath.Controls.Add(this.labelEnterPathsingle);
+            this.TopanelEnterPath.Location = new System.Drawing.Point(3, 0);
+            this.TopanelEnterPath.Name = "TopanelEnterPath";
+            this.TopanelEnterPath.Size = new System.Drawing.Size(773, 38);
+            this.TopanelEnterPath.TabIndex = 1;
+            this.TopanelEnterPath.Visible = false;
             // 
-            // TopPanel4Menu
+            // TopPanelEditingOptions
             // 
-            this.TopPanel4Menu.Controls.Add(this.TopPanel5Filter);
-            this.TopPanel4Menu.Location = new System.Drawing.Point(0, 0);
-            this.TopPanel4Menu.Name = "TopPanel4Menu";
-            this.TopPanel4Menu.Size = new System.Drawing.Size(773, 38);
-            this.TopPanel4Menu.TabIndex = 1;
+            this.TopPanelEditingOptions.Controls.Add(this.TopPanelApplyFilter);
+            this.TopPanelEditingOptions.Location = new System.Drawing.Point(0, 0);
+            this.TopPanelEditingOptions.Name = "TopPanelEditingOptions";
+            this.TopPanelEditingOptions.Size = new System.Drawing.Size(773, 38);
+            this.TopPanelEditingOptions.TabIndex = 1;
             // 
-            // label3Option1
+            // TopPanelApplyFilter
             // 
-            this.label3Option1.AutoSize = true;
-            this.label3Option1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3Option1.Location = new System.Drawing.Point(329, 15);
-            this.label3Option1.Name = "label3Option1";
-            this.label3Option1.Size = new System.Drawing.Size(94, 22);
-            this.label3Option1.TabIndex = 0;
-            this.label3Option1.Text = "Enter Path";
-            this.label3Option1.Visible = false;
+            this.TopPanelApplyFilter.Controls.Add(this.labelFilterOption);
+            this.TopPanelApplyFilter.Location = new System.Drawing.Point(0, 0);
+            this.TopPanelApplyFilter.Name = "TopPanelApplyFilter";
+            this.TopPanelApplyFilter.Size = new System.Drawing.Size(773, 37);
+            this.TopPanelApplyFilter.TabIndex = 0;
             // 
-            // label2intro
+            // labelFilterOption
             // 
-            this.label2intro.AutoSize = true;
-            this.label2intro.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2intro.Location = new System.Drawing.Point(310, 15);
-            this.label2intro.Name = "label2intro";
-            this.label2intro.Size = new System.Drawing.Size(154, 22);
-            this.label2intro.TabIndex = 0;
-            this.label2intro.Text = "Choose an option";
+            this.labelFilterOption.AutoSize = true;
+            this.labelFilterOption.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFilterOption.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelFilterOption.Location = new System.Drawing.Point(307, 13);
+            this.labelFilterOption.Name = "labelFilterOption";
+            this.labelFilterOption.Size = new System.Drawing.Size(144, 24);
+            this.labelFilterOption.TabIndex = 0;
+            this.labelFilterOption.Text = "Choose a filter";
             // 
-            // midPanel
+            // labelEnterPathsingle
             // 
-            this.midPanel.Controls.Add(this.label1);
-            this.midPanel.Location = new System.Drawing.Point(15, 57);
-            this.midPanel.Name = "midPanel";
-            this.midPanel.Size = new System.Drawing.Size(776, 273);
-            this.midPanel.TabIndex = 1;
-            this.midPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel2_Paint);
+            this.labelEnterPathsingle.AutoSize = true;
+            this.labelEnterPathsingle.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEnterPathsingle.Location = new System.Drawing.Point(329, 15);
+            this.labelEnterPathsingle.Name = "labelEnterPathsingle";
+            this.labelEnterPathsingle.Size = new System.Drawing.Size(94, 22);
+            this.labelEnterPathsingle.TabIndex = 0;
+            this.labelEnterPathsingle.Text = "Enter Path";
+            this.labelEnterPathsingle.Visible = false;
+            // 
+            // labelMainMenu
+            // 
+            this.labelMainMenu.AutoSize = true;
+            this.labelMainMenu.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMainMenu.Location = new System.Drawing.Point(310, 15);
+            this.labelMainMenu.Name = "labelMainMenu";
+            this.labelMainMenu.Size = new System.Drawing.Size(297, 22);
+            this.labelMainMenu.TabIndex = 0;
+            this.labelMainMenu.Text = "Select one of the following options";
+            // 
+            // midPanelPhotomax
+            // 
+            this.midPanelPhotomax.Controls.Add(this.label1);
+            this.midPanelPhotomax.Location = new System.Drawing.Point(15, 57);
+            this.midPanelPhotomax.Name = "midPanelPhotomax";
+            this.midPanelPhotomax.Size = new System.Drawing.Size(776, 273);
+            this.midPanelPhotomax.TabIndex = 1;
+            this.midPanelPhotomax.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel2_Paint);
             // 
             // label1
             // 
@@ -144,24 +169,25 @@
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.Click += new System.EventHandler(this.Label1_Click);
             // 
-            // bottonPanel2
+            // bottonPanelMainMenu
             // 
-            this.bottonPanel2.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.bottonPanel2.Controls.Add(this.btnBack2);
-            this.bottonPanel2.Location = new System.Drawing.Point(15, 336);
-            this.bottonPanel2.Name = "bottonPanel2";
-            this.bottonPanel2.Size = new System.Drawing.Size(776, 32);
-            this.bottonPanel2.TabIndex = 3;
-            this.bottonPanel2.Visible = false;
+            this.bottonPanelMainMenu.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.bottonPanelMainMenu.Controls.Add(this.bottonPanelEnterPath);
+            this.bottonPanelMainMenu.Controls.Add(this.btnExitMainMenu);
+            this.bottonPanelMainMenu.Location = new System.Drawing.Point(15, 336);
+            this.bottonPanelMainMenu.Name = "bottonPanelMainMenu";
+            this.bottonPanelMainMenu.Size = new System.Drawing.Size(776, 32);
+            this.bottonPanelMainMenu.TabIndex = 3;
+            this.bottonPanelMainMenu.Visible = false;
             // 
-            // btnBack2
+            // btnExitMainMenu
             // 
-            this.btnBack2.Location = new System.Drawing.Point(167, 3);
-            this.btnBack2.Name = "btnBack2";
-            this.btnBack2.Size = new System.Drawing.Size(75, 23);
-            this.btnBack2.TabIndex = 4;
-            this.btnBack2.Text = "Back";
-            this.btnBack2.UseVisualStyleBackColor = true;
+            this.btnExitMainMenu.Location = new System.Drawing.Point(357, 3);
+            this.btnExitMainMenu.Name = "btnExitMainMenu";
+            this.btnExitMainMenu.Size = new System.Drawing.Size(75, 23);
+            this.btnExitMainMenu.TabIndex = 4;
+            this.btnExitMainMenu.Text = "Exit";
+            this.btnExitMainMenu.UseVisualStyleBackColor = true;
             // 
             // btnStart
             // 
@@ -173,302 +199,332 @@
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.BntStart_Click);
             // 
-            // bottonPanel1
+            // bottonPanelPhotoMax
             // 
-            this.bottonPanel1.Controls.Add(this.btnStart);
-            this.bottonPanel1.Location = new System.Drawing.Point(15, 340);
-            this.bottonPanel1.Name = "bottonPanel1";
-            this.bottonPanel1.Size = new System.Drawing.Size(773, 28);
-            this.bottonPanel1.TabIndex = 2;
+            this.bottonPanelPhotoMax.Controls.Add(this.btnStart);
+            this.bottonPanelPhotoMax.Location = new System.Drawing.Point(15, 340);
+            this.bottonPanelPhotoMax.Name = "bottonPanelPhotoMax";
+            this.bottonPanelPhotoMax.Size = new System.Drawing.Size(773, 28);
+            this.bottonPanelPhotoMax.TabIndex = 2;
+            this.bottonPanelPhotoMax.Tag = "start";
             // 
-            // midPanel2
+            // midPanelMainMenu
             // 
-            this.midPanel2.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.midPanel2.Controls.Add(this.midPanel3Option1);
-            this.midPanel2.Controls.Add(this.btn2Option1);
-            this.midPanel2.Controls.Add(this.btn2option4);
-            this.midPanel2.Controls.Add(this.btn2option3);
-            this.midPanel2.Controls.Add(this.btn2option2);
-            this.midPanel2.Location = new System.Drawing.Point(15, 58);
-            this.midPanel2.Name = "midPanel2";
-            this.midPanel2.Size = new System.Drawing.Size(773, 272);
-            this.midPanel2.TabIndex = 1;
-            this.midPanel2.Visible = false;
-            this.midPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
+            this.midPanelMainMenu.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.midPanelMainMenu.Controls.Add(this.midPanelEnterPath);
+            this.midPanelMainMenu.Controls.Add(this.btnMainMenuChoosePath);
+            this.midPanelMainMenu.Controls.Add(this.btnMainMenuUseTEST);
+            this.midPanelMainMenu.Controls.Add(this.btnMainMenuUsingImport);
+            this.midPanelMainMenu.Controls.Add(this.btnMainMenuChooseMultipleImage);
+            this.midPanelMainMenu.Location = new System.Drawing.Point(15, 58);
+            this.midPanelMainMenu.Name = "midPanelMainMenu";
+            this.midPanelMainMenu.Size = new System.Drawing.Size(773, 272);
+            this.midPanelMainMenu.TabIndex = 1;
+            this.midPanelMainMenu.Visible = false;
+            this.midPanelMainMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
             // 
-            // midPanel3Option1
+            // midPanelEnterPath
             // 
-            this.midPanel3Option1.Controls.Add(this.MidPanel4Menu);
-            this.midPanel3Option1.Controls.Add(this.btn3EnterPath);
-            this.midPanel3Option1.Controls.Add(this.textBox3EnterPath);
-            this.midPanel3Option1.Location = new System.Drawing.Point(3, 3);
-            this.midPanel3Option1.Name = "midPanel3Option1";
-            this.midPanel3Option1.Size = new System.Drawing.Size(773, 266);
-            this.midPanel3Option1.TabIndex = 5;
-            this.midPanel3Option1.Visible = false;
-            this.midPanel3Option1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
+            this.midPanelEnterPath.Controls.Add(this.MidPanelEditingOptions);
+            this.midPanelEnterPath.Controls.Add(this.btnEnterPath);
+            this.midPanelEnterPath.Controls.Add(this.textBoxEnterPath);
+            this.midPanelEnterPath.Location = new System.Drawing.Point(3, 3);
+            this.midPanelEnterPath.Name = "midPanelEnterPath";
+            this.midPanelEnterPath.Size = new System.Drawing.Size(773, 266);
+            this.midPanelEnterPath.TabIndex = 5;
+            this.midPanelEnterPath.Visible = false;
+            this.midPanelEnterPath.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
             // 
-            // MidPanel4Menu
+            // MidPanelEditingOptions
             // 
-            this.MidPanel4Menu.Controls.Add(this.MidPanel5Filter);
-            this.MidPanel4Menu.Controls.Add(this.btn4RotateImage);
-            this.MidPanel4Menu.Controls.Add(this.btn4InsertText);
-            this.MidPanel4Menu.Controls.Add(this.btn4ImageProd);
-            this.MidPanel4Menu.Controls.Add(this.btn4Filter);
-            this.MidPanel4Menu.Location = new System.Drawing.Point(-3, -1);
-            this.MidPanel4Menu.Name = "MidPanel4Menu";
-            this.MidPanel4Menu.Size = new System.Drawing.Size(773, 267);
-            this.MidPanel4Menu.TabIndex = 2;
-            this.MidPanel4Menu.Visible = false;
+            this.MidPanelEditingOptions.Controls.Add(this.MidPanelFilterOption);
+            this.MidPanelEditingOptions.Controls.Add(this.btnPhotoEditingRotateImage);
+            this.MidPanelEditingOptions.Controls.Add(this.btnPhotoEditingInsertText);
+            this.MidPanelEditingOptions.Controls.Add(this.btnPhotoEditingImageProd);
+            this.MidPanelEditingOptions.Controls.Add(this.btnPhotoEditingApplyFilter);
+            this.MidPanelEditingOptions.Location = new System.Drawing.Point(-3, -1);
+            this.MidPanelEditingOptions.Name = "MidPanelEditingOptions";
+            this.MidPanelEditingOptions.Size = new System.Drawing.Size(773, 267);
+            this.MidPanelEditingOptions.TabIndex = 2;
+            this.MidPanelEditingOptions.Visible = false;
             // 
-            // btn4RotateImage
+            // MidPanelFilterOption
             // 
-            this.btn4RotateImage.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn4RotateImage.Location = new System.Drawing.Point(6, 189);
-            this.btn4RotateImage.Name = "btn4RotateImage";
-            this.btn4RotateImage.Size = new System.Drawing.Size(399, 40);
-            this.btn4RotateImage.TabIndex = 3;
-            this.btn4RotateImage.Text = "Rotate Image";
-            this.btn4RotateImage.UseVisualStyleBackColor = true;
-            this.btn4RotateImage.Visible = false;
+            this.MidPanelFilterOption.Controls.Add(this.btnfilterBlossom);
+            this.MidPanelFilterOption.Controls.Add(this.btnFilterSepia);
+            this.MidPanelFilterOption.Controls.Add(this.btnFilterNegative);
+            this.MidPanelFilterOption.Controls.Add(this.btnFilterGreyScale);
+            this.MidPanelFilterOption.Location = new System.Drawing.Point(-3, -2);
+            this.MidPanelFilterOption.Name = "MidPanelFilterOption";
+            this.MidPanelFilterOption.Size = new System.Drawing.Size(779, 269);
+            this.MidPanelFilterOption.TabIndex = 4;
+            this.MidPanelFilterOption.Visible = false;
             // 
-            // btn4InsertText
+            // btnfilterBlossom
             // 
-            this.btn4InsertText.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn4InsertText.Location = new System.Drawing.Point(3, 128);
-            this.btn4InsertText.Name = "btn4InsertText";
-            this.btn4InsertText.Size = new System.Drawing.Size(399, 40);
-            this.btn4InsertText.TabIndex = 2;
-            this.btn4InsertText.Text = "Insert Text";
-            this.btn4InsertText.UseVisualStyleBackColor = true;
-            this.btn4InsertText.Visible = false;
+            this.btnfilterBlossom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnfilterBlossom.Location = new System.Drawing.Point(72, 162);
+            this.btnfilterBlossom.Name = "btnfilterBlossom";
+            this.btnfilterBlossom.Size = new System.Drawing.Size(173, 33);
+            this.btnfilterBlossom.TabIndex = 3;
+            this.btnfilterBlossom.Text = "Blossom";
+            this.btnfilterBlossom.UseVisualStyleBackColor = true;
+            this.btnfilterBlossom.Visible = false;
             // 
-            // btn4ImageProd
+            // btnFilterSepia
             // 
-            this.btn4ImageProd.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn4ImageProd.Location = new System.Drawing.Point(6, 66);
-            this.btn4ImageProd.Name = "btn4ImageProd";
-            this.btn4ImageProd.Size = new System.Drawing.Size(399, 40);
-            this.btn4ImageProd.TabIndex = 1;
-            this.btn4ImageProd.Text = "Image Production";
-            this.btn4ImageProd.UseVisualStyleBackColor = true;
-            this.btn4ImageProd.Visible = false;
+            this.btnFilterSepia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFilterSepia.Location = new System.Drawing.Point(72, 123);
+            this.btnFilterSepia.Name = "btnFilterSepia";
+            this.btnFilterSepia.Size = new System.Drawing.Size(173, 33);
+            this.btnFilterSepia.TabIndex = 2;
+            this.btnFilterSepia.Text = "Sepia";
+            this.btnFilterSepia.UseVisualStyleBackColor = true;
+            this.btnFilterSepia.Visible = false;
             // 
-            // btn4Filter
+            // btnFilterNegative
             // 
-            this.btn4Filter.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn4Filter.Location = new System.Drawing.Point(6, 3);
-            this.btn4Filter.Name = "btn4Filter";
-            this.btn4Filter.Size = new System.Drawing.Size(399, 40);
-            this.btn4Filter.TabIndex = 0;
-            this.btn4Filter.Text = "Apply Filter";
-            this.btn4Filter.UseVisualStyleBackColor = true;
-            this.btn4Filter.Visible = false;
-            this.btn4Filter.Click += new System.EventHandler(this.btn4Filter_Click);
+            this.btnFilterNegative.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFilterNegative.Location = new System.Drawing.Point(72, 84);
+            this.btnFilterNegative.Name = "btnFilterNegative";
+            this.btnFilterNegative.Size = new System.Drawing.Size(173, 33);
+            this.btnFilterNegative.TabIndex = 1;
+            this.btnFilterNegative.TabStop = false;
+            this.btnFilterNegative.Text = "Negative";
+            this.btnFilterNegative.UseVisualStyleBackColor = true;
+            this.btnFilterNegative.Visible = false;
             // 
-            // btn3EnterPath
+            // btnFilterGreyScale
             // 
-            this.btn3EnterPath.Location = new System.Drawing.Point(345, 144);
-            this.btn3EnterPath.Name = "btn3EnterPath";
-            this.btn3EnterPath.Size = new System.Drawing.Size(75, 23);
-            this.btn3EnterPath.TabIndex = 1;
-            this.btn3EnterPath.Text = "Enter";
-            this.btn3EnterPath.UseVisualStyleBackColor = true;
-            this.btn3EnterPath.Visible = false;
-            this.btn3EnterPath.Click += new System.EventHandler(this.btn3EnterPath_Click);
+            this.btnFilterGreyScale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFilterGreyScale.Location = new System.Drawing.Point(72, 45);
+            this.btnFilterGreyScale.Name = "btnFilterGreyScale";
+            this.btnFilterGreyScale.Size = new System.Drawing.Size(173, 33);
+            this.btnFilterGreyScale.TabIndex = 0;
+            this.btnFilterGreyScale.Text = "GreyScale";
+            this.btnFilterGreyScale.UseVisualStyleBackColor = true;
+            this.btnFilterGreyScale.Visible = false;
             // 
-            // textBox3EnterPath
+            // btnPhotoEditingRotateImage
             // 
-            this.textBox3EnterPath.Location = new System.Drawing.Point(164, 111);
-            this.textBox3EnterPath.Name = "textBox3EnterPath";
-            this.textBox3EnterPath.Size = new System.Drawing.Size(439, 20);
-            this.textBox3EnterPath.TabIndex = 0;
-            this.textBox3EnterPath.Visible = false;
-            this.textBox3EnterPath.TextChanged += new System.EventHandler(this.textBox3EnterPath_TextChanged);
+            this.btnPhotoEditingRotateImage.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPhotoEditingRotateImage.Location = new System.Drawing.Point(6, 189);
+            this.btnPhotoEditingRotateImage.Name = "btnPhotoEditingRotateImage";
+            this.btnPhotoEditingRotateImage.Size = new System.Drawing.Size(399, 40);
+            this.btnPhotoEditingRotateImage.TabIndex = 3;
+            this.btnPhotoEditingRotateImage.Text = "Rotate Image";
+            this.btnPhotoEditingRotateImage.UseVisualStyleBackColor = true;
+            this.btnPhotoEditingRotateImage.Visible = false;
             // 
-            // btn2Option1
+            // btnPhotoEditingInsertText
             // 
-            this.btn2Option1.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn2Option1.Location = new System.Drawing.Point(69, 18);
-            this.btn2Option1.Name = "btn2Option1";
-            this.btn2Option1.Size = new System.Drawing.Size(648, 50);
-            this.btn2Option1.TabIndex = 4;
-            this.btn2Option1.Text = "Enter path";
-            this.btn2Option1.UseVisualStyleBackColor = true;
-            this.btn2Option1.Click += new System.EventHandler(this.btn2Option1_Click);
+            this.btnPhotoEditingInsertText.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPhotoEditingInsertText.Location = new System.Drawing.Point(3, 128);
+            this.btnPhotoEditingInsertText.Name = "btnPhotoEditingInsertText";
+            this.btnPhotoEditingInsertText.Size = new System.Drawing.Size(399, 40);
+            this.btnPhotoEditingInsertText.TabIndex = 2;
+            this.btnPhotoEditingInsertText.Text = "Insert Text";
+            this.btnPhotoEditingInsertText.UseVisualStyleBackColor = true;
+            this.btnPhotoEditingInsertText.Visible = false;
             // 
-            // btn2option4
+            // btnPhotoEditingImageProd
             // 
-            this.btn2option4.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn2option4.Location = new System.Drawing.Point(69, 186);
-            this.btn2option4.Name = "btn2option4";
-            this.btn2option4.Size = new System.Drawing.Size(648, 50);
-            this.btn2option4.TabIndex = 3;
-            this.btn2option4.Text = "not implemented";
-            this.btn2option4.UseVisualStyleBackColor = true;
+            this.btnPhotoEditingImageProd.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPhotoEditingImageProd.Location = new System.Drawing.Point(6, 66);
+            this.btnPhotoEditingImageProd.Name = "btnPhotoEditingImageProd";
+            this.btnPhotoEditingImageProd.Size = new System.Drawing.Size(399, 40);
+            this.btnPhotoEditingImageProd.TabIndex = 1;
+            this.btnPhotoEditingImageProd.Text = "Image Production";
+            this.btnPhotoEditingImageProd.UseVisualStyleBackColor = true;
+            this.btnPhotoEditingImageProd.Visible = false;
             // 
-            // btn2option3
+            // btnPhotoEditingApplyFilter
             // 
-            this.btn2option3.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn2option3.Location = new System.Drawing.Point(69, 130);
-            this.btn2option3.Name = "btn2option3";
-            this.btn2option3.Size = new System.Drawing.Size(648, 50);
-            this.btn2option3.TabIndex = 2;
-            this.btn2option3.Text = "not implemented";
-            this.btn2option3.UseVisualStyleBackColor = true;
-            this.btn2option3.Click += new System.EventHandler(this.button2_Click);
+            this.btnPhotoEditingApplyFilter.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPhotoEditingApplyFilter.Location = new System.Drawing.Point(6, 3);
+            this.btnPhotoEditingApplyFilter.Name = "btnPhotoEditingApplyFilter";
+            this.btnPhotoEditingApplyFilter.Size = new System.Drawing.Size(399, 40);
+            this.btnPhotoEditingApplyFilter.TabIndex = 0;
+            this.btnPhotoEditingApplyFilter.Text = "Apply Filter";
+            this.btnPhotoEditingApplyFilter.UseVisualStyleBackColor = true;
+            this.btnPhotoEditingApplyFilter.Visible = false;
+            this.btnPhotoEditingApplyFilter.Click += new System.EventHandler(this.btn4Filter_Click);
             // 
-            // btn2option2
+            // btnEnterPath
             // 
-            this.btn2option2.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn2option2.Location = new System.Drawing.Point(69, 74);
-            this.btn2option2.Name = "btn2option2";
-            this.btn2option2.Size = new System.Drawing.Size(648, 50);
-            this.btn2option2.TabIndex = 1;
-            this.btn2option2.Text = "not implemented";
-            this.btn2option2.UseVisualStyleBackColor = true;
+            this.btnEnterPath.Location = new System.Drawing.Point(345, 144);
+            this.btnEnterPath.Name = "btnEnterPath";
+            this.btnEnterPath.Size = new System.Drawing.Size(75, 23);
+            this.btnEnterPath.TabIndex = 1;
+            this.btnEnterPath.Text = "Enter";
+            this.btnEnterPath.UseVisualStyleBackColor = true;
+            this.btnEnterPath.Visible = false;
+            this.btnEnterPath.Click += new System.EventHandler(this.btn3EnterPath_Click);
             // 
-            // MidPanel5Filter
+            // textBoxEnterPath
             // 
-            this.MidPanel5Filter.Controls.Add(this.btn5filterRed);
-            this.MidPanel5Filter.Controls.Add(this.btn5FilterAqua);
-            this.MidPanel5Filter.Controls.Add(this.btn5FilterGrayscale);
-            this.MidPanel5Filter.Controls.Add(this.btn5FilterSepia);
-            this.MidPanel5Filter.Location = new System.Drawing.Point(-3, -2);
-            this.MidPanel5Filter.Name = "MidPanel5Filter";
-            this.MidPanel5Filter.Size = new System.Drawing.Size(779, 269);
-            this.MidPanel5Filter.TabIndex = 4;
-            this.MidPanel5Filter.Visible = false;
+            this.textBoxEnterPath.Location = new System.Drawing.Point(164, 111);
+            this.textBoxEnterPath.Name = "textBoxEnterPath";
+            this.textBoxEnterPath.Size = new System.Drawing.Size(439, 20);
+            this.textBoxEnterPath.TabIndex = 0;
+            this.textBoxEnterPath.Visible = false;
+            this.textBoxEnterPath.TextChanged += new System.EventHandler(this.textBox3EnterPath_TextChanged);
             // 
-            // TopPanel5Filter
+            // btnMainMenuChoosePath
             // 
-            this.TopPanel5Filter.Controls.Add(this.label5FilterPath);
-            this.TopPanel5Filter.Location = new System.Drawing.Point(0, 0);
-            this.TopPanel5Filter.Name = "TopPanel5Filter";
-            this.TopPanel5Filter.Size = new System.Drawing.Size(773, 37);
-            this.TopPanel5Filter.TabIndex = 0;
+            this.btnMainMenuChoosePath.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMainMenuChoosePath.Location = new System.Drawing.Point(69, 18);
+            this.btnMainMenuChoosePath.Name = "btnMainMenuChoosePath";
+            this.btnMainMenuChoosePath.Size = new System.Drawing.Size(648, 50);
+            this.btnMainMenuChoosePath.TabIndex = 4;
+            this.btnMainMenuChoosePath.Text = "Enter path";
+            this.btnMainMenuChoosePath.UseVisualStyleBackColor = true;
+            this.btnMainMenuChoosePath.Click += new System.EventHandler(this.btn2Option1_Click);
             // 
-            // label5FilterPath
+            // btnMainMenuUseTEST
             // 
-            this.label5FilterPath.AutoSize = true;
-            this.label5FilterPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5FilterPath.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5FilterPath.Location = new System.Drawing.Point(307, 13);
-            this.label5FilterPath.Name = "label5FilterPath";
-            this.label5FilterPath.Size = new System.Drawing.Size(144, 24);
-            this.label5FilterPath.TabIndex = 0;
-            this.label5FilterPath.Text = "Choose a filter";
+            this.btnMainMenuUseTEST.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMainMenuUseTEST.Location = new System.Drawing.Point(69, 186);
+            this.btnMainMenuUseTEST.Name = "btnMainMenuUseTEST";
+            this.btnMainMenuUseTEST.Size = new System.Drawing.Size(648, 50);
+            this.btnMainMenuUseTEST.TabIndex = 3;
+            this.btnMainMenuUseTEST.Text = "TEST with an image";
+            this.btnMainMenuUseTEST.UseVisualStyleBackColor = true;
             // 
-            // btn5FilterSepia
+            // btnMainMenuUsingImport
             // 
-            this.btn5FilterSepia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn5FilterSepia.Location = new System.Drawing.Point(72, 45);
-            this.btn5FilterSepia.Name = "btn5FilterSepia";
-            this.btn5FilterSepia.Size = new System.Drawing.Size(173, 33);
-            this.btn5FilterSepia.TabIndex = 0;
-            this.btn5FilterSepia.Text = "Sepia";
-            this.btn5FilterSepia.UseVisualStyleBackColor = true;
-            this.btn5FilterSepia.Visible = false;
+            this.btnMainMenuUsingImport.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMainMenuUsingImport.Location = new System.Drawing.Point(69, 130);
+            this.btnMainMenuUsingImport.Name = "btnMainMenuUsingImport";
+            this.btnMainMenuUsingImport.Size = new System.Drawing.Size(648, 50);
+            this.btnMainMenuUsingImport.TabIndex = 2;
+            this.btnMainMenuUsingImport.Text = "Select image to work with import folder";
+            this.btnMainMenuUsingImport.UseVisualStyleBackColor = true;
+            this.btnMainMenuUsingImport.Click += new System.EventHandler(this.button2_Click);
             // 
-            // btn5FilterGrayscale
+            // btnMainMenuChooseMultipleImage
             // 
-            this.btn5FilterGrayscale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn5FilterGrayscale.Location = new System.Drawing.Point(72, 84);
-            this.btn5FilterGrayscale.Name = "btn5FilterGrayscale";
-            this.btn5FilterGrayscale.Size = new System.Drawing.Size(173, 33);
-            this.btn5FilterGrayscale.TabIndex = 1;
-            this.btn5FilterGrayscale.Text = "Gray Scale";
-            this.btn5FilterGrayscale.UseVisualStyleBackColor = true;
-            this.btn5FilterGrayscale.Visible = false;
+            this.btnMainMenuChooseMultipleImage.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMainMenuChooseMultipleImage.Location = new System.Drawing.Point(69, 74);
+            this.btnMainMenuChooseMultipleImage.Name = "btnMainMenuChooseMultipleImage";
+            this.btnMainMenuChooseMultipleImage.Size = new System.Drawing.Size(648, 50);
+            this.btnMainMenuChooseMultipleImage.TabIndex = 1;
+            this.btnMainMenuChooseMultipleImage.Text = "Import multiple files by directory location";
+            this.btnMainMenuChooseMultipleImage.UseVisualStyleBackColor = true;
             // 
-            // btn5FilterAqua
+            // bottonPanelEnterPath
             // 
-            this.btn5FilterAqua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn5FilterAqua.Location = new System.Drawing.Point(72, 123);
-            this.btn5FilterAqua.Name = "btn5FilterAqua";
-            this.btn5FilterAqua.Size = new System.Drawing.Size(173, 33);
-            this.btn5FilterAqua.TabIndex = 2;
-            this.btn5FilterAqua.Text = "Aqua";
-            this.btn5FilterAqua.UseVisualStyleBackColor = true;
-            this.btn5FilterAqua.Visible = false;
+            this.bottonPanelEnterPath.Controls.Add(this.bottonPanelPhotoEditing);
+            this.bottonPanelEnterPath.Controls.Add(this.btnBackEnterPath);
+            this.bottonPanelEnterPath.Location = new System.Drawing.Point(0, 0);
+            this.bottonPanelEnterPath.Name = "bottonPanelEnterPath";
+            this.bottonPanelEnterPath.Size = new System.Drawing.Size(776, 32);
+            this.bottonPanelEnterPath.TabIndex = 5;
+            this.bottonPanelEnterPath.Tag = "backbtn";
+            this.bottonPanelEnterPath.Visible = false;
             // 
-            // btn5filterRed
+            // btnBackEnterPath
             // 
-            this.btn5filterRed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn5filterRed.Location = new System.Drawing.Point(72, 162);
-            this.btn5filterRed.Name = "btn5filterRed";
-            this.btn5filterRed.Size = new System.Drawing.Size(173, 33);
-            this.btn5filterRed.TabIndex = 3;
-            this.btn5filterRed.Text = "Red";
-            this.btn5filterRed.UseVisualStyleBackColor = true;
-            this.btn5filterRed.Visible = false;
+            this.btnBackEnterPath.Location = new System.Drawing.Point(348, 3);
+            this.btnBackEnterPath.Name = "btnBackEnterPath";
+            this.btnBackEnterPath.Size = new System.Drawing.Size(75, 23);
+            this.btnBackEnterPath.TabIndex = 0;
+            this.btnBackEnterPath.Text = "Back";
+            this.btnBackEnterPath.UseVisualStyleBackColor = true;
+            this.btnBackEnterPath.Visible = false;
+            this.btnBackEnterPath.Click += new System.EventHandler(this.btnBackEnterPath_Click);
+            // 
+            // bottonPanelPhotoEditing
+            // 
+            this.bottonPanelPhotoEditing.Controls.Add(this.btnBackPhotoEditing);
+            this.bottonPanelPhotoEditing.Location = new System.Drawing.Point(0, 0);
+            this.bottonPanelPhotoEditing.Name = "bottonPanelPhotoEditing";
+            this.bottonPanelPhotoEditing.Size = new System.Drawing.Size(776, 32);
+            this.bottonPanelPhotoEditing.TabIndex = 4;
+            this.bottonPanelPhotoEditing.Visible = false;
+            // 
+            // btnBackPhotoEditing
+            // 
+            this.btnBackPhotoEditing.Location = new System.Drawing.Point(348, 7);
+            this.btnBackPhotoEditing.Name = "btnBackPhotoEditing";
+            this.btnBackPhotoEditing.Size = new System.Drawing.Size(75, 23);
+            this.btnBackPhotoEditing.TabIndex = 0;
+            this.btnBackPhotoEditing.Text = "button1";
+            this.btnBackPhotoEditing.UseVisualStyleBackColor = true;
+            this.btnBackPhotoEditing.Visible = false;
             // 
             // FormPM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 374);
-            this.Controls.Add(this.midPanel2);
-            this.Controls.Add(this.bottonPanel2);
-            this.Controls.Add(this.bottonPanel1);
-            this.Controls.Add(this.midPanel);
-            this.Controls.Add(this.topPanel2);
+            this.Controls.Add(this.midPanelMainMenu);
+            this.Controls.Add(this.bottonPanelMainMenu);
+            this.Controls.Add(this.bottonPanelPhotoMax);
+            this.Controls.Add(this.midPanelPhotomax);
+            this.Controls.Add(this.topPanelMainMenu);
             this.Name = "FormPM";
             this.Text = "PhotoMax";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.topPanel2.ResumeLayout(false);
-            this.topPanel2.PerformLayout();
-            this.Topanel3Op1.ResumeLayout(false);
-            this.Topanel3Op1.PerformLayout();
-            this.TopPanel4Menu.ResumeLayout(false);
-            this.midPanel.ResumeLayout(false);
-            this.midPanel.PerformLayout();
-            this.bottonPanel2.ResumeLayout(false);
-            this.bottonPanel1.ResumeLayout(false);
-            this.midPanel2.ResumeLayout(false);
-            this.midPanel3Option1.ResumeLayout(false);
-            this.midPanel3Option1.PerformLayout();
-            this.MidPanel4Menu.ResumeLayout(false);
-            this.MidPanel5Filter.ResumeLayout(false);
-            this.TopPanel5Filter.ResumeLayout(false);
-            this.TopPanel5Filter.PerformLayout();
+            this.topPanelMainMenu.ResumeLayout(false);
+            this.topPanelMainMenu.PerformLayout();
+            this.TopanelEnterPath.ResumeLayout(false);
+            this.TopanelEnterPath.PerformLayout();
+            this.TopPanelEditingOptions.ResumeLayout(false);
+            this.TopPanelApplyFilter.ResumeLayout(false);
+            this.TopPanelApplyFilter.PerformLayout();
+            this.midPanelPhotomax.ResumeLayout(false);
+            this.midPanelPhotomax.PerformLayout();
+            this.bottonPanelMainMenu.ResumeLayout(false);
+            this.bottonPanelPhotoMax.ResumeLayout(false);
+            this.midPanelMainMenu.ResumeLayout(false);
+            this.midPanelEnterPath.ResumeLayout(false);
+            this.midPanelEnterPath.PerformLayout();
+            this.MidPanelEditingOptions.ResumeLayout(false);
+            this.MidPanelFilterOption.ResumeLayout(false);
+            this.bottonPanelEnterPath.ResumeLayout(false);
+            this.bottonPanelPhotoEditing.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel topPanel2;
-        private System.Windows.Forms.Panel midPanel;
+        private System.Windows.Forms.Panel topPanelMainMenu;
+        private System.Windows.Forms.Panel midPanelPhotomax;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel bottonPanel2;
+        private System.Windows.Forms.Panel bottonPanelMainMenu;
         private System.Windows.Forms.Button btnStart;
-        private System.Windows.Forms.Panel bottonPanel1;
-        private System.Windows.Forms.Button btnBack2;
-        private System.Windows.Forms.Label label2intro;
-        private System.Windows.Forms.Panel Topanel3Op1;
-        private System.Windows.Forms.Label label3Option1;
-        private System.Windows.Forms.Panel midPanel2;
-        private System.Windows.Forms.Button btn2Option1;
-        private System.Windows.Forms.Button btn2option4;
-        private System.Windows.Forms.Button btn2option3;
-        private System.Windows.Forms.Button btn2option2;
-        private System.Windows.Forms.Panel midPanel3Option1;
-        private System.Windows.Forms.TextBox textBox3EnterPath;
-        private System.Windows.Forms.Button btn3EnterPath;
-        private System.Windows.Forms.Panel TopPanel4Menu;
-        private System.Windows.Forms.Panel MidPanel4Menu;
-        private System.Windows.Forms.Button btn4Filter;
-        private System.Windows.Forms.Button btn4RotateImage;
-        private System.Windows.Forms.Button btn4InsertText;
-        private System.Windows.Forms.Button btn4ImageProd;
-        private System.Windows.Forms.Panel TopPanel5Filter;
-        private System.Windows.Forms.Label label5FilterPath;
-        private System.Windows.Forms.Panel MidPanel5Filter;
-        private System.Windows.Forms.Button btn5filterRed;
-        private System.Windows.Forms.Button btn5FilterAqua;
-        private System.Windows.Forms.Button btn5FilterGrayscale;
-        private System.Windows.Forms.Button btn5FilterSepia;
+        private System.Windows.Forms.Panel bottonPanelPhotoMax;
+        private System.Windows.Forms.Button btnExitMainMenu;
+        private System.Windows.Forms.Label labelMainMenu;
+        private System.Windows.Forms.Panel TopanelEnterPath;
+        private System.Windows.Forms.Label labelEnterPathsingle;
+        private System.Windows.Forms.Panel midPanelMainMenu;
+        private System.Windows.Forms.Button btnMainMenuChoosePath;
+        private System.Windows.Forms.Button btnMainMenuUseTEST;
+        private System.Windows.Forms.Button btnMainMenuUsingImport;
+        private System.Windows.Forms.Button btnMainMenuChooseMultipleImage;
+        private System.Windows.Forms.Panel midPanelEnterPath;
+        private System.Windows.Forms.TextBox textBoxEnterPath;
+        private System.Windows.Forms.Button btnEnterPath;
+        private System.Windows.Forms.Panel TopPanelEditingOptions;
+        private System.Windows.Forms.Panel MidPanelEditingOptions;
+        private System.Windows.Forms.Button btnPhotoEditingApplyFilter;
+        private System.Windows.Forms.Button btnPhotoEditingRotateImage;
+        private System.Windows.Forms.Button btnPhotoEditingInsertText;
+        private System.Windows.Forms.Button btnPhotoEditingImageProd;
+        private System.Windows.Forms.Panel TopPanelApplyFilter;
+        private System.Windows.Forms.Label labelFilterOption;
+        private System.Windows.Forms.Panel MidPanelFilterOption;
+        private System.Windows.Forms.Button btnfilterBlossom;
+        private System.Windows.Forms.Button btnFilterSepia;
+        private System.Windows.Forms.Button btnFilterNegative;
+        private System.Windows.Forms.Button btnFilterGreyScale;
+        private System.Windows.Forms.Panel bottonPanelEnterPath;
+        private System.Windows.Forms.Panel bottonPanelPhotoEditing;
+        private System.Windows.Forms.Button btnBackPhotoEditing;
+        private System.Windows.Forms.Button btnBackEnterPath;
     }
 }
 
