@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Drawing;
 using System.Linq;
+using System.Threading;
 using ExifLib;
 using MetadataExtractor;
 using MetadataExtractor.Formats.Exif;
+using PhotoMaxF.InputOutput;
 
 namespace PhotoMaxF
 {
@@ -34,80 +36,89 @@ namespace PhotoMaxF
 
         public ImageFile(string originPath)
         {
-            ExifLib.ExifReader reader = new ExifLib.ExifReader(originPath);
-            Image file = Image.FromFile(originPath);
-
-            //Obtain ISO
-            int isos;
-            object isos1;
-            reader.GetTagValue<object>(ExifTags.PhotographicSensitivity, out isos1);
-            isos = (int)Convert.ToUInt64(isos1);
-
-            //focal
-            object fl;
-            reader.GetTagValue<object>(ExifTags.FocalLength, out fl);
-            double focal;
-            focal = Convert.ToDouble(fl);
-
-            //exposure time
-            double et;
-            reader.GetTagValue(ExifTags.ExposureTime, out et);
-
-            //MAKER
-            string maker;
-            reader.GetTagValue(ExifTags.Make, out maker);
-
-            // DATETIME
-            DateTime datatime;
-            reader.GetTagValue(ExifTags.DateTime, out datatime);
-
-            // Artist 
-            string artista;
-            reader.GetTagValue(ExifTags.Artist, out artista);
-            Artist = artista;
-
-            //Copyright
-            string copy;
-            reader.GetTagValue(ExifTags.Copyright, out copy);
-
-            //Camera  model
-            string camera;
-            reader.GetTagValue(ExifTags.Model, out camera);
-            CameraModel = camera;
-
-            //Aperture
-            double apertures;
-            reader.GetTagValue(ExifTags.FNumber, out apertures);
-
-            // GPS 
-            var gps = ImageMetadataReader.ReadMetadata(originPath)
-                              .OfType<GpsDirectory>()
-                              .FirstOrDefault();
-            if (gps != null)
+            try
             {
-                var location = gps.GetGeoLocation();
-                double lat = location.Latitude;
-                double lon = location.Longitude;
-                string Location = string.Format("{0}\n{1}", lat, lon);
-                Geotag = Location;
+                ExifLib.ExifReader reader = new ExifLib.ExifReader(originPath);
+                Image file = Image.FromFile(originPath);
+
+                //Obtain ISO
+                int isos;
+                object isos1;
+                reader.GetTagValue<object>(ExifTags.PhotographicSensitivity, out isos1);
+                isos = (int)Convert.ToUInt64(isos1);
+
+                //focal
+                object fl;
+                reader.GetTagValue<object>(ExifTags.FocalLength, out fl);
+                double focal;
+                focal = Convert.ToDouble(fl);
+
+                //exposure time
+                double et;
+                reader.GetTagValue(ExifTags.ExposureTime, out et);
+
+                //MAKER
+                string maker;
+                reader.GetTagValue(ExifTags.Make, out maker);
+
+                // DATETIME
+                DateTime datatime;
+                reader.GetTagValue(ExifTags.DateTime, out datatime);
+
+                // Artist 
+                string artista;
+                reader.GetTagValue(ExifTags.Artist, out artista);
+                Artist = artista;
+
+                //Copyright
+                string copy;
+                reader.GetTagValue(ExifTags.Copyright, out copy);
+
+                //Camera  model
+                string camera;
+                reader.GetTagValue(ExifTags.Model, out camera);
+                CameraModel = camera;
+
+                //Aperture
+                double apertures;
+                reader.GetTagValue(ExifTags.FNumber, out apertures);
+
+                // GPS 
+                var gps = ImageMetadataReader.ReadMetadata(originPath)
+                                  .OfType<GpsDirectory>()
+                                  .FirstOrDefault();
+                if (gps != null)
+                {
+                    var location = gps.GetGeoLocation();
+                    double lat = location.Latitude;
+                    double lon = location.Longitude;
+                    string Location = string.Format("{0}\n{1}", lat, lon);
+                    Geotag = Location;
+                }
+                else
+                {
+                    Geotag = null;
+                }
+
+                // SETTERS
+                Height = file.Height;
+                Width = file.Width;
+                Iso = isos;
+                FocalLength = (float)focal;
+                ExposureTime = et;
+                Make = maker;
+                DataTime = datatime;
+                Artist = artista;
+                Copyright = copy;
+                CameraModel = camera;
+                Aperture = apertures;
             }
-            else
+            catch(ExifLibException)
             {
-                Geotag = null;
+                IOUser.ConsoleError("\nThere is no EXIF information");
+                Thread.Sleep(1500);
             }
 
-            // SETTERS
-            Height = file.Height;
-            Width = file.Width;
-            Iso = isos;
-            FocalLength = (float)focal;
-            ExposureTime = et;
-            Make = maker;
-            DataTime = datatime;
-            Artist = artista;
-            Copyright = copy;
-            CameraModel = camera;
-            Aperture = apertures;
             Origin = originPath;
             Bpm = new Bitmap(Origin);
         }
