@@ -48,7 +48,7 @@ namespace PhotoMaxF
         public List<string> SelectMoreImages { get; set; }
         public List<string> YNListI { get; set; }
         public string importDirectory { get; set; }
-        List<string> extensionTypes { get; set; }
+        public List<string> extensionTypes { get; set; }
 
         public string ImportPath(int op)
         {
