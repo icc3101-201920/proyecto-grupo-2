@@ -69,12 +69,20 @@ namespace WinPM
             // Esto hace que vaya pasando de panel el panel, se oculan unos y aparecen otros cuando
             // hago click
             midPanelMainMenu.Visible = true;
-            midPanelPhotomax.Visible = false;
-            bottonPanelPhotoMax.Visible = false;
             bottonPanelMainMenu.Visible = true;
             topPanelMainMenu.Visible = true;
-            
-            
+            btnMainMenuChooseMultipleImage.Visible = true;
+            btnMainMenuChoosePath.Visible = true;
+            btnMainMenuUseTEST.Visible = true;
+            btnMainMenuUsingImport.Visible = true;
+            labelMainMenu.Visible = true;
+            btnExitMainMenu.Visible = true;
+
+            midPanelPhotomax.Visible = false;
+            bottonPanelPhotoMax.Visible = false;
+            label1.Visible = false;
+
+
 
         }
 
@@ -101,11 +109,17 @@ namespace WinPM
         {
             midPanelEnterPath.Visible = true;
             TopanelEnterPath.Visible = true;
+            bottonPanelEnterPath.Visible = true;
             labelEnterPathsingle.Visible = true;
             textBoxEnterPath.Visible = true;
             btnEnterPath.Visible = true;
-            bottonPanelEnterPath.Visible = true;
             btnBackEnterPath.Visible = true;
+
+
+
+
+
+
 
         }
 
@@ -124,7 +138,17 @@ namespace WinPM
             btnPhotoEditingImageProd.Visible = true;
             btnPhotoEditingInsertText.Visible = true;
             btnPhotoEditingRotateImage.Visible = true;
+            bottonPanelPhotoEditing.Visible = true;
+            TopPanelEditingOptions.Visible = true;
+            btnBackPhotoEditing.Visible = true;
+            labelEditingOption.Visible = true;
+            btnBackPhotoEditing.Visible = true;
+
             btnEnterPath.Visible = false;
+            labelEnterPathsingle.Visible = false;
+
+
+
             
             
 
@@ -141,15 +165,25 @@ namespace WinPM
 
         private void btn4Filter_Click(object sender, EventArgs e)
         {
+            TopPanelApplyFilter.Visible = true;
             MidPanelFilterOption.Visible = true;
             btnFilterNegative.Visible = true;
             btnFilterSepia.Visible = true;
             btnfilterBlossom.Visible = true;
             btnFilterGreyScale.Visible = true;
+            labelFilterOption.Visible = true;
+            bottonPanelFilter.Visible = true;
+            btnBackFilter.Visible = true;
+            
+            
+            pictureBoxFilterOption.Visible = true;
             // trun off panels
             btnPhotoEditingInsertText.Visible = false;
             btnPhotoEditingImageProd.Visible = false;
             btnPhotoEditingRotateImage.Visible = false;
+            TopPanelEditingOptions.Visible = false;
+            TopanelEnterPath.Visible = false;
+            
         }
 
         private void btnBackEnterPath_Click(object sender, EventArgs e)
@@ -167,6 +201,55 @@ namespace WinPM
             bottonPanelEnterPath.Visible = false;
             textBoxEnterPath.Visible = false;
             btnBackEnterPath.Visible = false;
+
+        }
+
+        private void btnBackPhotoEditing_Click(object sender, EventArgs e)
+        {
+            midPanelEnterPath.Visible = true;
+            TopanelEnterPath.Visible = true;
+            bottonPanelEnterPath.Visible = true;
+            textBoxEnterPath.Visible = true;
+            btnBackEnterPath.Visible = true;
+            labelEnterPathsingle.Visible = true;
+            btnEnterPath.Visible = true;
+
+            MidPanelEditingOptions.Visible = false;
+            btnPhotoEditingApplyFilter.Visible = false;
+            btnPhotoEditingImageProd.Visible = false;
+            btnPhotoEditingInsertText.Visible = false;
+            btnPhotoEditingRotateImage.Visible = false;
+            bottonPanelPhotoEditing.Visible = false;
+            TopPanelEditingOptions.Visible = false;
+            btnBackPhotoEditing.Visible = false;
+            labelEditingOption.Visible = false;
+            btnBackPhotoEditing.Visible = false;
+
+        }
+
+        private void btnBackFilter_Click(object sender, EventArgs e)
+        {
+            TopPanelApplyFilter.Visible = false;
+            MidPanelFilterOption.Visible = false;
+            bottonPanelFilter.Visible = false;
+            btnfilterBlossom.Visible = false;
+            btnFilterGreyScale.Visible = false;
+            btnFilterSepia.Visible = false;
+            btnFilterNegative.Visible = false;
+            labelFilterOption.Visible = false;
+            btnBackFilter.Visible = false;
+
+            MidPanelEditingOptions.Visible = true;
+            bottonPanelPhotoEditing.Visible = true;
+            TopPanelEditingOptions.Visible = true;
+            btnPhotoEditingApplyFilter.Visible = true;
+            btnPhotoEditingImageProd.Visible = true;
+            btnPhotoEditingInsertText.Visible = true;
+            btnPhotoEditingRotateImage.Visible = true;
+            btnBackPhotoEditing.Visible = true;
+            labelEditingOption.Visible = true;
+            btnBackPhotoEditing.Visible = true;
+            
 
         }
     }

@@ -63,6 +63,10 @@
             this.btnBackEnterPath = new System.Windows.Forms.Button();
             this.bottonPanelPhotoEditing = new System.Windows.Forms.Panel();
             this.btnBackPhotoEditing = new System.Windows.Forms.Button();
+            this.labelEditingOption = new System.Windows.Forms.Label();
+            this.pictureBoxFilterOption = new System.Windows.Forms.PictureBox();
+            this.bottonPanelFilter = new System.Windows.Forms.Panel();
+            this.btnBackFilter = new System.Windows.Forms.Button();
             this.topPanelMainMenu.SuspendLayout();
             this.TopanelEnterPath.SuspendLayout();
             this.TopPanelEditingOptions.SuspendLayout();
@@ -76,23 +80,27 @@
             this.MidPanelFilterOption.SuspendLayout();
             this.bottonPanelEnterPath.SuspendLayout();
             this.bottonPanelPhotoEditing.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFilterOption)).BeginInit();
+            this.bottonPanelFilter.SuspendLayout();
             this.SuspendLayout();
             // 
             // topPanelMainMenu
             // 
             this.topPanelMainMenu.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.topPanelMainMenu.Controls.Add(this.TopPanelApplyFilter);
             this.topPanelMainMenu.Controls.Add(this.TopanelEnterPath);
             this.topPanelMainMenu.Controls.Add(this.labelMainMenu);
-            this.topPanelMainMenu.Location = new System.Drawing.Point(12, 17);
+            this.topPanelMainMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.topPanelMainMenu.Location = new System.Drawing.Point(0, 0);
             this.topPanelMainMenu.Name = "topPanelMainMenu";
-            this.topPanelMainMenu.Size = new System.Drawing.Size(776, 38);
+            this.topPanelMainMenu.Size = new System.Drawing.Size(800, 374);
             this.topPanelMainMenu.TabIndex = 0;
             this.topPanelMainMenu.Visible = false;
             // 
             // TopanelEnterPath
             // 
-            this.TopanelEnterPath.Controls.Add(this.TopPanelEditingOptions);
             this.TopanelEnterPath.Controls.Add(this.labelEnterPathsingle);
+            this.TopanelEnterPath.Controls.Add(this.TopPanelEditingOptions);
             this.TopanelEnterPath.Location = new System.Drawing.Point(3, 0);
             this.TopanelEnterPath.Name = "TopanelEnterPath";
             this.TopanelEnterPath.Size = new System.Drawing.Size(773, 38);
@@ -101,38 +109,42 @@
             // 
             // TopPanelEditingOptions
             // 
-            this.TopPanelEditingOptions.Controls.Add(this.TopPanelApplyFilter);
-            this.TopPanelEditingOptions.Location = new System.Drawing.Point(0, 0);
+            this.TopPanelEditingOptions.Controls.Add(this.labelEditingOption);
+            this.TopPanelEditingOptions.Location = new System.Drawing.Point(0, 2);
             this.TopPanelEditingOptions.Name = "TopPanelEditingOptions";
             this.TopPanelEditingOptions.Size = new System.Drawing.Size(773, 38);
             this.TopPanelEditingOptions.TabIndex = 1;
+            this.TopPanelEditingOptions.Visible = false;
             // 
             // TopPanelApplyFilter
             // 
             this.TopPanelApplyFilter.Controls.Add(this.labelFilterOption);
-            this.TopPanelApplyFilter.Location = new System.Drawing.Point(0, 0);
+            this.TopPanelApplyFilter.Location = new System.Drawing.Point(3, 0);
             this.TopPanelApplyFilter.Name = "TopPanelApplyFilter";
             this.TopPanelApplyFilter.Size = new System.Drawing.Size(773, 37);
             this.TopPanelApplyFilter.TabIndex = 0;
+            this.TopPanelApplyFilter.Visible = false;
             // 
             // labelFilterOption
             // 
             this.labelFilterOption.AutoSize = true;
             this.labelFilterOption.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFilterOption.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelFilterOption.Location = new System.Drawing.Point(307, 13);
+            this.labelFilterOption.Location = new System.Drawing.Point(317, 11);
             this.labelFilterOption.Name = "labelFilterOption";
             this.labelFilterOption.Size = new System.Drawing.Size(144, 24);
             this.labelFilterOption.TabIndex = 0;
             this.labelFilterOption.Text = "Choose a filter";
+            this.labelFilterOption.Visible = false;
             // 
             // labelEnterPathsingle
             // 
             this.labelEnterPathsingle.AutoSize = true;
-            this.labelEnterPathsingle.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEnterPathsingle.Location = new System.Drawing.Point(329, 15);
+            this.labelEnterPathsingle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.labelEnterPathsingle.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelEnterPathsingle.Location = new System.Drawing.Point(317, 11);
             this.labelEnterPathsingle.Name = "labelEnterPathsingle";
-            this.labelEnterPathsingle.Size = new System.Drawing.Size(94, 22);
+            this.labelEnterPathsingle.Size = new System.Drawing.Size(107, 24);
             this.labelEnterPathsingle.TabIndex = 0;
             this.labelEnterPathsingle.Text = "Enter Path";
             this.labelEnterPathsingle.Visible = false;
@@ -140,12 +152,14 @@
             // labelMainMenu
             // 
             this.labelMainMenu.AutoSize = true;
-            this.labelMainMenu.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMainMenu.Location = new System.Drawing.Point(310, 15);
+            this.labelMainMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.labelMainMenu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelMainMenu.Location = new System.Drawing.Point(317, 12);
             this.labelMainMenu.Name = "labelMainMenu";
-            this.labelMainMenu.Size = new System.Drawing.Size(297, 22);
+            this.labelMainMenu.Size = new System.Drawing.Size(331, 24);
             this.labelMainMenu.TabIndex = 0;
             this.labelMainMenu.Text = "Select one of the following options";
+            this.labelMainMenu.Visible = false;
             // 
             // midPanelPhotomax
             // 
@@ -250,6 +264,7 @@
             // 
             // MidPanelFilterOption
             // 
+            this.MidPanelFilterOption.Controls.Add(this.pictureBoxFilterOption);
             this.MidPanelFilterOption.Controls.Add(this.btnfilterBlossom);
             this.MidPanelFilterOption.Controls.Add(this.btnFilterSepia);
             this.MidPanelFilterOption.Controls.Add(this.btnFilterNegative);
@@ -436,6 +451,7 @@
             // 
             // bottonPanelPhotoEditing
             // 
+            this.bottonPanelPhotoEditing.Controls.Add(this.bottonPanelFilter);
             this.bottonPanelPhotoEditing.Controls.Add(this.btnBackPhotoEditing);
             this.bottonPanelPhotoEditing.Location = new System.Drawing.Point(0, 0);
             this.bottonPanelPhotoEditing.Name = "bottonPanelPhotoEditing";
@@ -445,13 +461,54 @@
             // 
             // btnBackPhotoEditing
             // 
-            this.btnBackPhotoEditing.Location = new System.Drawing.Point(348, 7);
+            this.btnBackPhotoEditing.Location = new System.Drawing.Point(348, 6);
             this.btnBackPhotoEditing.Name = "btnBackPhotoEditing";
             this.btnBackPhotoEditing.Size = new System.Drawing.Size(75, 23);
             this.btnBackPhotoEditing.TabIndex = 0;
-            this.btnBackPhotoEditing.Text = "button1";
+            this.btnBackPhotoEditing.Text = "back";
             this.btnBackPhotoEditing.UseVisualStyleBackColor = true;
             this.btnBackPhotoEditing.Visible = false;
+            this.btnBackPhotoEditing.Click += new System.EventHandler(this.btnBackPhotoEditing_Click);
+            // 
+            // labelEditingOption
+            // 
+            this.labelEditingOption.AutoSize = true;
+            this.labelEditingOption.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.labelEditingOption.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelEditingOption.Location = new System.Drawing.Point(317, 11);
+            this.labelEditingOption.Name = "labelEditingOption";
+            this.labelEditingOption.Size = new System.Drawing.Size(175, 24);
+            this.labelEditingOption.TabIndex = 1;
+            this.labelEditingOption.Text = "Choose an option";
+            this.labelEditingOption.Visible = false;
+            // 
+            // pictureBoxFilterOption
+            // 
+            this.pictureBoxFilterOption.Location = new System.Drawing.Point(414, 45);
+            this.pictureBoxFilterOption.Name = "pictureBoxFilterOption";
+            this.pictureBoxFilterOption.Size = new System.Drawing.Size(294, 150);
+            this.pictureBoxFilterOption.TabIndex = 4;
+            this.pictureBoxFilterOption.TabStop = false;
+            // 
+            // bottonPanelFilter
+            // 
+            this.bottonPanelFilter.Controls.Add(this.btnBackFilter);
+            this.bottonPanelFilter.Location = new System.Drawing.Point(0, 0);
+            this.bottonPanelFilter.Name = "bottonPanelFilter";
+            this.bottonPanelFilter.Size = new System.Drawing.Size(776, 32);
+            this.bottonPanelFilter.TabIndex = 1;
+            this.bottonPanelFilter.Visible = false;
+            // 
+            // btnBackFilter
+            // 
+            this.btnBackFilter.Location = new System.Drawing.Point(357, 6);
+            this.btnBackFilter.Name = "btnBackFilter";
+            this.btnBackFilter.Size = new System.Drawing.Size(75, 23);
+            this.btnBackFilter.TabIndex = 0;
+            this.btnBackFilter.Text = "back";
+            this.btnBackFilter.UseVisualStyleBackColor = true;
+            this.btnBackFilter.Visible = false;
+            this.btnBackFilter.Click += new System.EventHandler(this.btnBackFilter_Click);
             // 
             // FormPM
             // 
@@ -471,6 +528,7 @@
             this.TopanelEnterPath.ResumeLayout(false);
             this.TopanelEnterPath.PerformLayout();
             this.TopPanelEditingOptions.ResumeLayout(false);
+            this.TopPanelEditingOptions.PerformLayout();
             this.TopPanelApplyFilter.ResumeLayout(false);
             this.TopPanelApplyFilter.PerformLayout();
             this.midPanelPhotomax.ResumeLayout(false);
@@ -484,6 +542,8 @@
             this.MidPanelFilterOption.ResumeLayout(false);
             this.bottonPanelEnterPath.ResumeLayout(false);
             this.bottonPanelPhotoEditing.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFilterOption)).EndInit();
+            this.bottonPanelFilter.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -525,6 +585,10 @@
         private System.Windows.Forms.Panel bottonPanelPhotoEditing;
         private System.Windows.Forms.Button btnBackPhotoEditing;
         private System.Windows.Forms.Button btnBackEnterPath;
+        private System.Windows.Forms.Label labelEditingOption;
+        private System.Windows.Forms.PictureBox pictureBoxFilterOption;
+        private System.Windows.Forms.Panel bottonPanelFilter;
+        private System.Windows.Forms.Button btnBackFilter;
     }
 }
 
