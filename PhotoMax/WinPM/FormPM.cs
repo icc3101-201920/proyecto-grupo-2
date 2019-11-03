@@ -252,5 +252,38 @@ namespace WinPM
             
 
         }
+
+        private void topPanelMainMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnFilterGreyScale_Click(object sender, EventArgs e)
+        {
+            MidMiniPanelAgree.Visible = true;
+            btnMiniApplyNO.Visible = true;
+            btnMiniApplyYES.Visible = true;
+            labelApplyChosenFilter.Visible = true;
+        }
+
+        private void btnMiniApplyNO_Click(object sender, EventArgs e)
+        {
+            MidMiniPanelAgree.Visible = false;
+            btnMiniApplyYES.Visible = false;
+            btnMiniApplyYES.Visible = false;
+            labelApplyChosenFilter.Visible = false;
+        }
+
+        private void textBoxSavePath1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMiniApplyYES_Click(object sender, EventArgs e)
+        {
+            labelHintPath.Visible = true;
+            textBoxSavePath1.Visible = true;
+            labelEnterSavePathName.Visible = true;
+        }
     }
 }
