@@ -69,6 +69,7 @@
             this.btnMainMenuChooseMultipleImage = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.panelTEST = new System.Windows.Forms.Panel();
             this.topPanelMainMenu.SuspendLayout();
             this.TopPanelEditingOptions.SuspendLayout();
             this.TopPanelApplyFilter.SuspendLayout();
@@ -459,6 +460,7 @@
             this.btnPhotoEditingImageProd.Text = "Image Production";
             this.btnPhotoEditingImageProd.UseVisualStyleBackColor = true;
             this.btnPhotoEditingImageProd.Visible = false;
+            this.btnPhotoEditingImageProd.Click += new System.EventHandler(this.btnPhotoEditingImageProd_Click);
             // 
             // btnPhotoEditingApplyFilter
             // 
@@ -490,7 +492,7 @@
             this.btnMainMenuChoosePath.Name = "btnMainMenuChoosePath";
             this.btnMainMenuChoosePath.Size = new System.Drawing.Size(648, 50);
             this.btnMainMenuChoosePath.TabIndex = 4;
-            this.btnMainMenuChoosePath.Text = "Enter path";
+            this.btnMainMenuChoosePath.Text = "Select a file";
             this.btnMainMenuChoosePath.UseVisualStyleBackColor = true;
             this.btnMainMenuChoosePath.Click += new System.EventHandler(this.btn2Option1_Click);
             // 
@@ -533,11 +535,20 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // panelTEST
+            // 
+            this.panelTEST.Location = new System.Drawing.Point(15, 56);
+            this.panelTEST.Name = "panelTEST";
+            this.panelTEST.Size = new System.Drawing.Size(525, 159);
+            this.panelTEST.TabIndex = 5;
+            this.panelTEST.Visible = false;
+            // 
             // FormPM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 374);
+            this.Controls.Add(this.panelTEST);
             this.Controls.Add(this.midPanelMainMenu);
             this.Controls.Add(this.bottonPanelMainMenu);
             this.Controls.Add(this.bottonPanelPhotoMax);
@@ -614,6 +625,7 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.PictureBox pictureBoxOpenFile;
+        private System.Windows.Forms.Panel panelTEST;
     }
 }
 

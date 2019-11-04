@@ -258,10 +258,22 @@ namespace WinPM
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     pictureBoxFilterOption.Image.Save(saveFileDialog1.FileName);
+                    MidPanelFilterOption.Visible = false;
+                    midPanelEnterPath.Visible = false;
+                    MidPanelEditingOptions.Visible = false;
+                    bottonPanelFilter.Visible = false;
+                    bottonPanelPhotoEditing.Visible = false;
+                    bottonPanelEnterPath.Visible = false;
+
+                    
+                    
                 }
 
                 transformedimage = false;
+
             }
+
+
         }
 
         private void btnMiniApplyNO_Click(object sender, EventArgs e)
@@ -287,22 +299,25 @@ namespace WinPM
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            MidPanelEditingOptions.Visible = true;
-            btnPhotoEditingApplyFilter.Visible = true;
-            btnPhotoEditingImageProd.Visible = true;
-            btnPhotoEditingInsertText.Visible = true;
-            btnPhotoEditingRotateImage.Visible = true;
-            bottonPanelPhotoEditing.Visible = true;
-            TopPanelEditingOptions.Visible = true;
-            btnBackPhotoEditing.Visible = true;
-            labelEditingOption.Visible = true;
-            btnBackPhotoEditing.Visible = true;
-            
+            if (pictureBoxOpenFile.Image != null)
+            {
+                MidPanelEditingOptions.Visible = true;
+                btnPhotoEditingApplyFilter.Visible = true;
+                btnPhotoEditingImageProd.Visible = true;
+                btnPhotoEditingInsertText.Visible = true;
+                btnPhotoEditingRotateImage.Visible = true;
+                bottonPanelPhotoEditing.Visible = true;
+                TopPanelEditingOptions.Visible = true;
+                btnBackPhotoEditing.Visible = true;
+                labelEditingOption.Visible = true;
+                btnBackPhotoEditing.Visible = true;
 
-            btnNext.Visible = false;
-            labelEnterPathsingle.Visible = false;
-            btnNext.Visible = false;
-            pictureBoxOpenFile.Visible = false;
+                btnNext.Visible = false;
+                labelEnterPathsingle.Visible = false;
+                btnNext.Visible = false;
+                pictureBoxOpenFile.Visible = false;
+            }
+
         }
 
         private void btnFilterGreyScale_MouseEnter(object sender, EventArgs e)
@@ -383,6 +398,12 @@ namespace WinPM
 
                 transformedimage = false;
             }
+        }
+
+        private void btnPhotoEditingImageProd_Click(object sender, EventArgs e)
+        {
+            panelTEST.Visible = true;
+            panelTEST.BringToFront();
         }
     }
 }
