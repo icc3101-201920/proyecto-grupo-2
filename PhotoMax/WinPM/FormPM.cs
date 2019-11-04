@@ -7,8 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-
+using PhotoMaxF;
 
 namespace WinPM
 {
@@ -31,9 +30,7 @@ namespace WinPM
 
         //EJ: en el caso anterior pasaríamos del panel 6 --> 7 --> 8. 
 
-        PhotoMaxF.Importer importer = new PhotoMaxF.Importer();
-        PhotoMaxF.SaveData SaveData = new PhotoMaxF.SaveData();
-        PhotoMaxF.Launcher launcher = new PhotoMaxF.Launcher();
+
 
         public event EventHandler OnApplyFilter;
         public event EventHandler OnApplyText;
@@ -48,6 +45,10 @@ namespace WinPM
         // --> cuando apriete cierto boton, guarde la foto en una carpeta
         // --> cuando escriba el path y aprete "enter" logre reconocer que hay una foto ahi y ese archivo se tiene que usar
         // --> 
+
+        Bitmap Modifyimage;
+        Bitmap originalimage;
+        bool transformedimage;
         public FormPM()
         {
             InitializeComponent();
@@ -107,12 +108,24 @@ namespace WinPM
 
         private void btn2Option1_Click(object sender, EventArgs e)
         {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Bitmap bitmap = new Bitmap(openFileDialog1.FileName);
+
+                originalimage = bitmap;
+                Modifyimage = bitmap;
+                transformedimage = false;
+                pictureBoxOpenFile.Image = bitmap;
+
+            }
+
             midPanelEnterPath.Visible = true;
             TopanelEnterPath.Visible = true;
             bottonPanelEnterPath.Visible = true;
             labelEnterPathsingle.Visible = true;
-            textBoxEnterPath.Visible = true;
-            btnEnterPath.Visible = true;
+
+
+            btnNext.Visible = true;
             btnBackEnterPath.Visible = true;
 
 
@@ -129,36 +142,14 @@ namespace WinPM
         }
 
         private void btn3EnterPath_Click(object sender, EventArgs e)
-        {
-            string Path;
-            
-            Path = textBoxEnterPath.Text;
-            MidPanelEditingOptions.Visible = true;
-            btnPhotoEditingApplyFilter.Visible = true;
-            btnPhotoEditingImageProd.Visible = true;
-            btnPhotoEditingInsertText.Visible = true;
-            btnPhotoEditingRotateImage.Visible = true;
-            bottonPanelPhotoEditing.Visible = true;
-            TopPanelEditingOptions.Visible = true;
-            btnBackPhotoEditing.Visible = true;
-            labelEditingOption.Visible = true;
-            btnBackPhotoEditing.Visible = true;
-
-            btnEnterPath.Visible = false;
-            labelEnterPathsingle.Visible = false;
-
-
-
-            
-            
-
-            
+        { 
+   
         }
 
         private void textBox3EnterPath_TextChanged(object sender, EventArgs e)
         {
             string Path;
-            Path = textBoxEnterPath.Text;
+            
 
              
         }
@@ -199,7 +190,7 @@ namespace WinPM
             midPanelEnterPath.Visible = false;
             TopanelEnterPath.Visible = false;
             bottonPanelEnterPath.Visible = false;
-            textBoxEnterPath.Visible = false;
+            
             btnBackEnterPath.Visible = false;
 
         }
@@ -209,10 +200,9 @@ namespace WinPM
             midPanelEnterPath.Visible = true;
             TopanelEnterPath.Visible = true;
             bottonPanelEnterPath.Visible = true;
-            textBoxEnterPath.Visible = true;
             btnBackEnterPath.Visible = true;
             labelEnterPathsingle.Visible = true;
-            btnEnterPath.Visible = true;
+            btnNext.Visible = true;
 
             MidPanelEditingOptions.Visible = false;
             btnPhotoEditingApplyFilter.Visible = false;
@@ -260,18 +250,24 @@ namespace WinPM
 
         private void btnFilterGreyScale_Click(object sender, EventArgs e)
         {
-            MidMiniPanelAgree.Visible = true;
-            btnMiniApplyNO.Visible = true;
-            btnMiniApplyYES.Visible = true;
-            labelApplyChosenFilter.Visible = true;
+            if (pictureBoxFilterOption.Image != null)
+            {
+                saveFileDialog1.Filter = "JPG (*.jpg)|*.jpg|PNG (*.png)|";
+                saveFileDialog1.Title = "Guarda tu imagen";
+
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBoxFilterOption.Image.Save(saveFileDialog1.FileName);
+                }
+
+                transformedimage = false;
+            }
         }
 
         private void btnMiniApplyNO_Click(object sender, EventArgs e)
         {
-            MidMiniPanelAgree.Visible = false;
-            btnMiniApplyYES.Visible = false;
-            btnMiniApplyYES.Visible = false;
-            labelApplyChosenFilter.Visible = false;
+ 
+            
         }
 
         private void textBoxSavePath1_TextChanged(object sender, EventArgs e)
@@ -281,9 +277,42 @@ namespace WinPM
 
         private void btnMiniApplyYES_Click(object sender, EventArgs e)
         {
-            labelHintPath.Visible = true;
-            textBoxSavePath1.Visible = true;
-            labelEnterSavePathName.Visible = true;
+            
+        }
+
+        private void MidPanelFilterOption_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            MidPanelEditingOptions.Visible = true;
+            btnPhotoEditingApplyFilter.Visible = true;
+            btnPhotoEditingImageProd.Visible = true;
+            btnPhotoEditingInsertText.Visible = true;
+            btnPhotoEditingRotateImage.Visible = true;
+            bottonPanelPhotoEditing.Visible = true;
+            TopPanelEditingOptions.Visible = true;
+            btnBackPhotoEditing.Visible = true;
+            labelEditingOption.Visible = true;
+            btnBackPhotoEditing.Visible = true;
+            
+
+            btnNext.Visible = false;
+            labelEnterPathsingle.Visible = false;
+            btnNext.Visible = false;
+            pictureBoxOpenFile.Visible = false;
+        }
+
+        private void btnFilterGreyScale_MouseEnter(object sender, EventArgs e)
+        {
+            Bitmap image = originalimage;
+            Bitmap modify = Modifyimage;
+            image = Filters.GreyScale(image);
+            pictureBoxFilterOption.Image = image;
+
+
         }
     }
 }
