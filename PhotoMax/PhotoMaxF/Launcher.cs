@@ -60,13 +60,15 @@ namespace PhotoMaxF
             {
                 FileSystem.CreateDirectory(importer.importDirectory);
             }
-            
+            SaveEXIFData();
+
             SaveData saveData = new SaveData();
             if (!Directory.Exists(saveData.saveDirectory))
             {
                 FileSystem.CreateDirectory(saveData.saveDirectory);
             }
 
+            List<ImageFile> imageFilesImportFolder = LoadEXIFData();
 
             int searchOption = -1;
             while (searchOption != 0)
@@ -79,11 +81,22 @@ namespace PhotoMaxF
 
                 string path = importer.ImportPath(searchOption);
                 
-                SaveEXIFData();
                 if (path == "/%void%/") {IOUser.ClearConsole(); continue;}
-
+                SaveEXIFData();
 
                 ImageFile imageFile = new ImageFile(path);
+
+                if (path == Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\test1.jpg"))
+                {
+                    string pName = Path.GetFileNameWithoutExtension(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\test1.jpg"));
+                    if (!File.Exists(Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\EXIFData"), pName + ".txt")))
+                    {
+                        FileStream fs = new FileStream(Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\EXIFData"), pName + ".txt"), FileMode.Create);
+                        IFormatter formatter = new BinaryFormatter();
+                        formatter.Serialize(fs, imageFile);
+                        fs.Close();
+                    }
+                } //FOR TEST1 (DELETE)
 
                 int editingOption = -1;
                 while (editingOption != 0)
@@ -333,7 +346,28 @@ namespace PhotoMaxF
 
 
         }
+        
+        public List<ImageFile> LoadEXIFData()
+        {
+            if (Directory.EnumerateFiles(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\EXIFData")).Any())
+            {
+                List<ImageFile> importsEXIFData = new List<ImageFile> { };
+                string[] EXIFDataPaths = new string[] { };
+                EXIFDataPaths = Directory.GetFiles(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\EXIFData"));
 
-
+                ImageFile img;
+                foreach (string path in EXIFDataPaths)
+                {
+                    FileStream fs = new FileStream(path, FileMode.Open);
+                    IFormatter formatter = new BinaryFormatter();
+                    img = formatter.Deserialize(fs) as ImageFile;
+                    importsEXIFData.Add(img);
+                    fs.Close();
+                }
+                return importsEXIFData;
+            }
+            return new List<ImageFile> {};
+        }
+        
     }
 }
