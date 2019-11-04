@@ -19,8 +19,7 @@ namespace PhotoMaxF
                 "Exit PhotoMax",
                 "Import file by path location",
                 "Import multiple files by directory location",
-                "Select image to work with from Import folder",
-                "USE TEST1.JPG (REMOVE OPTION LATER)"
+                "Select image to work with from Import folder"
             };
 
             // LIST OF SEARCH OPTIONS
@@ -91,16 +90,6 @@ namespace PhotoMaxF
                         path = IOUser.ConsoleReadFileName(importDirectory, extensionTypes);
                         return path;
                     }
-
-                case 4:
-                    //IOUser.ConsoleError("NOT YET IMPLEMENTED...");
-                    //Console.WriteLine("\nPress any key to continue");
-                    //Console.ReadLine();
-
-                    //GENERIC TEST EXAMPLE
-                    path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\test1.jpg");
-
-                    return path;
                 
             }
 
