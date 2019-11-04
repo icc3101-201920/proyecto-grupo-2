@@ -434,5 +434,39 @@ namespace WinPM
             bottonpanelRotate.Visible = false;
             btnBackRotate.Visible = false;
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPhotoEditingInsertText_Click(object sender, EventArgs e)
+        {
+            MidpanelText.BringToFront();
+            MidpanelText.Visible = true;
+            labelXcoordText.Visible = true;
+            labelYcoordText.Visible = true;
+            LabelColourText.Visible = true;
+            labelSizeText.Visible = true;
+            labelInsertTEXT.Visible = true;
+            textBoxInsertText.Visible = true;
+            textBoxSizeText.Visible = true;
+            textBoxXcoord.Visible = true;
+            textBoxYcoord.Visible = true;
+            textBoxColour.Visible = true;
+            pictureBoxInsertText.Visible = true;
+
+            if (textBoxInsertText != null || textBoxSizeText != null || textBoxXcoord != null || textBoxColour != null || textBoxInsertText != null) 
+            {
+                int X = int.Parse(textBoxXcoord.Text);
+                int Y = int.Parse(textBoxYcoord.Text);
+                int Size = int.Parse(textBoxSizeText.Text);
+
+                Bitmap image = originalimage;
+                Bitmap modify = Modifyimage;
+                Editor.TEXT(image, textBoxInsertText.Text, textBoxColour.Text, Size, X, Y);
+                pictureBoxInsertText.Image = image;
+            }
+        }
     }
 }
