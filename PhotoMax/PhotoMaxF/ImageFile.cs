@@ -115,8 +115,8 @@ namespace PhotoMaxF
             }
             catch(ExifLibException)
             {
-                IOUser.ConsoleError("\nThere is no EXIF information");
-                Thread.Sleep(1500);
+                //IOUser.ConsoleError("\nThere is no EXIF information");
+                //Thread.Sleep(1500);
             }
 
             Origin = originPath;

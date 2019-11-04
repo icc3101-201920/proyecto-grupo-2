@@ -1,9 +1,12 @@
-﻿using PhotoMaxF.InputOutput;
+﻿using Microsoft.VisualBasic.FileIO;
+using PhotoMaxF.InputOutput;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading;
 
@@ -51,8 +54,19 @@ namespace PhotoMaxF
         public void Launch()
         {
             IOUser.ConsoleWelcome();
+            
             Importer importer = new Importer();
+            if (!Directory.Exists(importer.importDirectory))
+            {
+                FileSystem.CreateDirectory(importer.importDirectory);
+            }
+            
             SaveData saveData = new SaveData();
+            if (!Directory.Exists(saveData.saveDirectory))
+            {
+                FileSystem.CreateDirectory(saveData.saveDirectory);
+            }
+
 
             int searchOption = -1;
             while (searchOption != 0)
@@ -64,7 +78,8 @@ namespace PhotoMaxF
                 if (searchOption == 0) { IOUser.ConsoleExit(); Thread.Sleep(2500); break;}
 
                 string path = importer.ImportPath(searchOption);
-
+                
+                SaveEXIFData();
                 if (path == "/%void%/") {IOUser.ClearConsole(); continue;}
 
 
@@ -288,6 +303,34 @@ namespace PhotoMaxF
                     IOUser.ClearConsole();
                 }
             }
+
+        }
+
+        public void SaveEXIFData()
+        {
+            if (Directory.EnumerateFiles(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\PM-Images\\Imports")).Any())
+            {
+                string EXIFDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\EXIFData");
+
+                string[] imageFilePaths = new string[] { };
+                imageFilePaths = Directory.GetFiles(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\PM-Images\\Imports"));
+
+                string pName;
+                ImageFile img;
+                foreach (string path in imageFilePaths)
+                {
+                    img = new ImageFile(path);
+                    pName = Path.GetFileNameWithoutExtension(path);
+                    if (!File.Exists(Path.Combine(EXIFDirectory, pName + ".txt")))
+                    {
+                        FileStream fs = new FileStream(Path.Combine(EXIFDirectory, pName + ".txt"), FileMode.Create);
+                        IFormatter formatter = new BinaryFormatter();
+                        formatter.Serialize(fs, img);
+                        fs.Close();
+                    }
+                }
+            }
+
 
         }
 
