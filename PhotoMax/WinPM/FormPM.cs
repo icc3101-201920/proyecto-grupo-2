@@ -170,8 +170,8 @@ namespace WinPM
             pictureBoxFilterOption.Visible = true;
             // trun off panels
             btnPhotoEditingInsertText.Visible = false;
+            btnPhotorotate.Visible = false;
             btnPhotoEditingImageProd.Visible = false;
-            btnPhotoEditingRotateImage.Visible = false;
             TopPanelEditingOptions.Visible = false;
             TopanelEnterPath.Visible = false;
             
@@ -203,12 +203,13 @@ namespace WinPM
             btnBackEnterPath.Visible = true;
             labelEnterPathsingle.Visible = true;
             btnNext.Visible = true;
+            pictureBoxOpenFile.Visible = true;
 
             MidPanelEditingOptions.Visible = false;
             btnPhotoEditingApplyFilter.Visible = false;
-            btnPhotoEditingImageProd.Visible = false;
+            btnPhotorotate.Visible = false;
             btnPhotoEditingInsertText.Visible = false;
-            btnPhotoEditingRotateImage.Visible = false;
+            btnPhotoEditingImageProd.Visible = false;
             bottonPanelPhotoEditing.Visible = false;
             TopPanelEditingOptions.Visible = false;
             btnBackPhotoEditing.Visible = false;
@@ -233,9 +234,9 @@ namespace WinPM
             bottonPanelPhotoEditing.Visible = true;
             TopPanelEditingOptions.Visible = true;
             btnPhotoEditingApplyFilter.Visible = true;
-            btnPhotoEditingImageProd.Visible = true;
+            btnPhotorotate.Visible = true;
             btnPhotoEditingInsertText.Visible = true;
-            btnPhotoEditingRotateImage.Visible = true;
+            btnPhotoEditingImageProd.Visible = true;
             btnBackPhotoEditing.Visible = true;
             labelEditingOption.Visible = true;
             btnBackPhotoEditing.Visible = true;
@@ -303,9 +304,9 @@ namespace WinPM
             {
                 MidPanelEditingOptions.Visible = true;
                 btnPhotoEditingApplyFilter.Visible = true;
-                btnPhotoEditingImageProd.Visible = true;
+                btnPhotorotate.Visible = true;
                 btnPhotoEditingInsertText.Visible = true;
-                btnPhotoEditingRotateImage.Visible = true;
+                btnPhotoEditingImageProd.Visible = true;
                 bottonPanelPhotoEditing.Visible = true;
                 TopPanelEditingOptions.Visible = true;
                 btnBackPhotoEditing.Visible = true;
@@ -402,8 +403,36 @@ namespace WinPM
 
         private void btnPhotoEditingImageProd_Click(object sender, EventArgs e)
         {
-            panelTEST.Visible = true;
-            panelTEST.BringToFront();
+            midPanelRotate.Visible = true;
+            topPanelRotate.Visible = true;
+            topPanelRotate.BringToFront();
+            midPanelRotate.BringToFront();
+            bottonpanelRotate.BringToFront();
+            bottonpanelRotate.Visible = true;
+            btnBackRotate.Visible = true;
+            btn90.Visible = true;
+            btn180.Visible = true;
+            btn270.Visible = true;
+            pictureBoxRotate.Visible = true;
+        }
+
+        private void btn90_MouseEnter(object sender, EventArgs e)
+        {
+            Bitmap image = originalimage;
+            Bitmap modify = Modifyimage;
+            RotateFlipType applyRotate = RotateFlipType.RotateNoneFlipNone;
+            applyRotate = RotateFlipType.Rotate90FlipNone;
+            image.RotateFlip(applyRotate);
+            
+            pictureBoxRotate.Image = image;
+        }
+
+        private void btnBackRotate_Click(object sender, EventArgs e)
+        {
+            midPanelRotate.Visible = false;
+            topPanelRotate.Visible = false;
+            bottonpanelRotate.Visible = false;
+            btnBackRotate.Visible = false;
         }
     }
 }

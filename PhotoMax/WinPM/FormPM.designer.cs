@@ -58,9 +58,9 @@
             this.btnFilterGreyScale = new System.Windows.Forms.Button();
             this.pictureBoxOpenFile = new System.Windows.Forms.PictureBox();
             this.MidPanelEditingOptions = new System.Windows.Forms.Panel();
-            this.btnPhotoEditingRotateImage = new System.Windows.Forms.Button();
-            this.btnPhotoEditingInsertText = new System.Windows.Forms.Button();
             this.btnPhotoEditingImageProd = new System.Windows.Forms.Button();
+            this.btnPhotoEditingInsertText = new System.Windows.Forms.Button();
+            this.btnPhotorotate = new System.Windows.Forms.Button();
             this.btnPhotoEditingApplyFilter = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnMainMenuChoosePath = new System.Windows.Forms.Button();
@@ -69,7 +69,16 @@
             this.btnMainMenuChooseMultipleImage = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.panelTEST = new System.Windows.Forms.Panel();
+            this.midPanelRotate = new System.Windows.Forms.Panel();
+            this.pictureBoxRotate = new System.Windows.Forms.PictureBox();
+            this.btn270 = new System.Windows.Forms.Button();
+            this.btn180 = new System.Windows.Forms.Button();
+            this.btn90 = new System.Windows.Forms.Button();
+            this.topPanelRotate = new System.Windows.Forms.Panel();
+            this.labelRotate = new System.Windows.Forms.Label();
+            this.bottonpanelRotate = new System.Windows.Forms.Panel();
+            this.btnBackRotate = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.topPanelMainMenu.SuspendLayout();
             this.TopPanelEditingOptions.SuspendLayout();
             this.TopPanelApplyFilter.SuspendLayout();
@@ -86,6 +95,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFilterOption)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenFile)).BeginInit();
             this.MidPanelEditingOptions.SuspendLayout();
+            this.midPanelRotate.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRotate)).BeginInit();
+            this.topPanelRotate.SuspendLayout();
+            this.bottonpanelRotate.SuspendLayout();
             this.SuspendLayout();
             // 
             // topPanelMainMenu
@@ -417,9 +430,9 @@
             // 
             // MidPanelEditingOptions
             // 
-            this.MidPanelEditingOptions.Controls.Add(this.btnPhotoEditingRotateImage);
-            this.MidPanelEditingOptions.Controls.Add(this.btnPhotoEditingInsertText);
             this.MidPanelEditingOptions.Controls.Add(this.btnPhotoEditingImageProd);
+            this.MidPanelEditingOptions.Controls.Add(this.btnPhotoEditingInsertText);
+            this.MidPanelEditingOptions.Controls.Add(this.btnPhotorotate);
             this.MidPanelEditingOptions.Controls.Add(this.btnPhotoEditingApplyFilter);
             this.MidPanelEditingOptions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MidPanelEditingOptions.Location = new System.Drawing.Point(0, 0);
@@ -428,16 +441,16 @@
             this.MidPanelEditingOptions.TabIndex = 2;
             this.MidPanelEditingOptions.Visible = false;
             // 
-            // btnPhotoEditingRotateImage
+            // btnPhotoEditingImageProd
             // 
-            this.btnPhotoEditingRotateImage.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPhotoEditingRotateImage.Location = new System.Drawing.Point(6, 189);
-            this.btnPhotoEditingRotateImage.Name = "btnPhotoEditingRotateImage";
-            this.btnPhotoEditingRotateImage.Size = new System.Drawing.Size(399, 40);
-            this.btnPhotoEditingRotateImage.TabIndex = 3;
-            this.btnPhotoEditingRotateImage.Text = "Rotate Image";
-            this.btnPhotoEditingRotateImage.UseVisualStyleBackColor = true;
-            this.btnPhotoEditingRotateImage.Visible = false;
+            this.btnPhotoEditingImageProd.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPhotoEditingImageProd.Location = new System.Drawing.Point(6, 189);
+            this.btnPhotoEditingImageProd.Name = "btnPhotoEditingImageProd";
+            this.btnPhotoEditingImageProd.Size = new System.Drawing.Size(399, 40);
+            this.btnPhotoEditingImageProd.TabIndex = 3;
+            this.btnPhotoEditingImageProd.Text = "Image Production";
+            this.btnPhotoEditingImageProd.UseVisualStyleBackColor = true;
+            this.btnPhotoEditingImageProd.Visible = false;
             // 
             // btnPhotoEditingInsertText
             // 
@@ -450,17 +463,17 @@
             this.btnPhotoEditingInsertText.UseVisualStyleBackColor = true;
             this.btnPhotoEditingInsertText.Visible = false;
             // 
-            // btnPhotoEditingImageProd
+            // btnPhotorotate
             // 
-            this.btnPhotoEditingImageProd.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPhotoEditingImageProd.Location = new System.Drawing.Point(6, 66);
-            this.btnPhotoEditingImageProd.Name = "btnPhotoEditingImageProd";
-            this.btnPhotoEditingImageProd.Size = new System.Drawing.Size(399, 40);
-            this.btnPhotoEditingImageProd.TabIndex = 1;
-            this.btnPhotoEditingImageProd.Text = "Image Production";
-            this.btnPhotoEditingImageProd.UseVisualStyleBackColor = true;
-            this.btnPhotoEditingImageProd.Visible = false;
-            this.btnPhotoEditingImageProd.Click += new System.EventHandler(this.btnPhotoEditingImageProd_Click);
+            this.btnPhotorotate.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPhotorotate.Location = new System.Drawing.Point(6, 66);
+            this.btnPhotorotate.Name = "btnPhotorotate";
+            this.btnPhotorotate.Size = new System.Drawing.Size(399, 40);
+            this.btnPhotorotate.TabIndex = 1;
+            this.btnPhotorotate.Text = "Rotate";
+            this.btnPhotorotate.UseVisualStyleBackColor = true;
+            this.btnPhotorotate.Visible = false;
+            this.btnPhotorotate.Click += new System.EventHandler(this.btnPhotoEditingImageProd_Click);
             // 
             // btnPhotoEditingApplyFilter
             // 
@@ -535,20 +548,118 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // panelTEST
+            // midPanelRotate
             // 
-            this.panelTEST.Location = new System.Drawing.Point(15, 56);
-            this.panelTEST.Name = "panelTEST";
-            this.panelTEST.Size = new System.Drawing.Size(525, 159);
-            this.panelTEST.TabIndex = 5;
-            this.panelTEST.Visible = false;
+            this.midPanelRotate.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.midPanelRotate.Controls.Add(this.panel1);
+            this.midPanelRotate.Controls.Add(this.pictureBoxRotate);
+            this.midPanelRotate.Controls.Add(this.btn270);
+            this.midPanelRotate.Controls.Add(this.btn180);
+            this.midPanelRotate.Controls.Add(this.btn90);
+            this.midPanelRotate.Location = new System.Drawing.Point(15, 56);
+            this.midPanelRotate.Name = "midPanelRotate";
+            this.midPanelRotate.Size = new System.Drawing.Size(776, 277);
+            this.midPanelRotate.TabIndex = 5;
+            this.midPanelRotate.Visible = false;
+            // 
+            // pictureBoxRotate
+            // 
+            this.pictureBoxRotate.Location = new System.Drawing.Point(458, 37);
+            this.pictureBoxRotate.Name = "pictureBoxRotate";
+            this.pictureBoxRotate.Size = new System.Drawing.Size(278, 163);
+            this.pictureBoxRotate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxRotate.TabIndex = 3;
+            this.pictureBoxRotate.TabStop = false;
+            this.pictureBoxRotate.Visible = false;
+            // 
+            // btn270
+            // 
+            this.btn270.Location = new System.Drawing.Point(57, 164);
+            this.btn270.Name = "btn270";
+            this.btn270.Size = new System.Drawing.Size(354, 36);
+            this.btn270.TabIndex = 2;
+            this.btn270.Text = "270°";
+            this.btn270.UseVisualStyleBackColor = true;
+            this.btn270.Visible = false;
+            // 
+            // btn180
+            // 
+            this.btn180.Location = new System.Drawing.Point(57, 97);
+            this.btn180.Name = "btn180";
+            this.btn180.Size = new System.Drawing.Size(354, 36);
+            this.btn180.TabIndex = 1;
+            this.btn180.Text = "180°";
+            this.btn180.UseVisualStyleBackColor = true;
+            this.btn180.Visible = false;
+            // 
+            // btn90
+            // 
+            this.btn90.Location = new System.Drawing.Point(57, 37);
+            this.btn90.Name = "btn90";
+            this.btn90.Size = new System.Drawing.Size(354, 36);
+            this.btn90.TabIndex = 0;
+            this.btn90.Text = "90°";
+            this.btn90.UseVisualStyleBackColor = true;
+            this.btn90.Visible = false;
+            this.btn90.MouseEnter += new System.EventHandler(this.btn90_MouseEnter);
+            // 
+            // topPanelRotate
+            // 
+            this.topPanelRotate.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.topPanelRotate.Controls.Add(this.labelRotate);
+            this.topPanelRotate.Location = new System.Drawing.Point(15, 12);
+            this.topPanelRotate.Name = "topPanelRotate";
+            this.topPanelRotate.Size = new System.Drawing.Size(773, 38);
+            this.topPanelRotate.TabIndex = 4;
+            this.topPanelRotate.Visible = false;
+            // 
+            // labelRotate
+            // 
+            this.labelRotate.AutoSize = true;
+            this.labelRotate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.labelRotate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelRotate.Location = new System.Drawing.Point(344, 10);
+            this.labelRotate.Name = "labelRotate";
+            this.labelRotate.Size = new System.Drawing.Size(133, 24);
+            this.labelRotate.TabIndex = 0;
+            this.labelRotate.Text = "Rotate option";
+            // 
+            // bottonpanelRotate
+            // 
+            this.bottonpanelRotate.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.bottonpanelRotate.Controls.Add(this.btnBackRotate);
+            this.bottonpanelRotate.Location = new System.Drawing.Point(15, 335);
+            this.bottonpanelRotate.Name = "bottonpanelRotate";
+            this.bottonpanelRotate.Size = new System.Drawing.Size(776, 33);
+            this.bottonpanelRotate.TabIndex = 1;
+            this.bottonpanelRotate.Visible = false;
+            // 
+            // btnBackRotate
+            // 
+            this.btnBackRotate.Location = new System.Drawing.Point(368, 7);
+            this.btnBackRotate.Name = "btnBackRotate";
+            this.btnBackRotate.Size = new System.Drawing.Size(75, 23);
+            this.btnBackRotate.TabIndex = 0;
+            this.btnBackRotate.Text = "back";
+            this.btnBackRotate.UseVisualStyleBackColor = true;
+            this.btnBackRotate.Visible = false;
+            this.btnBackRotate.Click += new System.EventHandler(this.btnBackRotate_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(51, 37);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(700, 173);
+            this.panel1.TabIndex = 4;
             // 
             // FormPM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 374);
-            this.Controls.Add(this.panelTEST);
+            this.Controls.Add(this.bottonpanelRotate);
+            this.Controls.Add(this.topPanelRotate);
+            this.Controls.Add(this.midPanelRotate);
             this.Controls.Add(this.midPanelMainMenu);
             this.Controls.Add(this.bottonPanelMainMenu);
             this.Controls.Add(this.bottonPanelPhotoMax);
@@ -578,6 +689,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFilterOption)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenFile)).EndInit();
             this.MidPanelEditingOptions.ResumeLayout(false);
+            this.midPanelRotate.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRotate)).EndInit();
+            this.topPanelRotate.ResumeLayout(false);
+            this.topPanelRotate.PerformLayout();
+            this.bottonpanelRotate.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -604,9 +720,9 @@
         private System.Windows.Forms.Panel TopPanelEditingOptions;
         private System.Windows.Forms.Panel MidPanelEditingOptions;
         private System.Windows.Forms.Button btnPhotoEditingApplyFilter;
-        private System.Windows.Forms.Button btnPhotoEditingRotateImage;
-        private System.Windows.Forms.Button btnPhotoEditingInsertText;
         private System.Windows.Forms.Button btnPhotoEditingImageProd;
+        private System.Windows.Forms.Button btnPhotoEditingInsertText;
+        private System.Windows.Forms.Button btnPhotorotate;
         private System.Windows.Forms.Panel TopPanelApplyFilter;
         private System.Windows.Forms.Label labelFilterOption;
         private System.Windows.Forms.Panel MidPanelFilterOption;
@@ -625,7 +741,16 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.PictureBox pictureBoxOpenFile;
-        private System.Windows.Forms.Panel panelTEST;
+        private System.Windows.Forms.Panel midPanelRotate;
+        private System.Windows.Forms.Button btn90;
+        private System.Windows.Forms.PictureBox pictureBoxRotate;
+        private System.Windows.Forms.Button btn270;
+        private System.Windows.Forms.Button btn180;
+        private System.Windows.Forms.Panel topPanelRotate;
+        private System.Windows.Forms.Label labelRotate;
+        private System.Windows.Forms.Panel bottonpanelRotate;
+        private System.Windows.Forms.Button btnBackRotate;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
