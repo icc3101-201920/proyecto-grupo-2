@@ -73,8 +73,8 @@ namespace WinPM
             bottonPanelMainMenu.Visible = true;
             topPanelMainMenu.Visible = true;
             btnMainMenuChooseMultipleImage.Visible = true;
-            btnMainMenuChoosePath.Visible = true;
-            btnMainMenuUseTEST.Visible = true;
+            btnMainMenuChooseFile.Visible = true;
+            btnMainMenuSearchEngine.Visible = true;
             btnMainMenuUsingImport.Visible = true;
             labelMainMenu.Visible = true;
             btnExitMainMenu.Visible = true;
@@ -183,8 +183,8 @@ namespace WinPM
             topPanelMainMenu.Visible = true;
             bottonPanelMainMenu.Visible = true;
             btnMainMenuChooseMultipleImage.Visible = true;
-            btnMainMenuChoosePath.Visible = true;
-            btnMainMenuUseTEST.Visible = true;
+            btnMainMenuChooseFile.Visible = true;
+            btnMainMenuSearchEngine.Visible = true;
             btnMainMenuUsingImport.Visible = true;
 
             midPanelEnterPath.Visible = false;
@@ -443,6 +443,10 @@ namespace WinPM
         private void btnPhotoEditingInsertText_Click(object sender, EventArgs e)
         {
             MidpanelText.BringToFront();
+
+            BotonPanelText.BringToFront();
+
+
             MidpanelText.Visible = true;
             labelXcoordText.Visible = true;
             labelYcoordText.Visible = true;
@@ -456,17 +460,38 @@ namespace WinPM
             textBoxColour.Visible = true;
             pictureBoxInsertText.Visible = true;
 
-            if (textBoxInsertText != null || textBoxSizeText != null || textBoxXcoord != null || textBoxColour != null || textBoxInsertText != null) 
+            if (textBoxInsertText.Text != "" && textBoxSizeText.Text != "" && textBoxXcoord.Text != "" && textBoxColour.Text != "" && textBoxInsertText.Text != "") 
             {
-                int X = int.Parse(textBoxXcoord.Text);
-                int Y = int.Parse(textBoxYcoord.Text);
-                int Size = int.Parse(textBoxSizeText.Text);
+                string Text = Convert.ToString(textBoxInsertText.Text);
+                string colour = Convert.ToString(textBoxColour.Text);
+                int X = Convert.ToInt32(textBoxXcoord.Text);
+                int Y = Convert.ToInt32(textBoxYcoord.Text);
+                int Size = Convert.ToInt32(textBoxSizeText.Text);
 
                 Bitmap image = originalimage;
                 Bitmap modify = Modifyimage;
-                Editor.TEXT(image, textBoxInsertText.Text, textBoxColour.Text, Size, X, Y);
+                image = Editor.TEXT(image, Text, colour, Size, X, Y);
                 pictureBoxInsertText.Image = image;
             }
+        }
+
+        private void btnBackTEXT_Click(object sender, EventArgs e)
+        {
+            MidpanelText.Visible = false;
+
+            BotonPanelText.Visible = false;
+            midPanelRotate.Visible = false;
+            textBoxColour.Visible = false;
+
+            MidpanelText.SendToBack();
+            midPanelRotate.SendToBack();
+            midPanelMainMenu.BringToFront();
+            MidpanelText.Enabled = false;
+
+            
+            
+            
+
         }
     }
 }

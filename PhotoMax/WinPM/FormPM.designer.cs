@@ -63,8 +63,8 @@
             this.btnPhotorotate = new System.Windows.Forms.Button();
             this.btnPhotoEditingApplyFilter = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
-            this.btnMainMenuChoosePath = new System.Windows.Forms.Button();
-            this.btnMainMenuUseTEST = new System.Windows.Forms.Button();
+            this.btnMainMenuChooseFile = new System.Windows.Forms.Button();
+            this.btnMainMenuSearchEngine = new System.Windows.Forms.Button();
             this.btnMainMenuUsingImport = new System.Windows.Forms.Button();
             this.btnMainMenuChooseMultipleImage = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
@@ -91,6 +91,8 @@
             this.textBoxSizeText = new System.Windows.Forms.TextBox();
             this.btnSaveText = new System.Windows.Forms.Button();
             this.textBoxColour = new System.Windows.Forms.TextBox();
+            this.BotonPanelText = new System.Windows.Forms.Panel();
+            this.btnBackTEXT = new System.Windows.Forms.Button();
             this.topPanelMainMenu.SuspendLayout();
             this.TopPanelEditingOptions.SuspendLayout();
             this.TopPanelApplyFilter.SuspendLayout();
@@ -113,6 +115,7 @@
             this.bottonpanelRotate.SuspendLayout();
             this.MidpanelText.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInsertText)).BeginInit();
+            this.BotonPanelText.SuspendLayout();
             this.SuspendLayout();
             // 
             // topPanelMainMenu
@@ -332,8 +335,8 @@
             // 
             this.midPanelMainMenu.BackColor = System.Drawing.SystemColors.ControlDark;
             this.midPanelMainMenu.Controls.Add(this.midPanelEnterPath);
-            this.midPanelMainMenu.Controls.Add(this.btnMainMenuChoosePath);
-            this.midPanelMainMenu.Controls.Add(this.btnMainMenuUseTEST);
+            this.midPanelMainMenu.Controls.Add(this.btnMainMenuChooseFile);
+            this.midPanelMainMenu.Controls.Add(this.btnMainMenuSearchEngine);
             this.midPanelMainMenu.Controls.Add(this.btnMainMenuUsingImport);
             this.midPanelMainMenu.Controls.Add(this.btnMainMenuChooseMultipleImage);
             this.midPanelMainMenu.Location = new System.Drawing.Point(15, 58);
@@ -435,9 +438,9 @@
             // 
             // pictureBoxOpenFile
             // 
-            this.pictureBoxOpenFile.Location = new System.Drawing.Point(48, 71);
+            this.pictureBoxOpenFile.Location = new System.Drawing.Point(19, 15);
             this.pictureBoxOpenFile.Name = "pictureBoxOpenFile";
-            this.pictureBoxOpenFile.Size = new System.Drawing.Size(660, 158);
+            this.pictureBoxOpenFile.Size = new System.Drawing.Size(648, 214);
             this.pictureBoxOpenFile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxOpenFile.TabIndex = 3;
             this.pictureBoxOpenFile.TabStop = false;
@@ -513,26 +516,26 @@
             this.btnNext.Visible = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
-            // btnMainMenuChoosePath
+            // btnMainMenuChooseFile
             // 
-            this.btnMainMenuChoosePath.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMainMenuChoosePath.Location = new System.Drawing.Point(69, 18);
-            this.btnMainMenuChoosePath.Name = "btnMainMenuChoosePath";
-            this.btnMainMenuChoosePath.Size = new System.Drawing.Size(648, 50);
-            this.btnMainMenuChoosePath.TabIndex = 4;
-            this.btnMainMenuChoosePath.Text = "Select a file";
-            this.btnMainMenuChoosePath.UseVisualStyleBackColor = true;
-            this.btnMainMenuChoosePath.Click += new System.EventHandler(this.btn2Option1_Click);
+            this.btnMainMenuChooseFile.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMainMenuChooseFile.Location = new System.Drawing.Point(69, 18);
+            this.btnMainMenuChooseFile.Name = "btnMainMenuChooseFile";
+            this.btnMainMenuChooseFile.Size = new System.Drawing.Size(648, 50);
+            this.btnMainMenuChooseFile.TabIndex = 4;
+            this.btnMainMenuChooseFile.Text = "Select a file";
+            this.btnMainMenuChooseFile.UseVisualStyleBackColor = true;
+            this.btnMainMenuChooseFile.Click += new System.EventHandler(this.btn2Option1_Click);
             // 
-            // btnMainMenuUseTEST
+            // btnMainMenuSearchEngine
             // 
-            this.btnMainMenuUseTEST.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMainMenuUseTEST.Location = new System.Drawing.Point(69, 186);
-            this.btnMainMenuUseTEST.Name = "btnMainMenuUseTEST";
-            this.btnMainMenuUseTEST.Size = new System.Drawing.Size(648, 50);
-            this.btnMainMenuUseTEST.TabIndex = 3;
-            this.btnMainMenuUseTEST.Text = "TEST with an image";
-            this.btnMainMenuUseTEST.UseVisualStyleBackColor = true;
+            this.btnMainMenuSearchEngine.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMainMenuSearchEngine.Location = new System.Drawing.Point(69, 186);
+            this.btnMainMenuSearchEngine.Name = "btnMainMenuSearchEngine";
+            this.btnMainMenuSearchEngine.Size = new System.Drawing.Size(648, 50);
+            this.btnMainMenuSearchEngine.TabIndex = 3;
+            this.btnMainMenuSearchEngine.Text = "Search by custom filters";
+            this.btnMainMenuSearchEngine.UseVisualStyleBackColor = true;
             // 
             // btnMainMenuUsingImport
             // 
@@ -621,7 +624,7 @@
             // 
             this.topPanelRotate.BackColor = System.Drawing.SystemColors.ControlDark;
             this.topPanelRotate.Controls.Add(this.labelRotate);
-            this.topPanelRotate.Location = new System.Drawing.Point(15, 12);
+            this.topPanelRotate.Location = new System.Drawing.Point(12, 15);
             this.topPanelRotate.Name = "topPanelRotate";
             this.topPanelRotate.Size = new System.Drawing.Size(773, 38);
             this.topPanelRotate.TabIndex = 4;
@@ -802,11 +805,32 @@
             this.textBoxColour.TabIndex = 11;
             this.textBoxColour.Visible = false;
             // 
+            // BotonPanelText
+            // 
+            this.BotonPanelText.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.BotonPanelText.Controls.Add(this.btnBackTEXT);
+            this.BotonPanelText.Location = new System.Drawing.Point(15, 333);
+            this.BotonPanelText.Name = "BotonPanelText";
+            this.BotonPanelText.Size = new System.Drawing.Size(779, 34);
+            this.BotonPanelText.TabIndex = 1;
+            this.BotonPanelText.Visible = false;
+            // 
+            // btnBackTEXT
+            // 
+            this.btnBackTEXT.Location = new System.Drawing.Point(351, 5);
+            this.btnBackTEXT.Name = "btnBackTEXT";
+            this.btnBackTEXT.Size = new System.Drawing.Size(75, 23);
+            this.btnBackTEXT.TabIndex = 0;
+            this.btnBackTEXT.Text = "Back";
+            this.btnBackTEXT.UseVisualStyleBackColor = true;
+            this.btnBackTEXT.Visible = false;
+            // 
             // FormPM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 374);
+            this.Controls.Add(this.BotonPanelText);
             this.Controls.Add(this.MidpanelText);
             this.Controls.Add(this.bottonpanelRotate);
             this.Controls.Add(this.topPanelRotate);
@@ -848,6 +872,7 @@
             this.MidpanelText.ResumeLayout(false);
             this.MidpanelText.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInsertText)).EndInit();
+            this.BotonPanelText.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -865,8 +890,8 @@
         private System.Windows.Forms.Panel TopanelEnterPath;
         private System.Windows.Forms.Label labelEnterPathsingle;
         private System.Windows.Forms.Panel midPanelMainMenu;
-        private System.Windows.Forms.Button btnMainMenuChoosePath;
-        private System.Windows.Forms.Button btnMainMenuUseTEST;
+        private System.Windows.Forms.Button btnMainMenuChooseFile;
+        private System.Windows.Forms.Button btnMainMenuSearchEngine;
         private System.Windows.Forms.Button btnMainMenuUsingImport;
         private System.Windows.Forms.Button btnMainMenuChooseMultipleImage;
         private System.Windows.Forms.Panel midPanelEnterPath;
@@ -917,6 +942,8 @@
         private System.Windows.Forms.Button btnSaveText;
         private System.Windows.Forms.TextBox textBoxSizeText;
         private System.Windows.Forms.TextBox textBoxColour;
+        private System.Windows.Forms.Panel BotonPanelText;
+        private System.Windows.Forms.Button btnBackTEXT;
     }
 }
 
