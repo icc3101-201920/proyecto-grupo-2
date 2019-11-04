@@ -311,8 +311,78 @@ namespace WinPM
             Bitmap modify = Modifyimage;
             image = Filters.GreyScale(image);
             pictureBoxFilterOption.Image = image;
+        }
 
+        private void btnFilterNegative_MouseMove(object sender, MouseEventArgs e)
+        {
+            Bitmap image = originalimage;
+            Bitmap modify = Modifyimage;
+            image = Filters.Negative(image);
+            pictureBoxFilterOption.Image = image;
+        }
 
+        private void btnFilterSepia_MouseMove(object sender, MouseEventArgs e)
+        {
+            Bitmap image = originalimage;
+            Bitmap modify = Modifyimage;
+            image = Filters.Sepia(image);
+            pictureBoxFilterOption.Image = image;
+        }
+
+        private void btnfilterBlossom_MouseMove(object sender, MouseEventArgs e)
+        {
+            Bitmap image = originalimage;
+            Bitmap modify = Modifyimage;
+            image = Filters.Blossom(image);
+            pictureBoxFilterOption.Image = image;
+        }
+
+        private void btnFilterNegative_Click(object sender, EventArgs e)
+        {
+            if (pictureBoxFilterOption.Image != null)
+            {
+                saveFileDialog1.Filter = "JPG (*.jpg)|*.jpg|PNG (*.png)|";
+                saveFileDialog1.Title = "Guarda tu imagen";
+
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBoxFilterOption.Image.Save(saveFileDialog1.FileName);
+                }
+
+                transformedimage = false;
+            }
+        }
+
+        private void btnFilterSepia_Click(object sender, EventArgs e)
+        {
+            if (pictureBoxFilterOption.Image != null)
+            {
+                saveFileDialog1.Filter = "JPG (*.jpg)|*.jpg|PNG (*.png)|";
+                saveFileDialog1.Title = "Guarda tu imagen";
+
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBoxFilterOption.Image.Save(saveFileDialog1.FileName);
+                }
+
+                transformedimage = false;
+            }
+        }
+
+        private void btnfilterBlossom_Click(object sender, EventArgs e)
+        {
+            if (pictureBoxFilterOption.Image != null)
+            {
+                saveFileDialog1.Filter = "JPG (*.jpg)|*.jpg|PNG (*.png)|";
+                saveFileDialog1.Title = "Guarda tu imagen";
+
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBoxFilterOption.Image.Save(saveFileDialog1.FileName);
+                }
+
+                transformedimage = false;
+            }
         }
     }
 }

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.topPanelMainMenu = new System.Windows.Forms.Panel();
+            this.TopPanelEditingOptions = new System.Windows.Forms.Panel();
             this.TopPanelApplyFilter = new System.Windows.Forms.Panel();
             this.labelFilterOption = new System.Windows.Forms.Label();
-            this.TopPanelEditingOptions = new System.Windows.Forms.Panel();
             this.labelEditingOption = new System.Windows.Forms.Label();
             this.TopanelEnterPath = new System.Windows.Forms.Panel();
             this.labelEnterPathsingle = new System.Windows.Forms.Label();
@@ -50,13 +50,14 @@
             this.bottonPanelPhotoMax = new System.Windows.Forms.Panel();
             this.midPanelMainMenu = new System.Windows.Forms.Panel();
             this.midPanelEnterPath = new System.Windows.Forms.Panel();
-            this.MidPanelEditingOptions = new System.Windows.Forms.Panel();
             this.MidPanelFilterOption = new System.Windows.Forms.Panel();
             this.pictureBoxFilterOption = new System.Windows.Forms.PictureBox();
             this.btnfilterBlossom = new System.Windows.Forms.Button();
             this.btnFilterSepia = new System.Windows.Forms.Button();
             this.btnFilterNegative = new System.Windows.Forms.Button();
             this.btnFilterGreyScale = new System.Windows.Forms.Button();
+            this.pictureBoxOpenFile = new System.Windows.Forms.PictureBox();
+            this.MidPanelEditingOptions = new System.Windows.Forms.Panel();
             this.btnPhotoEditingRotateImage = new System.Windows.Forms.Button();
             this.btnPhotoEditingInsertText = new System.Windows.Forms.Button();
             this.btnPhotoEditingImageProd = new System.Windows.Forms.Button();
@@ -68,10 +69,9 @@
             this.btnMainMenuChooseMultipleImage = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.pictureBoxOpenFile = new System.Windows.Forms.PictureBox();
             this.topPanelMainMenu.SuspendLayout();
-            this.TopPanelApplyFilter.SuspendLayout();
             this.TopPanelEditingOptions.SuspendLayout();
+            this.TopPanelApplyFilter.SuspendLayout();
             this.TopanelEnterPath.SuspendLayout();
             this.midPanelPhotomax.SuspendLayout();
             this.bottonPanelMainMenu.SuspendLayout();
@@ -81,10 +81,10 @@
             this.bottonPanelPhotoMax.SuspendLayout();
             this.midPanelMainMenu.SuspendLayout();
             this.midPanelEnterPath.SuspendLayout();
-            this.MidPanelEditingOptions.SuspendLayout();
             this.MidPanelFilterOption.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFilterOption)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenFile)).BeginInit();
+            this.MidPanelEditingOptions.SuspendLayout();
             this.SuspendLayout();
             // 
             // topPanelMainMenu
@@ -99,6 +99,16 @@
             this.topPanelMainMenu.TabIndex = 0;
             this.topPanelMainMenu.Visible = false;
             this.topPanelMainMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.topPanelMainMenu_Paint);
+            // 
+            // TopPanelEditingOptions
+            // 
+            this.TopPanelEditingOptions.Controls.Add(this.TopPanelApplyFilter);
+            this.TopPanelEditingOptions.Controls.Add(this.labelEditingOption);
+            this.TopPanelEditingOptions.Location = new System.Drawing.Point(0, 0);
+            this.TopPanelEditingOptions.Name = "TopPanelEditingOptions";
+            this.TopPanelEditingOptions.Size = new System.Drawing.Size(773, 38);
+            this.TopPanelEditingOptions.TabIndex = 1;
+            this.TopPanelEditingOptions.Visible = false;
             // 
             // TopPanelApplyFilter
             // 
@@ -120,16 +130,6 @@
             this.labelFilterOption.TabIndex = 0;
             this.labelFilterOption.Text = "Choose a filter";
             this.labelFilterOption.Visible = false;
-            // 
-            // TopPanelEditingOptions
-            // 
-            this.TopPanelEditingOptions.Controls.Add(this.TopPanelApplyFilter);
-            this.TopPanelEditingOptions.Controls.Add(this.labelEditingOption);
-            this.TopPanelEditingOptions.Location = new System.Drawing.Point(0, 0);
-            this.TopPanelEditingOptions.Name = "TopPanelEditingOptions";
-            this.TopPanelEditingOptions.Size = new System.Drawing.Size(773, 38);
-            this.TopPanelEditingOptions.TabIndex = 1;
-            this.TopPanelEditingOptions.Visible = false;
             // 
             // labelEditingOption
             // 
@@ -328,19 +328,6 @@
             this.midPanelEnterPath.Visible = false;
             this.midPanelEnterPath.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
             // 
-            // MidPanelEditingOptions
-            // 
-            this.MidPanelEditingOptions.Controls.Add(this.btnPhotoEditingRotateImage);
-            this.MidPanelEditingOptions.Controls.Add(this.btnPhotoEditingInsertText);
-            this.MidPanelEditingOptions.Controls.Add(this.btnPhotoEditingImageProd);
-            this.MidPanelEditingOptions.Controls.Add(this.btnPhotoEditingApplyFilter);
-            this.MidPanelEditingOptions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MidPanelEditingOptions.Location = new System.Drawing.Point(0, 0);
-            this.MidPanelEditingOptions.Name = "MidPanelEditingOptions";
-            this.MidPanelEditingOptions.Size = new System.Drawing.Size(773, 266);
-            this.MidPanelEditingOptions.TabIndex = 2;
-            this.MidPanelEditingOptions.Visible = false;
-            // 
             // MidPanelFilterOption
             // 
             this.MidPanelFilterOption.Controls.Add(this.pictureBoxFilterOption);
@@ -375,6 +362,8 @@
             this.btnfilterBlossom.Text = "Blossom";
             this.btnfilterBlossom.UseVisualStyleBackColor = true;
             this.btnfilterBlossom.Visible = false;
+            this.btnfilterBlossom.Click += new System.EventHandler(this.btnfilterBlossom_Click);
+            this.btnfilterBlossom.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnfilterBlossom_MouseMove);
             // 
             // btnFilterSepia
             // 
@@ -386,6 +375,8 @@
             this.btnFilterSepia.Text = "Sepia";
             this.btnFilterSepia.UseVisualStyleBackColor = true;
             this.btnFilterSepia.Visible = false;
+            this.btnFilterSepia.Click += new System.EventHandler(this.btnFilterSepia_Click);
+            this.btnFilterSepia.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnFilterSepia_MouseMove);
             // 
             // btnFilterNegative
             // 
@@ -398,6 +389,8 @@
             this.btnFilterNegative.Text = "Negative";
             this.btnFilterNegative.UseVisualStyleBackColor = true;
             this.btnFilterNegative.Visible = false;
+            this.btnFilterNegative.Click += new System.EventHandler(this.btnFilterNegative_Click);
+            this.btnFilterNegative.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnFilterNegative_MouseMove);
             // 
             // btnFilterGreyScale
             // 
@@ -411,6 +404,28 @@
             this.btnFilterGreyScale.Visible = false;
             this.btnFilterGreyScale.Click += new System.EventHandler(this.btnFilterGreyScale_Click);
             this.btnFilterGreyScale.MouseEnter += new System.EventHandler(this.btnFilterGreyScale_MouseEnter);
+            // 
+            // pictureBoxOpenFile
+            // 
+            this.pictureBoxOpenFile.Location = new System.Drawing.Point(48, 71);
+            this.pictureBoxOpenFile.Name = "pictureBoxOpenFile";
+            this.pictureBoxOpenFile.Size = new System.Drawing.Size(660, 158);
+            this.pictureBoxOpenFile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxOpenFile.TabIndex = 3;
+            this.pictureBoxOpenFile.TabStop = false;
+            // 
+            // MidPanelEditingOptions
+            // 
+            this.MidPanelEditingOptions.Controls.Add(this.btnPhotoEditingRotateImage);
+            this.MidPanelEditingOptions.Controls.Add(this.btnPhotoEditingInsertText);
+            this.MidPanelEditingOptions.Controls.Add(this.btnPhotoEditingImageProd);
+            this.MidPanelEditingOptions.Controls.Add(this.btnPhotoEditingApplyFilter);
+            this.MidPanelEditingOptions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MidPanelEditingOptions.Location = new System.Drawing.Point(0, 0);
+            this.MidPanelEditingOptions.Name = "MidPanelEditingOptions";
+            this.MidPanelEditingOptions.Size = new System.Drawing.Size(773, 266);
+            this.MidPanelEditingOptions.TabIndex = 2;
+            this.MidPanelEditingOptions.Visible = false;
             // 
             // btnPhotoEditingRotateImage
             // 
@@ -518,15 +533,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // pictureBoxOpenFile
-            // 
-            this.pictureBoxOpenFile.Location = new System.Drawing.Point(48, 71);
-            this.pictureBoxOpenFile.Name = "pictureBoxOpenFile";
-            this.pictureBoxOpenFile.Size = new System.Drawing.Size(660, 158);
-            this.pictureBoxOpenFile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxOpenFile.TabIndex = 3;
-            this.pictureBoxOpenFile.TabStop = false;
-            // 
             // FormPM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -542,10 +548,10 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.topPanelMainMenu.ResumeLayout(false);
             this.topPanelMainMenu.PerformLayout();
-            this.TopPanelApplyFilter.ResumeLayout(false);
-            this.TopPanelApplyFilter.PerformLayout();
             this.TopPanelEditingOptions.ResumeLayout(false);
             this.TopPanelEditingOptions.PerformLayout();
+            this.TopPanelApplyFilter.ResumeLayout(false);
+            this.TopPanelApplyFilter.PerformLayout();
             this.TopanelEnterPath.ResumeLayout(false);
             this.TopanelEnterPath.PerformLayout();
             this.midPanelPhotomax.ResumeLayout(false);
@@ -557,10 +563,10 @@
             this.bottonPanelPhotoMax.ResumeLayout(false);
             this.midPanelMainMenu.ResumeLayout(false);
             this.midPanelEnterPath.ResumeLayout(false);
-            this.MidPanelEditingOptions.ResumeLayout(false);
             this.MidPanelFilterOption.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFilterOption)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenFile)).EndInit();
+            this.MidPanelEditingOptions.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
