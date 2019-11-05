@@ -33,11 +33,7 @@ namespace WinPM
 
 
 
-        public event EventHandler OnApplyFilter;
-        public event EventHandler OnApplyText;
-        public event EventHandler OnRotateImage;
-        public event EventHandler OnImageProduction;
-        public event EventHandler OnSaveImage;
+
 
         //Hay que hacer eventos que hagan lo siguiente
         // --> cuando se apriete cierto boton : haga una aplicacion de filtros
@@ -49,6 +45,7 @@ namespace WinPM
 
         Bitmap Modifyimage;
         Bitmap originalimage;
+        List<Bitmap> bitmaps;
         bool transformedimage;
         public FormPM()
         {
@@ -149,7 +146,7 @@ namespace WinPM
 
         private void textBox3EnterPath_TextChanged(object sender, EventArgs e)
         {
-            string Path;
+            
             
 
              
@@ -334,24 +331,24 @@ namespace WinPM
         {
             Bitmap image = originalimage;
             Bitmap modify = Modifyimage;
-            image = Filters.Negative(image);
-            pictureBoxFilterOption.Image = image;
+            modify = Filters.Negative(image);
+            pictureBoxFilterOption.Image = modify;
         }
 
         private void btnFilterSepia_MouseMove(object sender, MouseEventArgs e)
         {
             Bitmap image = originalimage;
             Bitmap modify = Modifyimage;
-            image = Filters.Sepia(image);
-            pictureBoxFilterOption.Image = image;
+            modify = Filters.Sepia(image);
+            pictureBoxFilterOption.Image = modify;
         }
 
         private void btnfilterBlossom_MouseMove(object sender, MouseEventArgs e)
         {
             Bitmap image = originalimage;
             Bitmap modify = Modifyimage;
-            image = Filters.Blossom(image);
-            pictureBoxFilterOption.Image = image;
+            modify = Filters.Blossom(image);
+            pictureBoxFilterOption.Image = modify;
         }
 
         private void btnFilterNegative_Click(object sender, EventArgs e)
@@ -364,6 +361,12 @@ namespace WinPM
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     pictureBoxFilterOption.Image.Save(saveFileDialog1.FileName);
+                    MidPanelFilterOption.Visible = false;
+                    midPanelEnterPath.Visible = false;
+                    MidPanelEditingOptions.Visible = false;
+                    bottonPanelFilter.Visible = false;
+                    bottonPanelPhotoEditing.Visible = false;
+                    bottonPanelEnterPath.Visible = false;
                 }
 
                 transformedimage = false;
@@ -380,6 +383,12 @@ namespace WinPM
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     pictureBoxFilterOption.Image.Save(saveFileDialog1.FileName);
+                    MidPanelFilterOption.Visible = false;
+                    midPanelEnterPath.Visible = false;
+                    MidPanelEditingOptions.Visible = false;
+                    bottonPanelFilter.Visible = false;
+                    bottonPanelPhotoEditing.Visible = false;
+                    bottonPanelEnterPath.Visible = false;
                 }
 
                 transformedimage = false;
@@ -396,6 +405,12 @@ namespace WinPM
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     pictureBoxFilterOption.Image.Save(saveFileDialog1.FileName);
+                    MidPanelFilterOption.Visible = false;
+                    midPanelEnterPath.Visible = false;
+                    MidPanelEditingOptions.Visible = false;
+                    bottonPanelFilter.Visible = false;
+                    bottonPanelPhotoEditing.Visible = false;
+                    bottonPanelEnterPath.Visible = false;
                 }
 
                 transformedimage = false;
@@ -412,20 +427,22 @@ namespace WinPM
             bottonpanelRotate.Visible = true;
             btnBackRotate.Visible = true;
             btn90.Visible = true;
-            btn180.Visible = true;
-            btn270.Visible = true;
+
+
             pictureBoxRotate.Visible = true;
         }
 
         private void btn90_MouseEnter(object sender, EventArgs e)
         {
-            Bitmap image = originalimage;
-            Bitmap modify = Modifyimage;
+            Bitmap imageR = originalimage;
+            Bitmap modifyR = Modifyimage;
+            Bitmap image90 = new Bitmap(imageR);
+
             RotateFlipType applyRotate = RotateFlipType.RotateNoneFlipNone;
             applyRotate = RotateFlipType.Rotate90FlipNone;
-            image.RotateFlip(applyRotate);
+            imageR.RotateFlip(applyRotate);
             
-            pictureBoxRotate.Image = image;
+            pictureBoxRotate.Image = imageR;
         }
 
         private void btnBackRotate_Click(object sender, EventArgs e)
@@ -443,81 +460,52 @@ namespace WinPM
 
         private void btnPhotoEditingInsertText_Click(object sender, EventArgs e)
         {
-            MidpanelText.BringToFront();
+            //MidpanelText.BringToFront();
 
-            BotonPanelText.BringToFront();
+            //BotonPanelText.BringToFront();
 
 
-            MidpanelText.Visible = true;
-            labelXcoordText.Visible = true;
-            labelYcoordText.Visible = true;
-            LabelColourText.Visible = true;
-            labelSizeText.Visible = true;
-            labelInsertTEXT.Visible = true;
-            textBoxInsertText.Visible = true;
-            textBoxSizeText.Visible = true;
-            textBoxXcoord.Visible = true;
-            textBoxYcoord.Visible = true;
-            textBoxColour.Visible = true;
-            pictureBoxInsertText.Visible = true;
-
-            if (textBoxInsertText.Text != "" && textBoxSizeText.Text != "" && textBoxXcoord.Text != "" && textBoxColour.Text != "" && textBoxInsertText.Text != "") 
-            {
-                string Text = Convert.ToString(textBoxInsertText.Text);
-                string colour = Convert.ToString(textBoxColour.Text);
-                int X = Convert.ToInt32(textBoxXcoord.Text);
-                int Y = Convert.ToInt32(textBoxYcoord.Text);
-                int Size = Convert.ToInt32(textBoxSizeText.Text);
-
-                Bitmap image = originalimage;
-                Bitmap modify = Modifyimage;
-                image = Editor.TEXT(image, Text, colour, Size, X, Y);
-                pictureBoxInsertText.Image = image;
-            }
+            //MidpanelText.Visible = true;
+            //labelXcoordText.Visible = true;
+            ////labelYcoordText.Visible = true;
+            //LabelColourText.Visible = true;
+            //labelSizeText.Visible = true;
+            //labelInsertTEXT.Visible = true;
+            //textBoxInsertText.Visible = true;
+            //textBoxSizeText.Visible = true;
+            //textBoxXcoord.Visible = true;
+            //textBoxYcoord.Visible = true;
+            //textBoxColour.Visible = true;
+            //pictureBoxInsertText.Visible = true;
+            //}
         }
 
-        private void btnBackTEXT_Click(object sender, EventArgs e)
-        {
-            MidpanelText.Visible = false;
 
-            BotonPanelText.Visible = false;
-            midPanelRotate.Visible = false;
-            textBoxColour.Visible = false;
-
-            MidpanelText.SendToBack();
-            midPanelRotate.SendToBack();
-            midPanelMainMenu.BringToFront();
-            MidpanelText.Enabled = false;
-
-            
-            
-            
-
-        }
 
         private void buttonSimpleImport_Click(object sender, EventArgs e)
         {
-            midPanelMainMenu.Visible = true;
-            midPanelEnterPath.Visible = true;
-            MidPanelEditingOptions.Visible = true;
-            MidPanelFilterOption.Visible = true;
-            panelImportOneFIle.Visible = true;
-            openFileImport.InitialDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\PM-Images\\Imports");
+
 
             if (openFileImport.ShowDialog() == DialogResult.OK)
             {
+                string path;
+                Bitmap imageimport;
                 List<string> extensionTypes = new List<string>() { ".jpg", ".jpeg", ".png", ".bpm" };
                 Bitmap bitmapImport = new Bitmap(openFileImport.FileName);
-                saveFileImporter.InitialDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\PM-Images\\Imports");
-                string saver = saveFileImporter.InitialDirectory;
-                bitmapImport.Save(saver);
-                //foreach (string i in extensionTypes)
-                //{
-                 //   if (Path.GetExtension(file) == i)
-                //    {
-                //        paths.Add(file);
-                //    }
-                //}
+                imageimport = bitmapImport;
+                path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\PM-Images\\Imports");
+
+                saveFileImporter.Filter = "JPG (*.jpg)|*.jpg|PNG (*.png)|";
+                saveFileImporter.Title = "Guarda tu imagen";
+                saveFileImporter.InitialDirectory = path;
+                saveFileImporter.ShowDialog();
+
+
+                //saveFileImporter.InitialDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\PM-Images\\Imports");
+
+
+
+
 
             }
 
@@ -526,6 +514,88 @@ namespace WinPM
 
         private void panel1_Paint_2(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void midPanelRotate_MouseEnter(object sender, EventArgs e)
+        {
+            Bitmap image = originalimage;
+            Bitmap modify = Modifyimage;
+            modify = image;
+            pictureBoxRotate.Image = modify;
+        }
+
+        private void btn90_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExitMainMenu_Click(object sender, EventArgs e)
+        {
+            FormPM.ActiveForm.Close();
+        }
+
+        private void btnMainMenuChooseMultipleImage_Click(object sender, EventArgs e)
+        {
+
+
+            openFileMultiple.Multiselect = true;
+            openFileMultiple.ShowDialog();
+
+            List<Bitmap> bmp = new List<Bitmap>();
+            foreach (String name in openFileMultiple.FileNames)
+            {
+                Bitmap bitmap = new Bitmap(name);
+                bmp.Add(bitmap);
+            }
+            bitmaps = bmp;
+
+
+            midPanelMultipleSelected.Visible = true;
+            TopPanelMultipleSelected.Visible = true;
+            bottonPanelMultiple.Visible = true;
+
+            
+            //midPanelMainMenu.Controls.Clear();
+            //midPanelRotate.Controls.Clear();
+            //bottonpanelRotate.Controls.Clear();
+            //bottonPanelMainMenu.Controls.Clear();
+            bottonPanelMainMenu.Controls.Add(bottonPanelMultiple);
+            midPanelMainMenu.Controls.Add(midPanelMultipleSelected);
+            midPanelMultipleSelected.BringToFront();
+            bottonPanelMultiple.BringToFront();
+            btnFusion.Visible = true;
+            pictureBoxFusion.Visible = true;
+            btnBackMultipleImage.Visible = true;
+
+            btnExitMainMenu.Visible = false;
+            
+            
+
+        }
+
+        private void btnFusion_MouseEnter(object sender, EventArgs e)
+        {
+            Bitmap modify = Modifyimage;
+            openFileMultiple.Multiselect = true;
+            List<Bitmap> bmp = new List<Bitmap>();
+            foreach (String name in openFileMultiple.FileNames)
+            {
+                Bitmap bitmap = new Bitmap(name);
+                bmp.Add(bitmap);
+            }
+            bitmaps = bmp;
+            Modifyimage = Editor.Fusion(bitmaps);
+            pictureBoxFusion.Image = Modifyimage; 
+
+        }
+
+        private void btnBackMultipleImage_Click(object sender, EventArgs e)
+        {
+
+            midPanelMainMenu.Controls.Remove(midPanelMultipleSelected);
+            bottonPanelMainMenu.Controls.Remove(bottonPanelMultiple);
+            btnExitMainMenu.Visible = true;
 
         }
     }
