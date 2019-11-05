@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -491,6 +492,40 @@ namespace WinPM
             
             
             
+
+        }
+
+        private void buttonSimpleImport_Click(object sender, EventArgs e)
+        {
+            midPanelMainMenu.Visible = true;
+            midPanelEnterPath.Visible = true;
+            MidPanelEditingOptions.Visible = true;
+            MidPanelFilterOption.Visible = true;
+            panelImportOneFIle.Visible = true;
+            openFileImport.InitialDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\PM-Images\\Imports");
+
+            if (openFileImport.ShowDialog() == DialogResult.OK)
+            {
+                List<string> extensionTypes = new List<string>() { ".jpg", ".jpeg", ".png", ".bpm" };
+                Bitmap bitmapImport = new Bitmap(openFileImport.FileName);
+                saveFileImporter.InitialDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\PM-Images\\Imports");
+                string saver = saveFileImporter.InitialDirectory;
+                bitmapImport.Save(saver);
+                //foreach (string i in extensionTypes)
+                //{
+                 //   if (Path.GetExtension(file) == i)
+                //    {
+                //        paths.Add(file);
+                //    }
+                //}
+
+            }
+
+
+        }
+
+        private void panel1_Paint_2(object sender, PaintEventArgs e)
+        {
 
         }
     }
