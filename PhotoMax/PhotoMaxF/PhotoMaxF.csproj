@@ -79,9 +79,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="test1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="EXIFData\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

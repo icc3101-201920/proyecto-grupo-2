@@ -86,17 +86,7 @@ namespace PhotoMaxF
 
                 ImageFile imageFile = new ImageFile(path);
 
-                if (path == Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\test1.jpg"))
-                {
-                    string pName = Path.GetFileNameWithoutExtension(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\test1.jpg"));
-                    if (!File.Exists(Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\EXIFData"), pName + ".txt")))
-                    {
-                        FileStream fs = new FileStream(Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\EXIFData"), pName + ".txt"), FileMode.Create);
-                        IFormatter formatter = new BinaryFormatter();
-                        formatter.Serialize(fs, imageFile);
-                        fs.Close();
-                    }
-                } //FOR TEST1 (DELETE)
+                
 
                 int editingOption = -1;
                 while (editingOption != 0)
